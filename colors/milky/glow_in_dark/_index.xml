@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<eyesight>
+  <include src="./Glow_in_Dark_Red.xml" />    <!-- 509008 - Glow in Dark Red -->
+  <include src="./Glow_in_Dark_Orange.xml" /> <!-- 509009 - Glow in Dark Orange -->
+  <include src="./Glow_in_Dark_Green.xml" />  <!-- 509010 - Glow in Dark Green -->
+  <include src="./Glow_in_Dark_Blue.xml" />   <!-- 509011 - Glow in Dark Blue -->
+  <include src="./Glow_in_Dark_Purple.xml" /> <!-- 509012 - Glow in Dark Purple -->
+</eyesight>

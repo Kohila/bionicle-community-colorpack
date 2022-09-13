@@ -1,0 +1,18 @@
+{
+  "studio_color_code": "509012",
+  "bricklink_color_code": "50",
+  "ldraw_color_code": "509012",
+  "ldd_color_code": "9012",
+  "studio_color_name": "Glow in Dark Purple",
+  "bricklink_color_name": "Trans-Dark Pink",
+  "ldraw_color_name": "Glow in Dark Purple",
+  "ldd_color_name": "Glow in Dark Purple",
+  "rgb_value": "#C38AD1",
+  "alpha": "0.9803922",
+  "category_name": "Milky Colors",
+  "color_group_index": "20",
+  "note": "to_bl,to_ldd",
+  "instruction_rgb": "",
+  "instruction_cmyk": "",
+  "category_nickname": "Glow in Dark(Render Only)"
+}
