@@ -5,7 +5,8 @@
   "scripts": {
     "dev:jsontotxt": "node ./utils/DefinitionsJSONtoTXT.js",
     "dev:txttojson": "node ./utils/DefinitionsTXTtoJSON.js",
-    "dev:xmlsplitter": "node ./utils/XMLSplitter.js"
+    "dev:xmlsplitter": "node ./utils/XMLSplitter.js",
+    "build": "node ./utils/build.js"
   },
   "dependencies": {
     "fast-xml-parser": "^4.2.5"

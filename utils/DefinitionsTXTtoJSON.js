@@ -8,66 +8,45 @@
 
 const fs = require('fs')
 
-const OUTPUT_DIR = process.env.NODE_ENV == 'production' ? `../colors` : `./.temp/TXTtoJSON`
-
+const OUTPUT_DIR = './colors'
+//const OUTPUT_DIR = process.env.NODE_ENV == 'production' ? `./colors` : `./.temp/TXTtoJSON`
 const INPUT_FILE = process.argv.slice(2)[0]
 
-console.log(INPUT_FILE)
+function Color(attributes) {
 
-const data = fs.readFileSync(INPUT_FILE, `utf8`).toString().split(/\r?\n/)
-
-fs.mkdirSync(OUTPUT_DIR)
+  this.colorCodeStudio = attributes[0]
+  this.colorCodeBricklink = attributes[1]
+  this.colorCodeLDraw = attributes[2]
+  this.colorCodeLDD = attributes[3]
+  this.colorNameStudio = attributes[4]
+  this.colorNameBricklink = attributes[5]
+  this.colorNameLDraw = attributes[6]
+  this.colorNameLDD = attributes[7]
+  this.colorRGB = attributes[8]
+  this.colorAlpha = attributes[9]
+  this.categoryName = attributes[10]
+  this.groupIndex = attributes[11]
+  this.note = attributes[12]
+  this.insRGB = attributes[13]
+  this.insCMYK = attributes[14]
+  this.categoryNickname = attributes[15]
+}
 
 if(!fs.existsSync(OUTPUT_DIR)) { fs.mkdirSync(OUTPUT_DIR) }
 
-const Color = {
-  colorCodeStudio: null,
-  colorCodeBricklink: null,
-  colorCodeLDraw: null,
-  colorCodeLDD: null,
-  colorNameStudio: null,
-  colorNameBricklink: null,
-  colorNameLDraw: null,
-  colorNameLDD: null,
-  colorRGB: null,
-  colorAlpha: null,
-  categoryName: null,
-  groupIndex: null,
-  note: null,
-  insRGB: null,
-  insCMYK: null,
-  categoryNickname: null
-}
+const data = fs.readFileSync(INPUT_FILE, `utf8`).toString().split(/\r?\n/)
 
 for (let i = 1; i < data.length; i++) {
-  let color = Object.create(Color)
-  let line = data[i].split("\t")
-  color = {
-  colorCodeStudio: line[0],
-  colorCodeBricklink: line[1],
-  colorCodeLDraw: line[2],
-  colorCodeLDD: line[3],
-  colorNameStudio: line[4],
-  colorNameBricklink: line[5],
-  colorNameLDraw: line[6],
-  colorNameLDD: line[7],
-  colorRGB: line[8],
-  colorAlpha: line[9],
-  categoryName: line[10],
-  groupIndex: line[11],
-  note: line[12],
-  insRGB: line[13],
-  insCMYK: line[14],
-  categoryNickname: line[15]
-  }
+  const attributes = data[i].split("\t")
+  if (attributes.every(element => element === '')) { continue }
+  const COLOR_DEF = new Color(attributes)
+  const COLOR_DIR = `${OUTPUT_DIR}/${COLOR_DEF.categoryName}` + (COLOR_DEF.categoryNickname?.length > 0 ? `/${COLOR_DEF.categoryNickname}` : ``)
 
-  let categoryDir = `${OUTPUT_DIR}/${color.categoryName}`
-  if(!fs.existsSync(categoryDir)) { fs.mkdirSync(categoryDir) }
+  /** Checks if folder locations exist and, if they do not, creates them */
+  if (!fs.existsSync(`${OUTPUT_DIR}/${COLOR_DEF.categoryName}`)) { fs.mkdirSync(`${OUTPUT_DIR}/${COLOR_DEF.categoryName}`) }
+  if (!fs.existsSync(COLOR_DIR)) { fs.mkdirSync(COLOR_DIR) }
 
-  let colorDir = `${OUTPUT_DIR}/${color.categoryName}/${color.categoryNickname}`
-  if(!fs.existsSync(colorDir)) { fs.mkdirSync(colorDir) }
-
-  fs.writeFileSync(`${colorDir}/${color.colorNameStudio}.json`, JSON.stringify(color, null, 4))
+  fs.writeFileSync(`${COLOR_DIR}/${COLOR_DEF.colorNameStudio}.json`, JSON.stringify(COLOR_DEF, null, 4))
 }
 
 //log(definitions[0])

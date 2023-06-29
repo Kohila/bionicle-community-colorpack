@@ -24,21 +24,20 @@ for(const file of fileList) {
   fs.appendFileSync(OUTPUT_FILE, definition)
 }
 
-
-function getFileList (dirName) {
+function getFileList(dir) {
   let files = [];
-  const items = fs.readdirSync(dirName, { withFileTypes: true })
+  const items = fs.readdirSync(dir, { withFileTypes: true })
 
   for (const item of items) {
     if (item.isDirectory()) {
       files = [
         ...files,
-        ...(getFileList(`${dirName}/${item.name}`)),
+        ...(getFileList(`${dir}/${item.name}`)),
       ];
     } else {
-      files.push(`${dirName}/${item.name}`)
+      files.push(`${dir}/${item.name}`)
     }
   }
 
   return files
-};
+}
