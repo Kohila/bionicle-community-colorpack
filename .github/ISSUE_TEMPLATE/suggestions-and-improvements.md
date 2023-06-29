@@ -7,17 +7,17 @@ assignees: ''
 
 ---
 
-**How it currently works:**
-A brief summary of how a specific part of the project currently behaves.
+### **How it currently works:**
+_A brief summary of how a specific part of the project currently behaves._
 
-**Why this is a problem:**
- - A list of reasons
- - why you believe
- - a specific part of the project
- - isn't optimal.
+### **Why this is a problem:**
+ - _A list of reasons_
+ - _why you believe_
+ - _a specific part of the project_
+ - _isn't optimal._
 
-**Proposed solution/improvement:**
-A possible way to correct or improve the listed problems of a specific part of the project.
+### **Proposed solution/improvement:**
+_A possible way to correct or improve the listed problems of a specific part of the project._
 
-**Additional context:**
-Add any other context about the problem here.
+### **Additional context:**
+_Add any other context about the problem here._
