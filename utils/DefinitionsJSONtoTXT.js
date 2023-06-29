@@ -5,9 +5,9 @@
 
 const fs = require('fs')
 
-const OUTPUT_DIR = process.env.NODE_ENV == 'env' ? `../.temp/JSONtoTXT` : `../.build`
+const OUTPUT_DIR = process.env.NODE_ENV == 'production' ? `./.build` : `./.temp/JSONtoTXT`
+const INPUT_DIR = process.env.NODE_ENV == 'production' ? `./colors` : `./.temp/TXTtoJSON`
 const OUTPUT_FILE = `${OUTPUT_DIR}/CustomColorDefinition.txt`
-const INPUT_DIR = process.env.NODE_ENV == 'env' ? `../.temp/TXTtoJSON` : `../colors`
 
 const headers = `Studio Color Code	BL Color Code	LDraw Color Code	LDD color code	Studio Color Name	BL Color Name	LDraw Color Name	LDD Color Name	RGB value	Alpha	CategoryName	Color Group Index	note	Ins_RGB	Ins_CMYK	Categogy NickName\n`
 const fileList = getFileList(INPUT_DIR)
@@ -42,4 +42,3 @@ function getFileList (dirName) {
 
   return files
 };
-

@@ -3,9 +3,9 @@
   "version": "1.0.0-beta",
   "description": "",
   "scripts": {
-    "dev:jsontotxt": "NODE_ENV=dev npm run ./utils/DefinitionsJSONtoTXT.js",
-    "dev:txttojson": "NODE_ENV=dev npm run ./utils/DefinitionsTXTtoJSON.js",
-    "dev:xmlsplitter": "NODE_ENV=dev npm run ./utils/XMLSplitter.js"
+    "dev:jsontotxt": "node ./utils/DefinitionsJSONtoTXT.js",
+    "dev:txttojson": "node ./utils/DefinitionsTXTtoJSON.js",
+    "dev:xmlsplitter": "node ./utils/XMLSplitter.js"
   },
   "dependencies": {
     "fast-xml-parser": "^4.2.5"

@@ -9,7 +9,7 @@ const fs = require('fs')
 const { XMLParser, XMLBuilder } = require('fast-xml-parser')
 
 const INPUT_FILE = process.argv.slice(2)[0]
-const OUTPUT_DIR = process.env.NODE_ENV == 'env' ? `../.temp/XMLSplitter` : ``
+const OUTPUT_DIR = process.env.NODE_ENV == 'production' ? `` : `../.temp/XMLSplitter`
 
 const options = {
   ignoreAttributes: false,

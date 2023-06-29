@@ -8,12 +8,15 @@
 
 const fs = require('fs')
 
-const OUTPUT_DIR = process.env == 'dev' ? `../.temp/TXTtoJSON` : `../colors`
+const OUTPUT_DIR = process.env.NODE_ENV == 'production' ? `../colors` : `./.temp/TXTtoJSON`
 
 const INPUT_FILE = process.argv.slice(2)[0]
 
+console.log(INPUT_FILE)
+
 const data = fs.readFileSync(INPUT_FILE, `utf8`).toString().split(/\r?\n/)
 
+fs.mkdirSync(OUTPUT_DIR)
 
 if(!fs.existsSync(OUTPUT_DIR)) { fs.mkdirSync(OUTPUT_DIR) }
 
