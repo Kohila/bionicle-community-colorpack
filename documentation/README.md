@@ -2,11 +2,11 @@
 
 1. Project Structure
    1. The Colors Directory
-      1. [Usage Type](#Usage_Type)
-      2. [Opacity Type](#Opacity_Type)
-      3. [Material Type](#Material_Type)
-      4. [Finish Type](#Finish_Type)
-      5. BrickLink/Stud.io Color Categories in the Colors Directory
+      1. [Usage Type](#usage-ype)
+      2. [Opacity Type](#opacity-type)
+      3. [Material Type](#material-type)
+      4. [Finish Type](#finish-type)
+      5. [BrickLink/Stud.io Color Categories in the Colors Directory](#bricklinkstudio-color-categories-in-the-colors-directory)
    2. The Utils Directory
 2. Contributing to the Project
    1. Create a Working Branch
