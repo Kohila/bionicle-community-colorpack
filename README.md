@@ -14,6 +14,7 @@ The `colors/` directory is the root folder location that contains the entirety o
 
 ### Usage Type
 `colors/{usage}/...`
+
 The **Usage** Type indicates how color definitions are used within Stud.io.
 
 | Type | Description |
@@ -51,7 +52,7 @@ The **Material** Type indicates the various additives and post-processing coatin
 ### Finish Type
 `colors/{usage}/{opacity}/{material}/{finish}/...`
 
-tHE **Finish** Type indicates the way that light does or does not interact with the surface of an element.
+The **Finish** Type indicates the way that light does or does not interact with the surface of an element.
 
 | Type | Description |
 | --- | --- |
