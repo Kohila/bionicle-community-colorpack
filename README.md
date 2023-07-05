@@ -7,12 +7,12 @@ This code repository is a work-in-progress project that aims to meet the followi
 - Standardize a framework for members of the BIONICLE community to use when creating custom Stud.io colors
 - Provide a comprehensive library of custom Stud.io colors made by the BIONICLE community
 
-## Navigating the Colors Directory
+# Navigating the Colors Directory
 
 The `colors/` directory is the root folder location that contains the entirety of the BCC color library. To better categorize color definitions in a way that can be navigated easily by members of the community, the BCC classifies color definitions based on four main attributes: **Usage**, **Opacity**, **Material**, and **Finish**.
 
 
-### Usage Type
+## Usage Type
 `colors/{usage}/...`
 
 The **Usage** Type indicates how color definitions are used within Stud.io.
@@ -22,7 +22,7 @@ The **Usage** Type indicates how color definitions are used within Stud.io.
 |**Basic** _(default)_ | Type assigned to color definitions that emulate either existing or hypothetical real-world LEGO color palette equivalents. |
 | **Special** | Type assigned to color definitions that are created to fulfill an artistic, render-only, or specialized purpose. Special Type color definitions are not required to adhere to the limitations set by deeper Type levels. However, authors may choose to use deeper Type levels for Special Types at their discretion. |
 
-### Opacity Type
+## Opacity Type
 `colors/{usage}/{opacity}/...`
 
 The **Opacity** Type indicates the way that light does or does not pass and refract through the LEGO elements.
@@ -33,7 +33,7 @@ The **Opacity** Type indicates the way that light does or does not pass and refr
 | **Translucent** | Type assigned to color definitions that have moderate light passthrough and moderate light refraction. |
 |**Transparent** | Type assigned to color definitions that have high light passthrough and minimal light refraction. |
 
-### Material Type
+## Material Type
 `colors/{usage}/{opacity}/{material}/...`
 
 The **Material** Type indicates the various additives and post-processing coatings that is commonly given to LEGO elements.
@@ -49,7 +49,7 @@ The **Material** Type indicates the various additives and post-processing coatin
 | **Metallic** | Type assigned to color definitions that are given moderately reflective, drum lacquered post-production coatings.  _(NOTE: Per the nature of post-production coatings, color definitions in this type are not given Finish types.)_ |
 
 
-### Finish Type
+## Finish Type
 `colors/{usage}/{opacity}/{material}/{finish}/...`
 
 The **Finish** Type indicates the way that light does or does not interact with the surface of an element.
@@ -61,7 +61,7 @@ The **Finish** Type indicates the way that light does or does not interact with 
 | **Semigloss** | Type assigned to color definitions that have a smooth, semi-reflective surface. These colors typically correspond to LEGO elements made of the following plastics: [PP](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_67419), [HIPS](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_49986), [PET](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_39143), [LDPE, and HDPE](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_31062).|
 | **Matte** | Type assigned to color definitions that have a rougher, non-reflective surface. These colors typically correspond to LEGO elements made of textiles as well as the following plastics: [MTPO](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_32695), [TPU](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_34285), and [SEBS](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_35818). |
 
-### How to Interpret Existing BrickLink/Stud.io Color Categories With This System
+## How to Interpret Existing BrickLink/Stud.io Color Categories With This System
 | BrickLink/Stud.io Color Category | BCC Colors Directory Location |
 | --- | --- |
 | **Solid Colors** | `colors/basic/opaque/...` |
