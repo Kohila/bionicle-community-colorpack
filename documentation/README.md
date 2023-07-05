@@ -1,7 +1,7 @@
 # Table of Contents
 
 1. Project Structure
-   1. The Colors Directory
+   1. [The Colors Directory](#the-colors-directory)
       1. [Usage Type](#usage-ype)
       2. [Opacity Type](#opacity-type)
       3. [Material Type](#material-type)
