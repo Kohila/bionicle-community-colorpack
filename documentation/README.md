@@ -6,7 +6,8 @@
       2. [Opacity Type](#opacity-type)
       3. [Material Type](#material-type)
       4. [Finish Type](#finish-type)
-      5. [BrickLink/Stud.io Color Categories in the Colors Directory](#bricklinkstudio-color-categories-in-the-colors-directory)
+      5. [Additional Types](#additional-types)
+      6. [BrickLink/Stud.io Color Categories in the Colors Directory](#bricklinkstudio-color-categories-in-the-colors-directory)
    2. The Utils Directory
 2. Contributing to the Project
    1. Create a Working Branch
@@ -70,6 +71,10 @@ The **Finish** Type indicates the way that light does or does not interact with 
 | **Gloss** | Type assigned to color definitions that have a smooth, reflective surface. These colors typically correspond to LEGO elements made of the following plastics: [ABS](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_61299), [CA](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652943714127_6168), [PA](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_25809), [POM](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_27614), [PC](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_22003), [MABS](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_23936), [SAN](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_17938), and [TP](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_29370). |
 | **Semigloss** | Type assigned to color definitions that have a smooth, semi-reflective surface. These colors typically correspond to LEGO elements made of the following plastics: [PP](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_67419), [HIPS](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_49986), [PET](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_39143), [LDPE, and HDPE](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_31062).|
 | **Matte** | Type assigned to color definitions that have a rougher, non-reflective surface. These colors typically correspond to LEGO elements made of textiles as well as the following plastics: [MTPO](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_32695), [TPU](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_34285), and [SEBS](https://bricknerd.com/home/every-type-of-plastic-used-by-lego-5-20-22#block-yui_3_17_2_1_1652985682489_35818). |
+
+### Additional Types
+
+[TODO]
 
 ### BrickLink/Stud.io Color Categories in the Colors Directory
 | BrickLink/Stud.io Color Category | BCC Colors Directory Location |
