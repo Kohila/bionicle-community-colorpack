@@ -49,15 +49,16 @@ The **Opacity** Type indicates the way that light does or does not pass and refr
 
 The **Material** Type indicates the various additives and post-processing coatings that is commonly given to LEGO elements.
 
-| Type | Description |
-| --- | --- |
-| **Solid** _(default)_ | Type assigned to color definitions that include neither material additives nor post-processing. |
-| **Pearl** | Type assigned to color definitions that include pearlescent material color additives. |
-| **Glitter** | Type assigned to color definitions that include reflective flaked material color additives. |
-| **Speckle** | Type assigned to color definitions that include reflective granulated material color additives. |
-| **Phosphorescent** | Type assigned to color definitions that include glow-in-the-dark material color additives. |
-| **Chrome** | Type assigned to color definitions that are given highly reflective, chromed post-production coatings. _(NOTE: Per the nature of post-production coatings, color definitions in this type are not given Finish types.)_ |
-| **Metallic** | Type assigned to color definitions that are given moderately reflective, drum lacquered post-production coatings.  _(NOTE: Per the nature of post-production coatings, color definitions in this type are not given Finish types.)_ |
+| Type | Description | Example Image |
+| --- | --- | --- |
+| **Solid** _(default)_ | Type assigned to color definitions that include neither material additives nor post-production coatings. | <a href="https://img.bricklink.com/ItemImage/PN/32/3003.png"><img src="https://img.bricklink.com/ItemImage/PN/32/3003.png" style="max-height: 50px;" /></a> |
+| **Pearl** | Type assigned to color definitions that include pearlescent material color additives. | <a href="https://img.bricklink.com/ItemImage/PN/115/3003.png"><img src="https://img.bricklink.com/ItemImage/PN/115/3003.png" style="max-height: 50px;" /></a>
+| **Glitter** | Type assigned to color definitions that include flaked, reflective material color additives. | <a href="https://img.bricklink.com/ItemImage/PN/100/3003.png"><img src="https://img.bricklink.com/ItemImage/PN/100/3003.png" style="max-height: 50px;" /></a> |
+| **Speckle** | Type assigned to color definitions that include granulated material color additives. | <a href="https://img.bricklink.com/ItemImage/PN/116/47456.original.png"><img src="https://img.bricklink.com/ItemImage/PN/116/47456.original.png" style="max-height: 50px;" /></a> |
+| **Phosphorescent** | Type assigned to color definitions that include glow-in-the-dark material color additives. | <a href="https://img.bricklink.com/ItemImage/PN/159/3023.png"><img src="https://img.bricklink.com/ItemImage/PN/159/3023.png" style="max-height: 50px;" /></a> |
+| **Opal** | Type assigned to color definitions that include ultra-fine granulated, reflective material color additives. | <a href="https://img.bricklink.com/ItemImage/PN/223/51283.png"><img src="https://img.bricklink.com/ItemImage/PN/223/51283.png" style="max-height: 50px;" /></a> |
+| **Chrome** | Type assigned to color definitions that are given chromium, highly reflective post-production coatings. _(NOTE: Per the nature of post-production coatings, color definitions in this type are not given Finish types.)_ | <a href="https://img.bricklink.com/ItemImage/PN/22/3001.png"><img src="https://img.bricklink.com/ItemImage/PN/22/3001.png" style="max-height: 50px;" /></a> |
+| **Metallic** | Type assigned to color definitions that are given drum lacquered, moderately reflective post-production coatings.  _(NOTE: Per the nature of post-production coatings, color definitions in this type are not given Finish types.)_ | <a href="https://img.bricklink.com/ItemImage/PN/65/3003.png"><img src="https://img.bricklink.com/ItemImage/PN/65/3003.png" style="max-height: 50px;" /></a> |
 
 
 ### Finish Type
@@ -83,7 +84,7 @@ The **Finish** Type indicates the way that light does or does not interact with 
 | **Transparent Colors** | `colors/basic/transparent/...` |
 | **Chrome Colors** | `colors/basic/opaque/chrome/...` |
 | **Pearl Colors** | `colors/basic/opaque/pearl/...` |
-| **Satin Colors** | `colors/basic/translucent/pearl/...` |
+| **Satin Colors** | `colors/basic/translucent/opal/...` |
 | **Metallic Colors** | `colors/basic/opaque/metallic/...` |
 | **Milky Colors** |  `colors/basic/opaque/phosphorescent/...` OR `colors/basic/translucent/solid/...` OR `colors/basic/translucent/phosphorescent/...` |
 | **Glitter Colors** | `colors/basic/transparent/glitter/...` |
