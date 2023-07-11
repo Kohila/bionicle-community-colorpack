@@ -3,7 +3,8 @@
  * This utility reads a collection of JSON files and exports them in a single CustomColorDefinition.txt file.
  */
 
-const fs = require('fs')
+import fs from 'fs'
+import { getDirectoryContents } from "./common"
 
 const OUTPUT_DIR = process.env.NODE_ENV == 'production' ? `./.build` : `./.temp/JSONtoTXT`
 const INPUT_DIR = process.env.NODE_ENV == 'production' ? `./colors` : `./.temp/TXTtoJSON`
