@@ -1,0 +1,35 @@
+{
+  "name": "patcher",
+  "version": "1.0.0-beta",
+  "description": "",
+  "main": "index.js",
+  "bin": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^5.3.1",
+    "archiver-zip-encrypted": "^1.0.11",
+    "pkg": "^5.8.1",
+    "unzipper": "^0.10.14"
+  },
+  "pkg": {
+    "options": [
+      "experimental-modules"
+    ],
+    "scripts": "src/**/*.js",
+    "assets": [
+      "data/*",
+      "../node_modules/archiver/*",
+      "../node_modules/archiver-zip-encrypted/*",
+      "../node_modules/pkg/*",
+      "../node_modules/unzipper/*"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": ".build"
+  }
+}
