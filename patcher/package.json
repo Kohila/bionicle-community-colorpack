@@ -16,9 +16,6 @@
     "unzipper": "^0.10.14"
   },
   "pkg": {
-    "options": [
-      "experimental-modules"
-    ],
     "scripts": "src/**/*.js",
     "assets": [
       "data/*",
