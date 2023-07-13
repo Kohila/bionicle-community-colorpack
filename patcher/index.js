@@ -3,6 +3,8 @@ const patcher = require('./src/patcher.js')
 
 //patcher()
 
+console.log("TEST")
+
 const askQuestion = (query) => {
     const rl = readline.createInterface({
         input: process.stdin,
@@ -15,4 +17,11 @@ const askQuestion = (query) => {
     }))
 }
 
-askQuestion(process.argv.toString())
+console.log(__filename)
+console.log(__dirname)
+
+process.argv.forEach(item => {
+    console.log(item.toString())
+})
+
+askQuestion("TEST")
