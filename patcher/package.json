@@ -5,7 +5,7 @@
   "main": "index.js",
   "bin": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./build.js --debug"
   },
   "author": "",
   "license": "ISC",
@@ -20,11 +20,7 @@
     "scripts": "src/**/*.js",
     "assets": [
       "assets/*",
-      "data/*",
-      "../node_modules/archiver/*",
-      "../node_modules/archiver-zip-encrypted/*",
-      "../node_modules/pkg/*",
-      "../node_modules/unzipper/*"
+      "data/*"
     ],
     "targets": [
       "node18-win-x64"

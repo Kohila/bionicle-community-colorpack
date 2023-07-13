@@ -2,17 +2,13 @@
  * This script is used to "patch" existing .IO files that use previously established BDBCC colors.
  */
 
-/** @TODO:
- * 1. Open .IO file as password protected .ZIP file
- * 2. Unlock with password `soho0909`
- * 3.
- */
 
 const fs = require("fs")
 const path = require("path")
 const unzipper = require("unzipper")
 const archiver = require("archiver")
 const archiverZipEncrypted = require("archiver-zip-encrypted")
+const definitions = require('./definitions')
 
 const patcher = async () => {
   archiver.registerFormat("zip-encrypted", archiverZipEncrypted)
@@ -34,6 +30,9 @@ const patcher = async () => {
   for (const file of dir.files) {
     const FILE_NAME = file.path
     const FILE_CONTENTS = await file.buffer(STUDIO_PASSWORD)
+/**
+ * @TODO: Color ID replacement login on FILE_CONTENTS
+ */
     console.log(FILE_NAME)
     ARCHIVE.append(FILE_CONTENTS, { name: FILE_NAME })
   }
