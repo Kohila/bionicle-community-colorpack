@@ -1,5 +1,9 @@
 name: Publish a Release
 on: workflow_dispatch
+  # push:
+  #   tags:
+  #     - "v*.*.*"
+  #     or
   # release:
   #   types: [published]
 
@@ -27,7 +31,6 @@ jobs:
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files:
             'patcher/.build/patcher*.exe'
