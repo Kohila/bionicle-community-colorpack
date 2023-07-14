@@ -15,3 +15,7 @@
  *    ./.build/bionicle-communicty-colorpack-library-vX.X.X location
  * 8. Compress both of the build folders to publish with release
  */
+
+export const createBuild = () => {
+  console.log("Build script invoked")
+}
