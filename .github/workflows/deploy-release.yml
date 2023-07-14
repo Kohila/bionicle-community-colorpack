@@ -1,8 +1,9 @@
 name: Publish a Release
-on: workflow_dispatch
-  # push:
-  #   tags:
-  #     - "v*.*.*"
+# on: workflow_dispatch
+on:
+  push:
+    tags:
+      - "v*.*.*"
   #     or
   # release:
   #   types: [published]
@@ -32,5 +33,6 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: 
           files:
             'patcher/.build/patcher*.exe'
