@@ -1,7 +1,6 @@
 # BIONICLE Community Colorpack
 
-[![GitHub release (by tag)](https://img.shields.io/github/downloads/kohila/bionicle-community-colorpack/v1.0.0-beta.1/total?style=for-the-badge&logo=github&link=https%3A%2F%2Fgithub.com%2FKohila%2Fbionicle-community-colorpack%2Freleases%2Ftag%2Fv1.0.0-beta.1)
-](https://github.com/Kohila/bionicle-community-colorpack/releases/tag/v1.0.0-beta.1)
+[![GitHub release (by tag)](https://img.shields.io/github/downloads/kohila/bionicle-community-colorpack/latest/total?style=for-the-badge&logo=github&link=https%3A%2F%2Fgithub.com%2FKohila%2Fbionicle-community-colorpack%2Freleases)](https://github.com/Kohila/bionicle-community-colorpack/releases/tag/v1.0.0-beta.1)
 
 This code repository is a work-in-progress project that aims to meet the following objectives:
 
