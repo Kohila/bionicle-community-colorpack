@@ -1,5 +1,5 @@
 import fs from "fs"
-import { getDirectoryContents } from "./index.js"
+import { getDirectoryContents } from "./common.js"
 
 /**
  * @TODO needs refactored pls

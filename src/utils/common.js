@@ -1,5 +1,8 @@
-import { KeyObject } from "crypto"
 import fs from "fs"
+
+export const log = (a) => {
+  process.env.NODE_ENV == "development" && console.log(a)
+}
 
 export const getDirectoryContents = (dir) => {
   let files = []
@@ -31,7 +34,7 @@ export const flattenObject = (obj, parentKey) => {
     } else {
       result[newKey] = value
     }
-    console.log(`parentKey: "${parentKey}", _key: "${newKey}"`)
+    log(`parentKey: "${parentKey}", _key: "${newKey}"`)
   })
 
   return result

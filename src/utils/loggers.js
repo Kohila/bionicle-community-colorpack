@@ -9,11 +9,11 @@ import {
   getDirectoryContents,
   readJsonFromFile,
   flattenObject,
-} from "./index.js"
+} from "./common.js"
 
-const OUTPUT_DIR = "@log"
+const OUTPUT_DIR = `./.log`
 const INPUT_DIR =
-  process.env.NODE_ENV == "production" ? `@colors` : `@temp/TXTtoJSON`
+  process.env.NODE_ENV == "production" ? `./colors` : `./.temp/TXTtoJSON`
 const OUTPUT_FILE = `${OUTPUT_DIR}/NeededAttributes.log`
 
 export const colorAttributesNeeded = () => {
@@ -22,8 +22,6 @@ export const colorAttributesNeeded = () => {
   fs.writeFileSync(OUTPUT_FILE, "")
 
   const fileList = getDirectoryContents(INPUT_DIR)
-
-  //console.log(fileList)
 
   for (let file of fileList) {
     const color = flattenObject(readJsonFromFile(file))
