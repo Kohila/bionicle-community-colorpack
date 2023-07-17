@@ -1,80 +1,86 @@
 /**
  * This script is used to "patch" existing .IO files that use previously established BDBCC colors.
  */
-
-
 const fs = require("fs")
 const path = require("path")
+const inquirer = require("inquirer")
 const unzipper = require("unzipper")
 const archiver = require("archiver")
 const archiverZipEncrypted = require("archiver-zip-encrypted")
-const definitions = require('./definitions')
+const definitions = require("./definitions")
+const STUDIO_PASSWORD = "soho0909"
+archiver.registerFormat("zip-encrypted", archiverZipEncrypted)
 
-const patcher = async () => {
-  archiver.registerFormat("zip-encrypted", archiverZipEncrypted)
+const patcher = async (targets) => {
+  for (const target of targets) {
+    const targetType = fileTypes(target)
 
-  const STUDIO_PASSWORD = "soho0909"
+    if (targetType == "IO") {
+      // IO File conversion logic here
+      // console.log("IO Logic . . .")
+      console.log(`[INFO] Patching: ${target}`)
+      await patchFile(target)
+      console.log(`[INFO] Patched: ${target}`)
+    }
 
-  const FILE_INPUT = `./.temp/brick.io`
-  const FILE_OUTPUT = `./.temp/newbrick.io`
+    if (targetType == "DIR") {
+      // Directory conversion logic here. Recursive...?
+      console.log("Directory logic . . .")
+    }
+  }
 
-  const ARCHIVE = archiver.create("zip-encrypted", {
+  await inquirer
+    .prompt([
+      { type: "input", name: "exit", message: "Press any key to exit: " },
+    ])
+    .then()
+}
+
+const patchFile = async (input) => {
+  const archive = archiver.create("zip-encrypted", {
     encryptionMethod: "zip20",
     password: STUDIO_PASSWORD,
   })
 
-  path.format({ ...path.parse(FILE_INPUT), base: "", ext: ".zip" })
-
-  const dir = await unzipper.Open.file(FILE_INPUT)
-
-  for (const file of dir.files) {
-    const FILE_NAME = file.path
-    const FILE_CONTENTS = await file.buffer(STUDIO_PASSWORD)
-/**
- * @TODO: Color ID replacement login on FILE_CONTENTS
- */
-    console.log(FILE_NAME)
-    ARCHIVE.append(FILE_CONTENTS, { name: FILE_NAME })
-  }
-
-  const OUTPUT = fs.createWriteStream(FILE_OUTPUT)
-
-  // listen for all archive data to be written
-  // 'close' event is fired only when a file descriptor is involved
-  OUTPUT.on("close", () => {
-    console.log(ARCHIVE.pointer() + " total bytes")
-    console.log(
-      "archiver has been finalized and the output file descriptor has closed."
-    )
+  archive.on("warning", (err) => {
+    if (!(err.code === "ENOENT")) throw err
   })
 
-  // This event is fired when the data source is drained no matter what was the data source.
-  // It is not part of this library but rather from the NodeJS Stream API.
-  // @see: https://nodejs.org/api/stream.html#stream_event_end
-  OUTPUT.on("end", () => {
-    console.log("Data has been drained")
-  })
-
-  // good practice to catch warnings (ie stat failures and other non-blocking errors)
-  ARCHIVE.on("warning", (err) => {
-    if (err.code === "ENOENT") {
-      // log warning
-    } else {
-      // throw error
-      throw err
-    }
-  })
-
-  // good practice to catch this error explicitly
-  ARCHIVE.on("error", (err) => {
+  archive.on("error", (err) => {
     throw err
   })
 
-  ARCHIVE.pipe(OUTPUT)
+  path.format({ ...path.parse(input), base: "", ext: ".zip" })
+  const dir = await unzipper.Open.file(input)
 
-  ARCHIVE.finalize()
+  console.log(input)
+
+  const output = fs.createWriteStream(input)
+
+  for (const file of dir.files) {
+    console.log(file.path.split(".").pop())
+    if (file.path.split(".").pop() == "ldr") archive.append(await file.buffer(STUDIO_PASSWORD), { name: file.path })
+  }
+
+  archive.pipe(output)
+
+  archive.finalize()
+}
+
+const fileTypes = (target) => {
+  if (!fs.existsSync(target)) {
+    console.error(`[ERROR] Argument "${target}" does not exist`)
+    return null
+  }
+  if (fs.lstatSync(target).isDirectory()) return "Directory"
+  if (fs.lstatSync(target).isFile()) {
+    if (target.split(".").pop() == "io") return "IO"
+    console.error(`[ERROR] Invalid file of type ".${target.split(".").pop()}"`)
+    return null
+  }
+  return "Unknown error"
 }
 
 module.exports = {
-    patcher
+  patcher,
 }

@@ -1,5 +1,4 @@
-const readline = require('readline')
-const patcher = require('./src/patcher.js')
+const { patcher } = require("./src/patcher.js")
 
 /**
  * The patcher should have three behaviors:
@@ -11,23 +10,7 @@ const patcher = require('./src/patcher.js')
  *    -if no arguments supplied, patcher executes on all .IO files within the EXE's parent directory
  */
 
-const askQuestion = (query) => {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  })
+const args = process.argv.slice(2)
+!(args.length > 0) && args.push(process.cwd())
 
-  return new Promise(resolve => rl.question(query, ans => {
-    rl.close()
-    resolve(ans)
-  }))
-}
-
-console.log(__filename)
-console.log(__dirname)
-
-process.argv.forEach(item => {
-  console.log(item.toString())
-})
-
-askQuestion("TEST")
+patcher(args)

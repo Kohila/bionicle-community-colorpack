@@ -4,7 +4,7 @@ const version = require("./package.json").version
 const build = exe({
   entry: "./index.js",
   out: `./.build/patcher-${version}.exe`,
-  pkg: ["-C", "Brotli", "-d"],
+  pkg: ["-C", "Brotli"],
   icon: "./assets/icon.ico",
   version,
   target: "node18-win-x64",
