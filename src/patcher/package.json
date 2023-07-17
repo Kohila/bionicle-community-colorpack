@@ -1,6 +1,6 @@
 {
   "name": "patcher",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta1",
   "description": "",
   "main": "index.js",
   "bin": "./index.js",
