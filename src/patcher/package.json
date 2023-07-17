@@ -14,9 +14,16 @@
     "archiver": "^5.3.1",
     "archiver-zip-encrypted": "^1.0.11",
     "inquirer": "^8.0.0",
+    "module-alias": "^2.2.3",
     "node-int64": "^0.4.0",
     "pkg": "^5.8.1",
     "unzipper": "^0.10.14"
+  },
+  "_moduleAliases": {
+    "@root": "../../",
+    "@log": "../../.log",
+    "@colors": "../../colors",
+    "@utils": "../utils"
   },
   "pkg": {
     "scripts": "src/**/*.js",

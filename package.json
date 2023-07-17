@@ -15,6 +15,13 @@
   "workspaces": [
     "/patcher"
   ],
+  "_moduleAliases": {
+    "@root": ".",
+    "@log": ".log",
+    "@colors": "colors",
+    "@temp": ".temp",
+    "@utils": "utils"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
