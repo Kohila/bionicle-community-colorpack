@@ -39,6 +39,11 @@ const patcher = async (targets) => {
 }
 
 const patchFile = async (input) => {
+
+  const loader = owa({
+    text: `[INFO] Patching file: ${input}`
+  }).start()
+
   const archive = archiver.create("zip-encrypted", {
     encryptionMethod: "zip20",
     password: STUDIO_PASSWORD,
@@ -60,6 +65,7 @@ const patchFile = async (input) => {
   archive.pipe(output)
 
   archive.finalize()
+  loader.succeed(`[PASS] Successfully patched file: "${input}"`)
 }
 
 const getFileType = (target) => {
