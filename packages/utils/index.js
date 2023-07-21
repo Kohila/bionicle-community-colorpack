@@ -1,5 +1,10 @@
 import * as build from "./build.js"
+import * as convert from "./converters.js"
 import * as logger from "./loggers.js"
+import { color } from "../../documentation/sample_color.js"
 
-if (process.argv[2] === "createBuild") build.createBuild()
-if (process.argv[2] === "colorAttributesNeeded") logger.colorAttributesNeeded()
+const command = process.argv[2]
+
+command === "createBuild" && build.createBuild()
+command === "colorAttributesNeeded" && logger.colorAttributesNeeded()
+command === "JSONtoXML" && console.log(convert.JSONtoXML(color.json))

@@ -1,0 +1,35 @@
+---
+definition:
+  id:
+    studio: 12345678
+    bricklink: 12345678
+    ldraw: 12345678
+    ldd: 12345678
+  name:
+    studio: Sample Color
+    bricklink: Sample Color
+    ldraw: Sample Color
+    ldd: Sample Color
+  category:
+    name: Solid Colors
+    nickname: Gloss Colors
+  groupId: -1
+  rgb: #FFFFFF
+  alpha: 1
+  notes: (Future location of BCC defined metadata, e.g. Color Author)
+
+settings:
+  material:
+      _displacement_method: bump
+      _heterogeneous_volume: False
+      _name: SOLID-SAMPLE_COLOR
+      _use_local_tuning: False
+      _use_mis: True
+      _use_transparent_shadow: True
+      _volume_interpolation_method: linear
+      _volume_sampling_method: multiple_importance
+      shader:
+        color:
+          _name: Sample_Color
+          _value: 1.0 1.0 1.0
+          # The rest of the color settings go here . . .

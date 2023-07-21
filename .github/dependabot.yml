@@ -13,7 +13,7 @@ updates:
       - "pr: chore"
       - "source: dependencies"
   - package-ecosystem: "npm"
-    directory: "/patcher"
+    directory: "/packages/patcher"
     schedule:
       interval: "daily"
     labels:

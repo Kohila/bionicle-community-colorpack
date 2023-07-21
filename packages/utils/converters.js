@@ -1,11 +1,44 @@
 import fs from "fs"
+import xml2js from "xml2js"
 import { getDirectoryContents } from "./common.js"
 
 /**
- * @TODO needs refactored pls
- * This utility reads a collection of JSON files and exports them in a single CustomColorDefinition.txt file.
+ * Converts a JSON object to an XML string
+ * @param {object} object The JSON object to convert
+ * @return {string} The XML root element output as a string
  */
+export const JSONtoXML = (object) => {
+  const xmlBuilder = new xml2js.Builder({
+    headless: true,
+  })
+  const xml = xmlBuilder.buildObject(object)
+  return xml
+}
 
+/**
+ * 
+ * @param {Object} object The JSON object to convert
+ * @return {string} The TSV row output as a string
+ */
+export const JSONtoTSV = (object) => {
+
+}
+
+/**
+ * 
+ * @param {string} element The XML root element to convert
+ * @return {string} The TSV row output as a string
+ */
+export const XMLtoTSV = (element) => {
+
+}
+
+
+
+/**
+ * @deprecated Function is in the process of being refactored
+ * @todo split into discreet conversion and generation logic
+ */
 export const JsonToTxt = () => {
   const OUTPUT_DIR =
     process.env.NODE_ENV == "production" ? `./.build` : `./.temp/JSONtoTXT`
@@ -47,11 +80,8 @@ export const JsonToTxt = () => {
 }
 
 /**
- * @TODO needs refactored. badly.
- * This utility reads the CustomColorDefinition.txt whose filepath is passed as an argument and exports each row of data as
- * an individual JSON file.
- * @param {String}  filepath  The provided filepath to the CustomColorDefinition.txt file.
- *
+ * @deprecated Function is in the process of being refactored
+ * @todo split into discreet conversion and generation logic
  */
 export const TxtToJson = () => {
   const OUTPUT_DIR = "./colors"
