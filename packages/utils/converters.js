@@ -1,6 +1,26 @@
 import fs from "fs"
 import xml2js from "xml2js"
+import flatten from "flat"
 import { getDirectoryContents } from "./common.js"
+
+const TSV_ROWS = [
+  "id.studio",
+  "id.bricklink",
+  "id.ldraw",
+  "id.ldd",
+  "name.studio",
+  "name.bricklink",
+  "name.ldraw",
+  "name.ldd",
+  "rgb",
+  "alpha",
+  "category.name",
+  "groupId",
+  "notes",
+  "instructions.rgb",
+  "instructions.cmyk",
+  "category.nickname",
+]
 
 /**
  * Converts a JSON object to an XML string
@@ -16,24 +36,25 @@ export const JSONtoXML = (object) => {
 }
 
 /**
- * 
+ * Converts a JSON object into a TSV row based on columns defined in TSV_ROWS
  * @param {Object} object The JSON object to convert
  * @return {string} The TSV row output as a string
  */
 export const JSONtoTSV = (object) => {
-
+  const flatObject = flatten(object)
+  let tsv = ""
+  for (const key of TSV_ROWS) {
+    tsv += `${TSV_ROWS.indexOf(key) === 0 ? "" : "\t"}${flatObject[key]}`
+  }
+  return tsv
 }
 
 /**
- * 
+ *
  * @param {string} element The XML root element to convert
  * @return {string} The TSV row output as a string
  */
-export const XMLtoTSV = (element) => {
-
-}
-
-
+export const XMLtoTSV = (element) => {}
 
 /**
  * @deprecated Function is in the process of being refactored
