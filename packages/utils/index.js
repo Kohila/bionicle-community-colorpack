@@ -1,4 +1,5 @@
 import * as build from "./build.js"
+import * as common from "./common.js"
 import * as convert from "./converters.js"
 import * as generate from "./generators.js"
 import * as logger from "./loggers.js"
@@ -11,3 +12,4 @@ command === "colorAttributesNeeded" && logger.colorAttributesNeeded()
 command === "JSONtoXML" && console.log(convert.JSONtoXML(color.json))
 command === "JSONtoTSV" && console.log(convert.JSONtoTSV(color))
 command === "generateColorDefinitions" && generate.generateColorDefinitions()
+command === "directory" && console.log(common.getDirectoryContents(process.argv[3]))

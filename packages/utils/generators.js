@@ -1,5 +1,6 @@
 import fs from "fs"
 import { XMLParser, XMLBuilder } from "fast-xml-parser"
+import { getDirectoryContents } from "./common.js"
 const ROOT = process.cwd()
 
 /**
@@ -8,7 +9,6 @@ const ROOT = process.cwd()
  * an individual JSON file.
  * @param {String}  filepath  The provided filepath to the CustomColorSettings.xml file.
  */
-
 export const XmlToJsonFiles = () => {
   const INPUT_FILE = process.argv.slice(2)[0]
   const OUTPUT_DIR =
@@ -63,18 +63,15 @@ export const XmlToJsonFiles = () => {
 }
 
 /**
- * This function generates the ColorDefinitions.txt file as required by Stud.io
- */
+ * This function generates the ColorDefinitions.txt file as required by Stud.io.
+ * @TODO This function must perform the following actions:
+ * [x] Open a write stream to the build folder location in either development or
+ *    production mode.
+ * [x] Prime the write buffer with the appropriate headers
+ * [ ] Page through the [colors/] directory for all color files and save filepaths to array
+ * [ ] For each color file in array, write to the output buffer with the appropriate toTSV() function.
+*/
 export const generateColorDefinitions = () => {
-  /**
-   * @TODO This function must perform the following actions:
-   * [x] Open a write stream to the build folder location in either development or
-   *    production mode.
-   * [x] Prime the write buffer with the appropriate headers
-   * [ ] Page through the [colors/] directory for all color files and save filepaths to array
-   * [ ] For each color file in array, write to the output buffer with the appropriate toTSV() function.
-   */
-
   const buildPath = ROOT + (process.env.NODE_ENV === "dev" ? "/.temp/.build" : "/.build")
   const buildName = "CustomColorDefinition.txt"
   const definitionsColumns = `Studio Color Code\tBL Color Code\tLDraw Color Code\tLDD color code\tStudio Color Name\tBL Color Name\tLDraw Color Name\tLDD Color Name\tRGB value\tAlpha\tCategoryName\tColor Group Index\tnote\tIns_RGB\tIns_CMYK\tCategogy NickName\n`
@@ -82,4 +79,7 @@ export const generateColorDefinitions = () => {
   !fs.existsSync(buildPath) && fs.mkdirSync(buildPath, { recursive: true })
   const writeStrean = fs.createWriteStream(`${buildPath}/${buildName}`, {encoding: "utf-8"})
   writeStrean.write(definitionsColumns)
+
+  const colors = getDirectoryContents(`${ROOT}/colors`)
+  console.log(colors)
 }
