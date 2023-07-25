@@ -1,36 +1,45 @@
+/** @module loggers */
+import fs from "fs"
+import path from "path"
+import {
+  flattenObject,
+  getColorObjects,
+  getColors as getColorPaths,
+  getDirectoryContents,
+  readJsonFromFile,
+  root,
+} from "./common.js"
+
+
+const logPath = path.join(root, '.log')
+
 /**
+ * @deprecated
  * @TODO Write script!!
  * This script analyses every color definition in CustomColorDefinition.txt and outputs any and all missing
  * attributes to a log file
  */
-
-import fs from "fs"
-import {
-  getDirectoryContents,
-  readJsonFromFile,
-  flattenObject,
-} from "./common.js"
-
-const OUTPUT_DIR = `./.log`
-const INPUT_DIR =
-  process.env.NODE_ENV == "production" ? `./colors` : `./.temp/TXTtoJSON`
-const OUTPUT_FILE = `${OUTPUT_DIR}/NeededAttributes.log`
-
 export const colorAttributesNeeded = () => {
-  !fs.existsSync(OUTPUT_DIR) && fs.mkdirSync(OUTPUT_DIR)
+  const logOutput = path.join(logPath, `missing-attributes-${Date.now()}.log`)
 
-  fs.writeFileSync(OUTPUT_FILE, "")
+  !fs.existsSync(logPath) && fs.mkdirSync(logPath)
 
-  const fileList = getDirectoryContents(INPUT_DIR)
+  const writeStream = fs.createWriteStream(logOutput, {encoding: "utf-8"})
 
-  for (let file of fileList) {
-    const color = flattenObject(readJsonFromFile(file))
-    Object.keys(color).forEach((key) => {
-      color[key].length == 0 &&
-        fs.appendFileSync(
-          OUTPUT_FILE,
-          `[NULL] Empty Attribute '${key}' for: '${file}'\n`
-        )
-    })
+  const colors = getColorObjects()
+
+  for (const color of colors) {
+    writeStream.write(JSONtoTSV(color) + "\n")
   }
+
+  // for (let file of files) {
+  //   const color = flattenObject(readJsonFromFile(file))
+  //   Object.keys(color).forEach((key) => {
+  //     color[key].length == 0 &&
+  //       fs.appendFileSync(
+  //         OUTPUT_FILE,
+  //         `[NULL] Empty Attribute '${key}' for: '${file}'\n`
+  //       )
+  //   })
+  // }
 }

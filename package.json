@@ -4,15 +4,14 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev:jsontotxt": "node ./utils/DefinitionsJSONtoTXT.js",
-    "dev:txttojson": "node ./utils/DefinitionsTXTtoJSON.js",
-    "dev:xmlsplitter": "node ./utils/XMLSplitter.js",
-    "dev:generate": "node ./packages/utils/index.js generateColorDefinitions"
+    "build:create-definitions": "node ./packages/utils/index.js create-definitions",
+    "dev:create-definitions": "node ./packages/utils/index.js create-definitions -dev"
   },
   "dependencies": {
+    "commander": "^11.0.0",
     "fast-xml-parser": "^4.2.6",
     "flat": "^5.0.2",
-    "xml2js": "^0.6.0"
+    "xml2js": "^0.6.1"
   },
   "workspaces": [
     "/packages/patcher"

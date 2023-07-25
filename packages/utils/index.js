@@ -1,15 +1,17 @@
-import * as build from "./build.js"
-import * as common from "./common.js"
-import * as convert from "./converters.js"
-import * as generate from "./generators.js"
-import * as logger from "./loggers.js"
-import { color } from "../../documentation/sample_color.js"
+import { Command } from "commander"
+import {
+  generateColorDefinitions,
+  generateColorSettings,
+} from "./generators.js"
 
-const command = process.argv[2]
+const program = new Command()
 
-command === "createBuild" && build.createBuild()
-command === "colorAttributesNeeded" && logger.colorAttributesNeeded()
-command === "JSONtoXML" && console.log(convert.JSONtoXML(color.json))
-command === "JSONtoTSV" && console.log(convert.JSONtoTSV(color))
-command === "generateColorDefinitions" && generate.generateColorDefinitions()
-command === "directory" && console.log(common.getDirectoryContents(process.argv[3]))
+program
+  .command("create-definitions")
+  .option("-dev, --development", "Run in development mode")
+  .action(options => {
+    options.development && (process.env.NODE_ENV = 'development')
+    generateColorDefinitions()
+  })
+
+program.parse()
