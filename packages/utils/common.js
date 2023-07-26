@@ -3,6 +3,10 @@ import fs from "fs"
 import path from "path"
 
 /**
+ * @typedef {import("./typedefs.js").Color}
+ */
+
+/**
  * This function is a NODE_ENV dependant wrapper for console.log() to be used for debugging.
  * @param {any} a The item to log to the debugger.
  */
