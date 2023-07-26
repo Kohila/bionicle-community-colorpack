@@ -2,9 +2,8 @@
 
 import fs from "fs"
 import path from "path"
-// import { XMLParser, XMLBuilder } from "fast-xml-parser"
 import { getColorObjects, root } from "./common.js"
-import { JSONtoTSV } from "./converters.js"
+import { JSONtoTSV, XMLtoJSON, JSONtoXML, JSONtoYAML } from "./converters.js"
 
 /**
  * This function generates the ColorDefinitions.txt file as required by Stud.io.
@@ -14,15 +13,18 @@ import { JSONtoTSV } from "./converters.js"
  * - Primes the write buffer with the appropriate TSV headers.
  * - Pages through the [colors/] directory for all color files and saves the filepaths to an array.
  * - For each color file in array, writes to the output buffer with the appropriate toTSV() function.
-*/
+ */
 export const generateColorDefinitions = async () => {
-  const buildPath = path.join(root, (process.env.NODE_ENV === "development" ? "/.temp/.build" : "/.build"))
+  const buildPath = path.join(
+    root,
+    process.env.NODE_ENV === "development" ? "/.temp/.build" : "/.build"
+  )
   const outputPath = path.join(buildPath, "CustomColorDefinition.txt")
   const definitionsColumns = `Studio Color Code\tBL Color Code\tLDraw Color Code\tLDD color code\tStudio Color Name\tBL Color Name\tLDraw Color Name\tLDD Color Name\tRGB value\tAlpha\tCategoryName\tColor Group Index\tnote\tIns_RGB\tIns_CMYK\tCategogy NickName\n`
 
   !fs.existsSync(buildPath) && fs.mkdirSync(buildPath, { recursive: true })
 
-  const writeStream = fs.createWriteStream(outputPath, {encoding: "utf-8"})
+  const writeStream = fs.createWriteStream(outputPath, { encoding: "utf-8" })
   writeStream.write(definitionsColumns)
 
   const colors = await getColorObjects()
@@ -35,12 +37,10 @@ export const generateColorDefinitions = async () => {
 
 /**
  * @TODO Write script.
- * 
+ *
  * This function generates the ColorSettings.xml file as required by Stud.io.
  */
-export const generateColorSettings = () => {
-
-}
+export const generateColorSettings = () => {}
 
 /**
  * @typedef {Object} RGB
@@ -50,15 +50,43 @@ export const generateColorSettings = () => {
  */
 /**
  * @TODO Write script.
- * 
+ *
  * This function generates color ramp data from provided RGB values. Original algorithm created
  * by Unpixelled.
  * @param {RGB} first The RGB values of the first color as a JS object.
  * @param {RGB} second The RGB values of the second color as a JS object.
  * @returns {string} The calculated color ramp data.
  */
-export const generateColorRamp = (first, second) => {
+export const generateColorRamp = (first, second) => {}
 
+export const generateObjectFromXML = async () => {
+  const filePath = path.join(root, ".temp", "setting.xml")
+  const outputPath = path.join(root, ".temp", "setting.json")
+
+  const file = fs.readFileSync(filePath)
+  const js = await XMLtoJSON(file.toString())
+
+  fs.writeFileSync(outputPath, JSON.stringify(js, null, 2))
+}
+
+export const generateXMLFromObject = async () => {
+  const filePath = path.join(root, ".temp", "setting.json")
+  const outputPath = path.join(root, ".temp", "setting2.xml")
+
+  const file = fs.readFileSync(filePath)
+  const xml = await JSONtoXML(JSON.parse(file))
+  
+  fs.writeFileSync(outputPath, xml)
+}
+
+export const generateYAMLFromObject = () => {
+  const filePath = path.join(root, ".temp", "setting.json")
+  const outputPath = path.join(root, ".temp", "setting.yaml")
+
+  const file = fs.readFileSync(filePath)
+  const yaml = JSONtoYAML(JSON.parse(file))
+
+  fs.writeFileSync(outputPath, yaml)
 }
 
 /**

@@ -1,4 +1,8 @@
 /** @module loggers */
+/**
+ * @TODO Need to write more comprehensive log generators!
+ */
+
 import fs from "fs"
 import path from "path"
 import {
@@ -11,7 +15,7 @@ import {
 } from "./common.js"
 
 
-const logPath = path.join(root, '.log')
+const LOG_PATH = path.join(root, '.log')
 
 /**
  * @deprecated
@@ -20,9 +24,9 @@ const logPath = path.join(root, '.log')
  * attributes to a log file
  */
 export const colorAttributesNeeded = () => {
-  const logOutput = path.join(logPath, `missing-attributes-${Date.now()}.log`)
+  const logOutput = path.join(LOG_PATH, `missing-attributes-${Date.now()}.log`)
 
-  !fs.existsSync(logPath) && fs.mkdirSync(logPath)
+  !fs.existsSync(LOG_PATH) && fs.mkdirSync(LOG_PATH)
 
   const writeStream = fs.createWriteStream(logOutput, {encoding: "utf-8"})
 

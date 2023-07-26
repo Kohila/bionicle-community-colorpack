@@ -1,4 +1,5 @@
 /** @module common */
+
 import fs from "fs"
 import path from "path"
 
@@ -72,29 +73,6 @@ export const getColorObjects = async () => {
   }
 
   return colors
-}
-
-/**
- *
- * @param {object} obj The JS object to flatten
- * @param {string | null} parentKey The name of an object's parent key, used during recursion. Defaults to null.
- * @returns {object}
- */
-export const flattenObject = (obj, parentKey = null) => {
-  let result = {}
-
-  Object.keys(obj).forEach((key) => {
-    const value = obj[key]
-    const newKey = parentKey ? parentKey + "." + key : key
-    if (typeof value === "object") {
-      result = { ...result, ...flattenObject(value, newKey) }
-    } else {
-      result[newKey] = value
-    }
-    log(`parentKey: "${parentKey}", _key: "${newKey}"`)
-  })
-
-  return result
 }
 
 /**

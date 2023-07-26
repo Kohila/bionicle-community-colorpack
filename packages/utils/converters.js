@@ -1,8 +1,7 @@
 /** @module converters */
-import fs from "fs"
-import xml2js from "xml2js"
 import flatten from "flat"
-import { getDirectoryContents } from "./common.js"
+import xml2js from "xml2js"
+import YAML from "yaml"
 
 const TSV_ROWS = [
   "id.studio",
@@ -24,22 +23,24 @@ const TSV_ROWS = [
 ]
 
 /**
- * Converts a JSON object to an XML string
- * @param {object} object The JSON object to convert
- * @return {string} The XML root element output as a string
+ * Converts a JSON object to an XML string.
+ * @param {object} object The JSON object to convert.
+ * @return {string} The XML root element output as a string.
  */
 export const JSONtoXML = (object) => {
   const xmlBuilder = new xml2js.Builder({
-    headless: true,
+    headless: true
   })
-  const xml = xmlBuilder.buildObject(object)
+
+  const parsedObject = parseJSONWithAttrkey(object)
+  const xml = xmlBuilder.buildObject(parsedObject)
   return xml
 }
 
 /**
- * Converts a JSON object into a TSV row based on columns defined in TSV_ROWS
- * @param {Object} object The JSON object to convert
- * @return {string} The TSV row output as a string
+ * Converts a JSON object into a TSV row based on columns defined in TSV_ROWS.
+ * @param {Object} object The JSON object to convert.
+ * @return {string} The TSV row output as a string.
  */
 export const JSONtoTSV = (object) => {
   const flatObject = flatten(object)
@@ -51,12 +52,54 @@ export const JSONtoTSV = (object) => {
 }
 
 /**
- *
- * @param {string} element The XML root element to convert
- * @return {string} The TSV row output as a string
+ * Converts an XML element into a TSV row based on columns defined in TSV_ROWS.
+ * @param {string} element The XML root element to convert.
+ * @return {string} The TSV row output as a string.
  */
 export const XMLtoTSV = (element) => {}
 
+/**
+ * Converts an XML element into a JS object.
+ * @param {string} element The XML root element to convert.
+ * @return {Object} The JSON output as a JS object.
+ */
+export const XMLtoJSON = async (element) => {
+  const parser = new xml2js.Parser({
+    attrNameProcessors: [(name) => {
+      return `$${name}`
+    }],
+    mergeAttrs: true,
+    explicitArray: false
+  })
+  const object = await parser.parseStringPromise(element)
+  return object
+}
+
+/**
+ * Converts a JS object into a YAML string.
+ * @param {Object} object The JS object to convert.
+ * @return {string} The YAML output as a string.
+ */
+export const JSONtoYAML = (object) => {
+  const yaml = YAML.stringify(object)
+  return yaml
+}
+
+/**
+ * Parses a JS object with attrkey prefixes and expands it with attrkey properties.
+ * @param {Object} object The JS object with prefix attributes to expand.
+ * @return {Object} The JS object expanded with nested attributes.
+ */
+export const parseJSONWithAttrkey = (object) => {
+  const flattened = flatten(object)
+  const newObject = new Object()
+
+  for (const prop in flattened) {
+    const newProp = prop.replace(/\$/g, "$.")
+    newObject[newProp] = flattened[prop]
+  }
+  return flatten.unflatten(newObject)
+}
 
 ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////

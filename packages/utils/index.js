@@ -1,7 +1,9 @@
 import { Command } from "commander"
 import {
   generateColorDefinitions,
-  generateColorSettings,
+  generateObjectFromXML,
+  generateXMLFromObject,
+  generateYAMLFromObject
 } from "./generators.js"
 
 const program = new Command()
@@ -12,6 +14,24 @@ program
   .action(options => {
     options.development && (process.env.NODE_ENV = 'development')
     generateColorDefinitions()
+  })
+
+program
+  .command("xml-to-js")
+  .action((options) => {
+    generateObjectFromXML()
+  })
+
+program
+  .command("js-to-xml")
+  .action((options) => {
+    generateXMLFromObject()
+  })
+
+  program
+  .command("js-to-yaml")
+  .action((options) => {
+    generateYAMLFromObject()
   })
 
 program.parse()

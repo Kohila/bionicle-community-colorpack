@@ -1,3 +1,5 @@
+/** @module typedefs */
+
 /**
  * @global
  * @typedef {Object} Color

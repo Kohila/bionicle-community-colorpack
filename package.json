@@ -5,13 +5,17 @@
   "type": "module",
   "scripts": {
     "build:create-definitions": "node ./packages/utils/index.js create-definitions",
-    "dev:create-definitions": "node ./packages/utils/index.js create-definitions -dev"
+    "dev:create-definitions": "node ./packages/utils/index.js create-definitions -dev",
+    "dev:xml-to-js": "node ./packages/utils/index.js xml-to-js",
+    "dev:js-to-xml": "node ./packages/utils/index.js js-to-xml",
+    "dev:js-to-yaml": "node ./packages/utils/index.js js-to-yaml"
   },
   "dependencies": {
     "commander": "^11.0.0",
     "fast-xml-parser": "^4.2.6",
     "flat": "^5.0.2",
-    "xml2js": "^0.6.1"
+    "xml2js": "^0.6.2",
+    "yaml": "^2.3.1"
   },
   "workspaces": [
     "/packages/patcher"
