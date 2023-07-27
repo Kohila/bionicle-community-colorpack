@@ -32,11 +32,11 @@ program
   .command("ramp")
   .argument(
     "<r,g,b>",
-    "The primary color of the ramp in RGB format, comma-delimited."
+    "The primary color of the ramp in RGB format, comma-delimited. RGB values should be from 0-255 inclusive."
   )
   .arguments(
     "<r,g,b>",
-    "The secondary color of the ramp in RGB format, comma-delimited."
+    "The secondary color of the ramp in RGB format, comma-delimited. RGB values should be from 0-255 inclusive."
   )
   .action((firstRGB, secondRGB) => {
     try {
