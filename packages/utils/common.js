@@ -12,7 +12,7 @@ import path from "path"
  * @param {any} a The item to log to the debugger.
  */
 export const debug = (a) => {
-  process.env.NODE_ENV.trim() == "development" && console.log(`[DEBUG] ${a}`)
+  (process.env.NODE_ENV?.trim() == "development") && console.log(`[DEBUG] ${a}`)
 }
 
 /**

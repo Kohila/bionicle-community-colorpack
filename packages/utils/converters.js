@@ -101,6 +101,10 @@ export const parseJSONWithAttrkey = (object) => {
   return flatten.unflatten(newObject)
 }
 
+export const parseRGBPercentage = (value) => {
+  return (value / 255)
+}
+
 ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 

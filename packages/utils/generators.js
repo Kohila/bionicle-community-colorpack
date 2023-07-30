@@ -3,7 +3,8 @@
 import fs from "fs"
 import path from "path"
 import { getColorObjects, root } from "./common.js"
-import { JSONtoTSV, XMLtoJSON, JSONtoXML, JSONtoYAML } from "./converters.js"
+import { JSONtoTSV, XMLtoJSON, JSONtoXML, JSONtoYAML, parseRGBPercentage } from "./converters.js"
+import { debug } from "./common.js"
 
 /**
  * This function generates the ColorDefinitions.txt file as required by Stud.io.
@@ -49,16 +50,64 @@ export const generateColorSettings = () => {}
  * @property {number} b The blue value of a color on a scale of 0-255.
  */
 /**
- * @TODO Write script.
- *
  * This function generates color ramp data from provided RGB values. Original algorithm created
  * by Unpixelled.
  * @param {RGB} first The RGB values of the first color as a JS object.
  * @param {RGB} second The RGB values of the second color as a JS object.
+ * @param {number} start The start point of the gradient in the ramp values. From 0-100. Default: 0.
+ * @param {number} end The end point of the gradient in the ramp values. From 0-100. Default: 100.
  * @returns {string} The calculated color ramp data.
  */
-export const generateColorRamp = (first, second) => {}
+export const generateColorRamp = ({ first, second }, start = 0, end = 100) => {
+  const RAMP_CYCLES = 256
 
+  const percentages = {
+    start: start - 0,
+    gradient: end - start,
+    end: 100 - end,
+  }
+
+  const cycles = {
+    start: Math.round((percentages.start / 100) * RAMP_CYCLES),
+    gradient: Math.round((percentages.gradient / 100) * RAMP_CYCLES),
+    end: Math.round((percentages.end / 100) * RAMP_CYCLES),
+  }
+
+  console.dir(cycles)
+
+  const difference = {
+    r: (parseRGBPercentage(second.r - first.r) / cycles.gradient),
+    g: (parseRGBPercentage(second.g - first.g) / cycles.gradient),
+    b: (parseRGBPercentage(second.b - first.b) / cycles.gradient),
+  }
+
+  debug(`Differences: ${difference.r * cycles.gradient} ${difference.g * cycles.gradient} ${difference.b * cycles.gradient}\n`)
+
+  const rampValues = new Array()
+
+  for (let i = 0; i < RAMP_CYCLES; i++) {
+    if (i <= cycles.start) {
+      rampValues.push(parseRGBPercentage(first.r))
+      rampValues.push(parseRGBPercentage(first.g))
+      rampValues.push(parseRGBPercentage(first.b))
+    } else if (cycles.start < i && i < (cycles.start + cycles.gradient - 1)) {
+      rampValues.push(parseRGBPercentage(first.r) + (difference.r * (i - cycles.start)))
+      rampValues.push(parseRGBPercentage(first.g) + (difference.g * (i - cycles.start)))
+      rampValues.push(parseRGBPercentage(first.b) + (difference.b * (i - cycles.start)))
+    } else if (i >= cycles.end) {
+      rampValues.push(parseRGBPercentage(second.r))
+      rampValues.push(parseRGBPercentage(second.g))
+      rampValues.push(parseRGBPercentage(second.b))
+    }
+  }
+  debug(rampValues.join(" "))
+  return rampValues.join(" ")
+}
+
+/**
+ * This function reads color data from an XML file, converts the data to JSON format, and generates a
+ * corresponding JSON file.
+ */
 export const generateObjectFromXML = async () => {
   const filePath = path.join(root, ".temp", "setting.xml")
   const outputPath = path.join(root, ".temp", "setting.json")
@@ -69,16 +118,24 @@ export const generateObjectFromXML = async () => {
   fs.writeFileSync(outputPath, JSON.stringify(js, null, 2))
 }
 
+/**
+ * This function reads color data from a JSON file, converts the data to XML format, and generates a
+ * corresponding XML file.
+ */
 export const generateXMLFromObject = async () => {
   const filePath = path.join(root, ".temp", "setting.json")
   const outputPath = path.join(root, ".temp", "setting2.xml")
 
   const file = fs.readFileSync(filePath)
   const xml = await JSONtoXML(JSON.parse(file))
-  
+
   fs.writeFileSync(outputPath, xml)
 }
 
+/**
+ * This function reads color data from a JSON file, converts the data to YAML format, and generates a
+ * corresponding YAML file.
+ */
 export const generateYAMLFromObject = () => {
   const filePath = path.join(root, ".temp", "setting.json")
   const outputPath = path.join(root, ".temp", "setting.yaml")

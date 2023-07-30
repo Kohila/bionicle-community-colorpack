@@ -9,11 +9,11 @@
     "dev:xml-to-js": "node ./packages/utils/index.js xml-to-js",
     "dev:js-to-xml": "node ./packages/utils/index.js js-to-xml",
     "dev:js-to-yaml": "node ./packages/utils/index.js js-to-yaml",
-    "ramp": "node ./packages/utils/index.js ramp"
+    "ramp": "node ./packages/utils/index.js ramp -dev"
   },
   "dependencies": {
     "commander": "^11.0.0",
-    "fast-xml-parser": "^4.2.6",
+    "fast-xml-parser": "^4.2.7",
     "flat": "^5.0.2",
     "xml2js": "^0.6.2",
     "yaml": "^2.3.1"

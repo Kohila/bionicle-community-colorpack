@@ -1,6 +1,8 @@
 import { Command } from "commander"
+import { debug } from "./common.js"
 import {
   generateColorDefinitions,
+  generateColorRamp,
   generateObjectFromXML,
   generateXMLFromObject,
   generateYAMLFromObject,
@@ -31,37 +33,50 @@ program.command("js-to-yaml").action((options) => {
 program
   .command("ramp")
   .argument(
-    "<r,g,b>",
+    "<r1,g1,b1>",
     "The primary color of the ramp in RGB format, comma-delimited. RGB values should be from 0-255 inclusive."
   )
   .arguments(
-    "<r,g,b>",
+    "<r2,g2,b2>",
     "The secondary color of the ramp in RGB format, comma-delimited. RGB values should be from 0-255 inclusive."
   )
-  .action((firstRGB, secondRGB) => {
-    try {
-      // Check if arguments were passed
-      if (typeof firstRGB == "undefined")
-        throw "[ERROR]: First <r,g,b> argument not specified."
-      if (typeof secondRGB == "undefined")
-        throw "[ERROR]: Second <r,g,b> argument not specified."
-
-      // Validating first RGB
-      const first = firstRGB.split(",")
-      if (first.length != 3)  throw `[ERROR]: First <r,g,b> argument <${firstRGB}> is in an invalid format.`
-      first.forEach((value) => {
-        if (isNaN(value) || value < 0 || value > 255) throw `[ERROR]: The first <r,g,b> argument <${firstRGB}> contains an invalid value: ${value}.`
-      })
-
-      // Validating second RGB
-      const second = secondRGB.split(",")
-      if (second.length != 3) throw `[ERROR]: Second <r,g,b> value <${secondRGB}> is in an invalid format.`
-      second.forEach((value) => {
-        if (isNaN(value) || value < 0 || value > 255) throw `[ERROR]: The second <r,g,b> argument <${secondRGB}> contains an invalid value: ${value}.`
-      })
-    } catch (err) {
-      console.error(err)
+  .option("-dev, --development", "Run in development mode")
+  .option("-s, --start <number>", "The starting point for the gradient. Value should be from 0-100. (Default: 0)", parseInt)
+  .option("-e, --end <number>", "The ending point for the gradient. Value should be from 0-100. (Default: 100)", parseInt)
+  .action((firstRGB, secondRGB, options) => {
+    options.development && (process.env.NODE_ENV = "development")
+    
+    const colors = {
+      first: validateRGBInput(firstRGB),
+      second: validateRGBInput(secondRGB)
     }
+    
+    const start = parseInt(options.start) || 0
+    const end = parseInt(options.end) || 100
+
+    colors.first && colors.second && generateColorRamp(colors, start, end)
   })
+
+const validateRGBInput = (input) => {
+  try {
+    const array = input.split(",").map((e) => parseInt(e))
+    if (array.length != 3)
+      throw `[ERROR]: The <r,g,b> argument <${input}> is in an invalid format.`
+    array.forEach((value) => {
+      if (isNaN(value) || value < 0 || value > 255)
+        throw `[ERROR]: The <r,g,b> argument <${input}> contains an invalid value: ${value}.`
+    })
+
+    const color = {
+      r: array[0],
+      g: array[1],
+      b: array[2],
+    }
+    return color
+  } catch (err) {
+    console.error(err)
+    return false
+  }
+}
 
 program.parse()
