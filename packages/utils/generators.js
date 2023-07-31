@@ -182,7 +182,8 @@ export const generateMergedColor = async () => {
   )
   const settingsFilePath = path.join(root, ".temp", "CustomColorSettings.xml")
   const outputPath = path.join(root, ".temp", "colors")
-  const testPath = path.join(root, ".temp", "remainders.txt")
+  const definitionsRemainingPath = path.join(root, ".temp", "remainders.json")
+  const settingsRemainingPath = path.join(root, ".temp", "remainders.txt")
 
   const definitionFile = fs.readFileSync(definitionFilePath)
   const settingsFile = fs.readFileSync(settingsFilePath)
@@ -190,41 +191,45 @@ export const generateMergedColor = async () => {
   const definitions = definitionFile.toString().split(/\n/g)
   const settings = await XMLtoJSON(settingsFile.toString())
   const materials = settings.eyesight.material
-  const remainders = new Array()
+  const definitionsRemaining = new Array()
+  const settingsRemaining = materials
 
   for (const definition of definitions) {
-    if (definitions.indexOf(definition) == 0) continue
+    if (definitions.indexOf(definition) == 0 || definition === "\r" || /^(\r|\s|\n)+$/.test(definition)) continue
+
     const colorDefinition = TSVtoJSON(definition.toString())
     const settingsName = parseSettingsNameFromDefinition(colorDefinition)
     const colorSettings = materials.find(
       (color) => color["$name"] === settingsName
     )
+
     if (!colorSettings) {
-      console.log(colorSettings)
-      remainders.push(
+      definitionsRemaining.push(
         JSON.stringify({
-          index: definitions.indexOf(definition),
+          lineNumber: definitions.indexOf(definition) + 1,
           name: colorDefinition.name.studio,
           formatted: settingsName,
         })
       )
       continue
     }
+
     const color = {
       definition: { ...colorDefinition },
       settings: { ...colorSettings },
     }
 
-    // materials.splice(colorSettings, 1)
-    // definitions.splice(definition, 1)
+    settingsRemaining.splice(settingsRemaining.indexOf(colorSettings), 1)
 
     fs.writeFileSync(
       path.join(outputPath, `${settingsName}.json`),
       JSON.stringify(color, null, 2)
     )
-  }
 
-  fs.writeFileSync(testPath, remainders.join("\n"))
+  }
+  
+  fs.writeFileSync(settingsRemainingPath, settingsRemaining.map(setting => setting["$name"]).join("\n"))
+  fs.writeFileSync(definitionsRemainingPath, definitionsRemaining.join("\n"))
 }
 
 /**

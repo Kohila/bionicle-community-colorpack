@@ -131,7 +131,7 @@ export const parseJSONWithAttrkey = (object) => {
 }
 
 /**
- * 
+ * This function converts an RGB 0-255 value to an RGB 0.0-1.0 value.
  * @param {Number} value 
  * @returns {Number}
  */
@@ -140,7 +140,7 @@ export const parseRGBPercentage = (value) => {
 }
 
 /**
- * 
+ * This function generates a color's Settings name from its Definitions values.
  * @param {Color} object
  * @returns {string}
  */
@@ -148,8 +148,22 @@ export const parseSettingsNameFromDefinition = (object) => {
   const defName = object.name.studio
   const category = object.category.name
 
-  const prefix = Object.keys(COLOR_CATEGORIES).find(key => COLOR_CATEGORIES[key] === category) || console.log(category)
-  const name = defName.toLocaleUpperCase().replace(/[\s\-]/g, "_")
+  if (defName === "" || category === "") return null
+
+  const prefix = Object.keys(COLOR_CATEGORIES).find(key => COLOR_CATEGORIES[key] === category)
+  const name = defName
+  .toLocaleUpperCase()
+  .trim()
+  .replace(/[\s\-]/g, "_")
+  .replace(/^METALLIC_/g, "")
+  .replace(/SMOOTH_PEARL_/g, "SMOOTH_")
+  .replace(/FINE_TRANS_/g, "FINE_")
+  .replace(/FINE_PEARL_/g, "FINE_")
+  .replace(/MARBLED_TRANS_/g, "MARBLED_")
+  .replace(/FLUORESCENT_TRANS_/g, "FLUORESCENT_")
+  .replace(/SEMITRANS_/g, "SEMI")
+  .replace(/SOFT_TRANS_/g, "SOFT_")
+  .replace(/TRANS_GLOW_/g, "GLOW_")
 
 
 
