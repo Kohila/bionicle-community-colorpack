@@ -3,7 +3,15 @@
 import fs from "fs"
 import path from "path"
 import { getColorObjects, root } from "./common.js"
-import { JSONtoTSV, XMLtoJSON, JSONtoXML, JSONtoYAML, parseRGBPercentage } from "./converters.js"
+import {
+  JSONtoTSV,
+  XMLtoJSON,
+  JSONtoXML,
+  JSONtoYAML,
+  parseRGBPercentage,
+  TSVtoJSON,
+  parseSettingsNameFromDefinition,
+} from "./converters.js"
 import { debug } from "./common.js"
 
 /**
@@ -76,12 +84,16 @@ export const generateColorRamp = ({ first, second }, start = 0, end = 100) => {
   console.dir(cycles)
 
   const difference = {
-    r: (parseRGBPercentage(second.r - first.r) / cycles.gradient),
-    g: (parseRGBPercentage(second.g - first.g) / cycles.gradient),
-    b: (parseRGBPercentage(second.b - first.b) / cycles.gradient),
+    r: parseRGBPercentage(second.r - first.r) / cycles.gradient,
+    g: parseRGBPercentage(second.g - first.g) / cycles.gradient,
+    b: parseRGBPercentage(second.b - first.b) / cycles.gradient,
   }
 
-  debug(`Differences: ${difference.r * cycles.gradient} ${difference.g * cycles.gradient} ${difference.b * cycles.gradient}\n`)
+  debug(
+    `Differences: ${difference.r * cycles.gradient} ${
+      difference.g * cycles.gradient
+    } ${difference.b * cycles.gradient}\n`
+  )
 
   const rampValues = new Array()
 
@@ -90,10 +102,16 @@ export const generateColorRamp = ({ first, second }, start = 0, end = 100) => {
       rampValues.push(parseRGBPercentage(first.r))
       rampValues.push(parseRGBPercentage(first.g))
       rampValues.push(parseRGBPercentage(first.b))
-    } else if (cycles.start < i && i < (cycles.start + cycles.gradient - 1)) {
-      rampValues.push(parseRGBPercentage(first.r) + (difference.r * (i - cycles.start)))
-      rampValues.push(parseRGBPercentage(first.g) + (difference.g * (i - cycles.start)))
-      rampValues.push(parseRGBPercentage(first.b) + (difference.b * (i - cycles.start)))
+    } else if (cycles.start < i && i < cycles.start + cycles.gradient - 1) {
+      rampValues.push(
+        parseRGBPercentage(first.r) + difference.r * (i - cycles.start)
+      )
+      rampValues.push(
+        parseRGBPercentage(first.g) + difference.g * (i - cycles.start)
+      )
+      rampValues.push(
+        parseRGBPercentage(first.b) + difference.b * (i - cycles.start)
+      )
     } else if (i >= cycles.end) {
       rampValues.push(parseRGBPercentage(second.r))
       rampValues.push(parseRGBPercentage(second.g))
@@ -144,6 +162,69 @@ export const generateYAMLFromObject = () => {
   const yaml = JSONtoYAML(JSON.parse(file))
 
   fs.writeFileSync(outputPath, yaml)
+}
+
+export const generateObjectFromTSV = () => {
+  const filePath = path.join(root, ".temp", "definition.txt")
+  const outputPath = path.join(root, ".temp", "definition.json")
+
+  const file = fs.readFileSync(filePath)
+  const js = TSVtoJSON(file.toString())
+
+  fs.writeFileSync(outputPath, JSON.stringify(js, null, 2))
+}
+
+export const generateMergedColor = async () => {
+  const definitionFilePath = path.join(
+    root,
+    ".temp",
+    "CustomColorDefinition.txt"
+  )
+  const settingsFilePath = path.join(root, ".temp", "CustomColorSettings.xml")
+  const outputPath = path.join(root, ".temp", "colors")
+  const testPath = path.join(root, ".temp", "remainders.txt")
+
+  const definitionFile = fs.readFileSync(definitionFilePath)
+  const settingsFile = fs.readFileSync(settingsFilePath)
+
+  const definitions = definitionFile.toString().split(/\n/g)
+  const settings = await XMLtoJSON(settingsFile.toString())
+  const materials = settings.eyesight.material
+  const remainders = new Array()
+
+  for (const definition of definitions) {
+    if (definitions.indexOf(definition) == 0) continue
+    const colorDefinition = TSVtoJSON(definition.toString())
+    const settingsName = parseSettingsNameFromDefinition(colorDefinition)
+    const colorSettings = materials.find(
+      (color) => color["$name"] === settingsName
+    )
+    if (!colorSettings) {
+      console.log(colorSettings)
+      remainders.push(
+        JSON.stringify({
+          index: definitions.indexOf(definition),
+          name: colorDefinition.name.studio,
+          formatted: settingsName,
+        })
+      )
+      continue
+    }
+    const color = {
+      definition: { ...colorDefinition },
+      settings: { ...colorSettings },
+    }
+
+    // materials.splice(colorSettings, 1)
+    // definitions.splice(definition, 1)
+
+    fs.writeFileSync(
+      path.join(outputPath, `${settingsName}.json`),
+      JSON.stringify(color, null, 2)
+    )
+  }
+
+  fs.writeFileSync(testPath, remainders.join("\n"))
 }
 
 /**

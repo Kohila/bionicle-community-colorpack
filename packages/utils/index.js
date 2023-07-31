@@ -3,6 +3,8 @@ import { debug } from "./common.js"
 import {
   generateColorDefinitions,
   generateColorRamp,
+  generateMergedColor,
+  generateObjectFromTSV,
   generateObjectFromXML,
   generateXMLFromObject,
   generateYAMLFromObject,
@@ -28,6 +30,14 @@ program.command("js-to-xml").action((options) => {
 
 program.command("js-to-yaml").action((options) => {
   generateYAMLFromObject()
+})
+
+program.command("tsv-to-js").action((options) => {
+  generateObjectFromTSV()
+})
+
+program.command("merge-color-files").action((options) => {
+  generateMergedColor()
 })
 
 program
