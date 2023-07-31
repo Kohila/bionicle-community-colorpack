@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angablue/exe": "^1.2.0",
+    "@angablue/exe": "^2.0.2",
     "archiver": "^5.3.1",
     "archiver-zip-encrypted": "^1.0.11",
     "chalk": "^5.3.0",
