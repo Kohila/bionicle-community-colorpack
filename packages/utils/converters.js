@@ -74,7 +74,7 @@ export const TSVtoJSON = (string) => {
 
   const object = {}
   for (let i = 0; i < TSV_ROWS.length; i++) {
-    object[TSV_ROWS[i]] = tsv[i]
+    object[TSV_ROWS[i]] = tsv[i].trim()
   }
 
   return flatten.unflatten(object)
@@ -159,7 +159,7 @@ export const parseSettingsNameFromDefinition = (object) => {
   .replace(/SMOOTH_PEARL_/g, "SMOOTH_")
   .replace(/FINE_TRANS_/g, "FINE_")
   .replace(/FINE_PEARL_/g, "FINE_")
-  .replace(/MARBLED_TRANS_/g, "MARBLED_")
+  // .replace(/MARBLED_TRANS_/g, "MARBLED_")
   .replace(/FLUORESCENT_TRANS_/g, "FLUORESCENT_")
   .replace(/SEMITRANS_/g, "SEMI")
   .replace(/SOFT_TRANS_/g, "SOFT_")

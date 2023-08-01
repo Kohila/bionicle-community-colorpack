@@ -3,7 +3,7 @@ import { debug } from "./common.js"
 import {
   generateColorDefinitions,
   generateColorRamp,
-  generateMergedColor,
+  generateMergedColors,
   generateObjectFromTSV,
   generateObjectFromXML,
   generateXMLFromObject,
@@ -37,7 +37,7 @@ program.command("tsv-to-js").action((options) => {
 })
 
 program.command("merge-color-files").action((options) => {
-  generateMergedColor()
+  generateMergedColors()
 })
 
 program

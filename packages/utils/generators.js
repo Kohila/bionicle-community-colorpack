@@ -2,6 +2,7 @@
 
 import fs from "fs"
 import path from "path"
+import chalk from "chalk"
 import { getColorObjects, root } from "./common.js"
 import {
   JSONtoTSV,
@@ -84,41 +85,62 @@ export const generateColorRamp = ({ first, second }, start = 0, end = 100) => {
   console.dir(cycles)
 
   const difference = {
-    r: parseRGBPercentage(second.r - first.r) / cycles.gradient,
-    g: parseRGBPercentage(second.g - first.g) / cycles.gradient,
-    b: parseRGBPercentage(second.b - first.b) / cycles.gradient,
+    r: second.r - first.r,
+    g: second.g - first.g,
+    b: second.b - first.b,
+    dr: (second.r - first.r) / cycles.gradient,
+    dg: (second.g - first.g) / cycles.gradient,
+    db: (second.b - first.b) / cycles.gradient,
   }
 
   debug(
-    `Differences: ${difference.r * cycles.gradient} ${
-      difference.g * cycles.gradient
-    } ${difference.b * cycles.gradient}\n`
+    `Differences total: <${difference.r}, ${difference.g}, ${difference.b}>\nPer ${cycles.gradient} gradient cycles: <${difference.dr}, ${difference.dg}, ${difference.db}> \n`
   )
 
   const rampValues = new Array()
+  const rampPreview = new Array()
 
   for (let i = 0; i < RAMP_CYCLES; i++) {
     if (i <= cycles.start) {
-      rampValues.push(parseRGBPercentage(first.r))
-      rampValues.push(parseRGBPercentage(first.g))
-      rampValues.push(parseRGBPercentage(first.b))
+      rampValues.push(
+        parseRGBPercentage(first.r),
+        parseRGBPercentage(first.g),
+        parseRGBPercentage(first.b))
+      rampPreview.push({
+        r: Math.round(first.r),
+        g: Math.round(first.g),
+        b: Math.round(first.b)
+      })
     } else if (cycles.start < i && i < cycles.start + cycles.gradient - 1) {
       rampValues.push(
-        parseRGBPercentage(first.r) + difference.r * (i - cycles.start)
+        parseRGBPercentage(first.r + (difference.dr * (i - cycles.start))),
+        parseRGBPercentage(first.g + (difference.dg * (i - cycles.start))),
+        parseRGBPercentage(first.b + (difference.db * (i - cycles.start))),
       )
-      rampValues.push(
-        parseRGBPercentage(first.g) + difference.g * (i - cycles.start)
-      )
-      rampValues.push(
-        parseRGBPercentage(first.b) + difference.b * (i - cycles.start)
-      )
+      rampPreview.push({
+        r: Math.round(first.r + (difference.dr * (i - cycles.start))),
+        g: Math.round(first.g + (difference.dg * (i - cycles.start))),
+        b: Math.round(first.b + (difference.db * (i - cycles.start))),
+      })
     } else if (i >= cycles.end) {
-      rampValues.push(parseRGBPercentage(second.r))
-      rampValues.push(parseRGBPercentage(second.g))
-      rampValues.push(parseRGBPercentage(second.b))
+      rampValues.push(
+      parseRGBPercentage(second.r),
+      parseRGBPercentage(second.g),
+      parseRGBPercentage(second.b))
+      rampPreview.push({
+        r: Math.round(second.r),
+        g: Math.round(second.g),
+        b: Math.round(second.b)
+      })
     }
   }
-  debug(rampValues.join(" "))
+  let preview = "[PREVIEW]: "
+  for (const step of rampPreview) {
+    if (rampPreview.indexOf(step) % 2) continue
+    preview += chalk.rgb(step.r, step.g, step.b)("█")
+  }
+  console.log(preview)
+  // console.log(rampPreview)
   return rampValues.join(" ")
 }
 
@@ -174,13 +196,23 @@ export const generateObjectFromTSV = () => {
   fs.writeFileSync(outputPath, JSON.stringify(js, null, 2))
 }
 
-export const generateMergedColor = async () => {
+/**
+ * This function will read data from CustomColorSettings.xml and CustomColorDefinition.txt and generate a single 
+ * color data file merging the matching values from both input files.
+ */
+export const generateMergedColors = async () => {
   const definitionFilePath = path.join(
     root,
     ".temp",
+    "data",
     "CustomColorDefinition.txt"
   )
-  const settingsFilePath = path.join(root, ".temp", "CustomColorSettings.xml")
+  const settingsFilePath = path.join(
+    root,
+    ".temp",
+    "data",
+    "CustomColorSettings.xml"
+  )
   const outputPath = path.join(root, ".temp", "colors")
   const definitionsRemainingPath = path.join(root, ".temp", "remainders.json")
   const settingsRemainingPath = path.join(root, ".temp", "remainders.txt")
@@ -195,7 +227,12 @@ export const generateMergedColor = async () => {
   const settingsRemaining = materials
 
   for (const definition of definitions) {
-    if (definitions.indexOf(definition) == 0 || definition === "\r" || /^(\r|\s|\n)+$/.test(definition)) continue
+    if (
+      definitions.indexOf(definition) == 0 ||
+      definition === "\r" ||
+      /^(\r|\s|\n)+$/.test(definition)
+    )
+      continue
 
     const colorDefinition = TSVtoJSON(definition.toString())
     const settingsName = parseSettingsNameFromDefinition(colorDefinition)
@@ -208,7 +245,7 @@ export const generateMergedColor = async () => {
         JSON.stringify({
           lineNumber: definitions.indexOf(definition) + 1,
           name: colorDefinition.name.studio,
-          formatted: settingsName,
+          // formatted: settingsName,
         })
       )
       continue
@@ -221,14 +258,28 @@ export const generateMergedColor = async () => {
 
     settingsRemaining.splice(settingsRemaining.indexOf(colorSettings), 1)
 
-    fs.writeFileSync(
-      path.join(outputPath, `${settingsName}.json`),
-      JSON.stringify(color, null, 2)
-    )
+    const asYAML = {
+      file: path.join(outputPath, `${colorDefinition.name.studio}.yaml`),
+      data: JSONtoYAML(color)
+    }
 
+    const asJSON = {
+      file: path.join(outputPath, `${colorDefinition.name.studio}.json`),
+      data: JSON.stringify(color, null, 2)
+    }
+
+    const asXML = {
+      file: path.join(outputPath, `${colorDefinition.name.studio}.xml`),
+      data: JSONtoXML({data: color})
+    }
+
+    fs.writeFileSync(asXML.file, asXML.data)
   }
-  
-  fs.writeFileSync(settingsRemainingPath, settingsRemaining.map(setting => setting["$name"]).join("\n"))
+
+  fs.writeFileSync(
+    settingsRemainingPath,
+    settingsRemaining.map((setting) => setting["$name"]).join("\n")
+  )
   fs.writeFileSync(definitionsRemainingPath, definitionsRemaining.join("\n"))
 }
 
