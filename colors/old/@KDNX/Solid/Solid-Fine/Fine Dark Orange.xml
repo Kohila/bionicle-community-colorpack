@@ -1,0 +1,47 @@
+<data>
+  <definition>
+    <id>
+      <studio>64646024</studio>
+      <bricklink>64646024</bricklink>
+      <ldraw>64646024</ldraw>
+      <ldd>64646024</ldd>
+    </id>
+    <name>
+      <studio>Fine Dark Orange</studio>
+      <bricklink>Fdarkorange</bricklink>
+      <ldraw>Fdarkorange</ldraw>
+      <ldd>Fdarkorange</ldd>
+    </name>
+    <rgb>#a85400</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Fine Colors</nickname>
+    </category>
+    <groupId>5</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-FINE_DARK_ORANGE" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="PRINCIPLED-GROUP" name="PEARL-SMOOTH_GROUP">
+        <input name="BaseColor" type="color" value="0.4 0.106 0.04000001"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="GlossColor" type="color" value="0.4 0.106 0.04000001"/>
+        <input name="SubsurfaceRadius" type="vector" value="0.4 0.4 0.4"/>
+        <input name="SubsurfaceRoughness" type="float" value="0.320000"/>
+        <input name="MinRoughness" type="float" value="0.15"/>
+        <input name="MaxRoughness" type="float" value="0.7"/>
+        <input name="Clearcoat" type="float" value="0.300000"/>
+        <input name="Metallic" type="float" value="0.100000"/>
+        <input name="Transmission" type="float" value="0.000000"/>
+        <input name="Volume" type="float" value="0.000000"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <connect from_node="PEARL-SMOOTH_GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

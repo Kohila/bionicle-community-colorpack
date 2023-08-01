@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>32002</studio>
+      <bricklink>32002</bricklink>
+      <ldraw>32002</ldraw>
+      <ldd>32002</ldd>
+    </id>
+    <name>
+      <studio>Metallic Copper Alternative</studio>
+      <bricklink>Metallic Copper Alternative</bricklink>
+      <ldraw>Metallic Copper Alternative</ldraw>
+      <ldd>Metallic Copper Alternative</ldd>
+    </name>
+    <rgb>#C66921</rgb>
+    <alpha>1.0</alpha>
+    <category>
+      <name>Metallic Colors</name>
+      <nickname>Metallic Colors</nickname>
+    </category>
+    <groupId>3</groupId>
+    <notes>to_lego</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="METAL-COPPER_ALTERNATIVE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.698 0.286 0.149"/>
+      <group group_name="METAL-GROUP" name="METAL-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="Color" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="METAL-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="METAL-GROUP" to_socket="Color"/>
+      <connect from_node="METAL-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

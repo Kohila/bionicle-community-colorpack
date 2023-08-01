@@ -1,0 +1,49 @@
+<data>
+  <definition>
+    <id>
+      <studio>44004</studio>
+      <bricklink>44004</bricklink>
+      <ldraw>44004</ldraw>
+      <ldd>44004</ldd>
+    </id>
+    <name>
+      <studio>Luminous 5K</studio>
+      <bricklink>Luminous 5K</bricklink>
+      <ldraw>Luminous 5K</ldraw>
+      <ldd>Luminous 5K</ldd>
+    </name>
+    <rgb>#000000</rgb>
+    <alpha>1.0</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Translucent(Render Only)</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>to_bl,to_ldd</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings name="TRANS-LUMINOUS_5K" displacement_method="bump" heterogeneous_volume="False" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <blackbody name="Blackbody">
+        <input name="Temperature" type="float" value="5000.00"/>
+        <output name="Color" type="color"/>
+      </blackbody>
+      <light_falloff name="LightFalloff">
+        <input name="Strength" type="float" value="50.0"/>
+        <input name="Smooth" type="float" value="0.8"/>
+        <output name="Quadratic" type="float"/>
+      </light_falloff>
+      <emission name="Emission">
+        <input name="Color" type="color" value="1.0 1.0 1.0"/>
+        <input name="Strength" type="float" value="50.0"/>
+      </emission>
+      <connect from_node="Blackbody" from_socket="Color" to_node="Emission" to_socket="Color"/>
+      <connect from_node="LightFalloff" from_socket="Quadratic" to_node="Emission" to_socket="Strength"/>
+      <connect from_node="Emission" from_socket="Emission" to_node="Output" to_socket="Surface"/>
+      <connect from_node="Emission" from_socket="Emission" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

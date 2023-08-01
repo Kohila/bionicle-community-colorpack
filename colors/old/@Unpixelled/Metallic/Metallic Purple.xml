@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>32003</studio>
+      <bricklink>32003</bricklink>
+      <ldraw>32003</ldraw>
+      <ldd>32003</ldd>
+    </id>
+    <name>
+      <studio>Metallic Purple</studio>
+      <bricklink>Metallic Purple</bricklink>
+      <ldraw>Metallic Purple</ldraw>
+      <ldd>Metallic Purple</ldd>
+    </name>
+    <rgb>#8d00d9</rgb>
+    <alpha>1.0</alpha>
+    <category>
+      <name>Metallic Colors</name>
+      <nickname>Metallic Colors</nickname>
+    </category>
+    <groupId>20</groupId>
+    <notes>to_lego</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="METAL-PURPLE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.553 0 0.851"/>
+      <group group_name="METAL-GROUP" name="METAL-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="Color" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="METAL-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="METAL-GROUP" to_socket="Color"/>
+      <connect from_node="METAL-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

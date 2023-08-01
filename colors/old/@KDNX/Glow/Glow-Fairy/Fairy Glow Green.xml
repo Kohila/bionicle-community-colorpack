@@ -1,0 +1,37 @@
+<data>
+  <definition>
+    <id>
+      <studio>64648305</studio>
+      <bricklink>64648305</bricklink>
+      <ldraw>64648305</ldraw>
+      <ldd>64648305</ldd>
+    </id>
+    <name>
+      <studio>Fairy Glow Green</studio>
+      <bricklink>FGgreen</bricklink>
+      <ldraw>FGgreen</ldraw>
+      <ldd>FGgreen</ldd>
+    </name>
+    <rgb>#1e9715</rgb>
+    <alpha>0.4</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Fairy Glow Colors</nickname>
+    </category>
+    <groupId>12</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-FAIRY_GLOW_GREEN" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="FAIRY-GROUP" name="FAIRY-GROUP">
+        <input name="Color" type="color" value="0.115 0.792 0.114"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="FAIRY-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

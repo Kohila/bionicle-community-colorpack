@@ -1,0 +1,49 @@
+<data>
+  <definition>
+    <id>
+      <studio>64646106</studio>
+      <bricklink>64646106</bricklink>
+      <ldraw>64646106</ldraw>
+      <ldd>64646106</ldd>
+    </id>
+    <name>
+      <studio>Fine Reddish Gold</studio>
+      <bricklink>Freddishgold</bricklink>
+      <ldraw>Freddishgold</ldraw>
+      <ldd>Freddishgold</ldd>
+    </name>
+    <rgb>#cf9145</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Metal-Fine Colors</nickname>
+    </category>
+    <groupId>7</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-FINE_REDDISH_GOLD" subsurface_ao_factor="0.0" subsurface_factor="1.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SHINE_GROUP" name="SHINE_GROUP">
+        <input name="BaseColor" type="color" value="0.650 0.329 0.047"/>
+        <input name="ShineColor" type="color" value="0.686686 0.434154 0.184475"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="GlossColor" type="color" value="0.265 0.117 0"/>
+        <input name="SubsurfaceRadius" type="vector" value="0.3 0.3 0.3"/>
+        <input name="SubsurfaceRoughness" type="float" value="0.290000"/>
+        <input name="MinRoughness" type="float" value="0.15"/>
+        <input name="MaxRoughness" type="float" value="0.7"/>
+        <input name="Clearcoat" type="float" value="0.300000"/>
+        <input name="Metallic" type="float" value="0.2500000"/>
+        <input name="Transmission" type="float" value="0.000000"/>
+        <input name="LayerWeight" type="float" value="0.9500000"/>
+        <input name="Volume" type="float" value="0.000000"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <connect from_node="SHINE_GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

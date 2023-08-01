@@ -1,0 +1,67 @@
+<data>
+  <definition>
+    <id>
+      <studio>41100</studio>
+      <bricklink>41100</bricklink>
+      <ldraw>41100</ldraw>
+      <ldd>41100</ldd>
+    </id>
+    <name>
+      <studio>Foggy Dark Blue</studio>
+      <bricklink>Foggy Dark Blue</bricklink>
+      <ldraw>Foggy Dark Blue</ldraw>
+      <ldd>Foggy Dark Blue</ldd>
+    </name>
+    <rgb>#64afff</rgb>
+    <alpha>1.0</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Translucent(Render Only)</nickname>
+    </category>
+    <groupId>17</groupId>
+    <notes>to_bl,to_ldd</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-FOGGY_DARK_BLUE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.376 0.69 1"/>
+      <glass_bsdf name="Glass">
+        <input name="Color" type="color"/>
+        <input name="Roughness" type="float" value="0.05"/>
+        <input name="IOR" type="float" value="1.5"/>
+      </glass_bsdf>
+      <transparent_bsdf name="Glass2">
+        <input name="Color" type="color"/>
+      </transparent_bsdf>
+      <absorption_volume name="Fill">
+        <input name="Color" type="color"/>
+        <input name="Density" type="float" value="2"/>
+      </absorption_volume>
+      <scatter_volume name="Diffuse">
+        <input name="Color" type="color" value="1 1 1"/>
+        <input name="Density" type="float" value="10"/>
+        <input name="Anisotropy" type="float" value="0"/>
+      </scatter_volume>
+      <add_closure name="AddShader"/>
+      <mix_closure name="MixShader">
+        <input name="Fac" type="float" value="0.5"/>
+      </mix_closure>
+      <layer_weight name="LayerWeight">
+        <input name="Blend" type="float" value="0.1"/>
+      </layer_weight>
+      <connect from_node="RGB" from_socket="Color" to_node="Glass" to_socket="Color"/>
+      <connect from_node="RGB" from_socket="Color" to_node="Glass2" to_socket="Color"/>
+      <connect from_node="RGB" from_socket="Color" to_node="Fill" to_socket="Color"/>
+      <connect from_node="Fill" from_socket="Volume" to_node="AddShader" to_socket="Shader1"/>
+      <connect from_node="Diffuse" from_socket="Volume" to_node="AddShader" to_socket="Shader2"/>
+      <connect from_node="LayerWeight" from_socket="Fresnel" to_node="MixShader" to_socket="Fac"/>
+      <connect from_node="Glass" from_socket="BSDF" to_node="MixShader" to_socket="Shader1"/>
+      <connect from_node="Glass2" from_socket="BSDF" to_node="MixShader" to_socket="Shader2"/>
+      <connect from_node="MixShader" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+      <connect from_node="AddShader" from_socket="Shader" to_node="Output" to_socket="Volume"/>
+    </shader>
+  </settings>
+</data>

@@ -1,0 +1,37 @@
+<data>
+  <definition>
+    <id>
+      <studio>64648405</studio>
+      <bricklink>64648405</bricklink>
+      <ldraw>64648405</ldraw>
+      <ldd>64648405</ldd>
+    </id>
+    <name>
+      <studio>Hollow Glow Green</studio>
+      <bricklink>HGgreen</bricklink>
+      <ldraw>HGgreen</ldraw>
+      <ldd>HGgreen</ldd>
+    </name>
+    <rgb>#1e9715</rgb>
+    <alpha>0.25</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Hollow Glow Colors</nickname>
+    </category>
+    <groupId>12</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-HOLLOW_GLOW_GREEN" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="HOLLOW-GROUP" name="HOLLOW-GROUP">
+        <input name="Color" type="color" value="0.115 0.792 0.114"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="HOLLOW-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

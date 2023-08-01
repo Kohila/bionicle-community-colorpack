@@ -1,0 +1,59 @@
+<data>
+  <definition>
+    <id>
+      <studio>64644012</studio>
+      <bricklink>64644012</bricklink>
+      <ldraw>64644012</ldraw>
+      <ldd>64644012</ldd>
+    </id>
+    <name>
+      <studio>Matte Dark Bluish Grey</studio>
+      <bricklink>Matte Dark Bluish Gray</bricklink>
+      <ldraw>Mdarkbluishgrey</ldraw>
+      <ldd>Mdarkbluishgray</ldd>
+    </name>
+    <rgb>#6b6d67</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Matte Colors</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="SOLID-MATTE_DARK_BLUISH_GREY" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <principled_bsdf distribution="ggx" name="PrincipledBSDF" subsurface_method="burley">
+        <input name="BaseColor" type="color"/>
+        <input name="Subsurface" type="float" value="0.000000"/>
+        <input name="SubsurfaceRadius" type="vector" value="1.0 1.0 1.0"/>
+        <input name="SubsurfaceColor" type="color" value="1.0 1.0 1.0"/>
+        <input name="Specular" type="float" value="0.500000"/>
+        <input name="SpecularTint" type="float" value="0.000000"/>
+        <input name="Roughness" type="float" value="0.500000"/>
+        <input name="Anisotropic" type="float" value="0.000000"/>
+        <input name="AnisotropicRotation" type="float" value="0.000000"/>
+        <input name="Sheen" type="float" value="0.000000"/>
+        <input name="SheenTint" type="float" value="0.500000"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="ClearcoatRoughness" type="float" value="0.030000"/>
+        <input name="IOR" type="float" value="1.450000"/>
+        <input name="Transmission" type="float" value="0.000000"/>
+        <input name="TransmissionRoughness" type="float" value="0.000000"/>
+        <input name="Tangent" type="vector" value="0.0 0.0 0.0"/>
+      </principled_bsdf>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <color name="RGB" value="0.151228 0.1601239 0.1690196"/>
+      <connect from_node="RGB" from_socket="Color" to_node="PrincipledBSDF" to_socket="BaseColor"/>
+      <connect from_node="PrincipledBSDF" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

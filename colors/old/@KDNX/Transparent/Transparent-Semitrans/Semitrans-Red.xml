@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647203</studio>
+      <bricklink>64647203</bricklink>
+      <ldraw>64647203</ldraw>
+      <ldd>64647203</ldd>
+    </id>
+    <name>
+      <studio>Semitrans-Red</studio>
+      <bricklink>STred</bricklink>
+      <ldraw>STred</ldraw>
+      <ldd>STred</ldd>
+    </name>
+    <rgb>#C81908</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Semitransparent Colors</nickname>
+    </category>
+    <groupId>1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-SEMIRED" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SEMITRANS-GROUP" name="SEMITRANS-GROUP">
+        <input name="BaseColor" type="color" value="0.870997 0.116083 0.116083"/>
+        <input name="Tint" type="color" value="0.948264 0.251327 0"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.9"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="SEMITRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

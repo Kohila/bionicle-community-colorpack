@@ -1,0 +1,53 @@
+<data>
+  <definition>
+    <id>
+      <studio>64643010</studio>
+      <bricklink>64643010</bricklink>
+      <ldraw>64643010</ldraw>
+      <ldd>64643010</ldd>
+    </id>
+    <name>
+      <studio>Very Light Bluish Grey Poisoned Kanohi</studio>
+      <bricklink>Very Light Bluish Gray Poisoned Kanohi</bricklink>
+      <ldraw>verylightbluishgreyPK</ldraw>
+      <ldd>verylightbluishgrayPK</ldd>
+    </name>
+    <rgb>#E5E2DF</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Infected Colors</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-VERY_LIGHT_BLUISH_GREY_POISONED_KANOHI" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="MARBLED-INFECTED-KANOHI-GROUP" name="MARBLED-GROUP">
+        <input name="WaveDirection" type="color" value="0.62 0.5985065 0.5703999"/>
+        <input name="WaveVariation" type="float" value="1.0"/>
+        <input name="WaveRoughness" type="float" value="40.0"/>
+        <input name="WaveDistortion" type="float" value="3.0"/>
+        <input name="WaveDistortionScale" type="float" value="2.0"/>
+        <input name="WaveDistortionCount" type="float" value="1.0"/>
+        <input name="BlendInColor" type="color" value="0.19 0.42 0.12"/>
+        <input name="MiddleColor" type="color" value="0.125 0.1764705882 0.0862745098"/>
+        <input name="BaseColor" type="color" value="0.62 0.5985065 0.5703999"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="SubsurfaceColor" type="color" value="0.2901960784 0.6392156863 0.1843137255"/>
+        <input name="SubsurfaceRadius" type="vector" value="0.15 0.15 0.15"/>
+        <input name="SubsurfaceRoughness" type="float" value="0.350000"/>
+        <input name="MinRoughness" type="float" value="0.8"/>
+        <input name="MaxRoughness" type="float" value="1.9"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.0000000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

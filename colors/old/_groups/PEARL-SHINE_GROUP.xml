@@ -1,0 +1,37 @@
+<group name="PEARL-SHINE_GROUP">
+  <shader>
+    <group group_name="PEARL-SMOOTH_GROUP" name="PEARL-SMOOTH_GROUP">
+      <input name="Color" type="color"/>
+      <input name="Subsurface" type="float" value="1.000000"/>
+      <input name="SubsurfaceColor" type="color" value="0.278 0.485 0.266"/>
+      <input name="SubsurfaceRadius" type="vector" value="0.3 0.3 0.3"/>
+      <input name="SubsurfaceRoughness" type="float" value="0.290000"/>
+      <input name="MinRoughness" type="float" value="0.3"/>
+      <input name="MaxRoughness" type="float" value="1.0"/>
+      <input name="Clearcoat" type="float" value="0.000000"/>
+      <input name="Metallic" type="float" value="0.1000000"/>
+      <input name="Transmission" type="float" value="0.0000000"/>
+      <output name="BSDF" type="closure"/>
+    </group>
+    <mix name="RGB" type="mix" use_clamp="False"/>
+    <layer_weight name="LayerWeight">
+      <input name="Blend" type="float" value="0.920000"/>
+    </layer_weight>
+    <group_input name="GroupInput"/>
+    <group_output name="GroupOutput"/>
+    <connect from_node="GroupInput" from_socket="ShineColor" to_node="RGB" to_socket="Color1"/>
+    <connect from_node="GroupInput" from_socket="BaseColor" to_node="RGB" to_socket="Color2"/>
+    <connect from_node="GroupInput" from_socket="Subsurface" to_node="PEARL-SMOOTH_GROUP" to_socket="Subsurface"/>
+    <connect from_node="GroupInput" from_socket="SubsurfaceColor" to_node="PEARL-SMOOTH_GROUP" to_socket="SubsurfaceColor"/>
+    <connect from_node="GroupInput" from_socket="SubsurfaceRadius" to_node="PEARL-SMOOTH_GROUP" to_socket="SubsurfaceRadius"/>
+    <connect from_node="GroupInput" from_socket="SubsurfaceRoughness" to_node="PEARL-SMOOTH_GROUP" to_socket="SubsurfaceRoughness"/>
+    <connect from_node="GroupInput" from_socket="MinRoughness" to_node="PEARL-SMOOTH_GROUP" to_socket="MinRoughness"/>
+    <connect from_node="GroupInput" from_socket="MaxRoughness" to_node="PEARL-SMOOTH_GROUP" to_socket="MaxRoughness"/>
+    <connect from_node="GroupInput" from_socket="Clearcoat" to_node="PEARL-SMOOTH_GROUP" to_socket="Clearcoat"/>
+    <connect from_node="GroupInput" from_socket="Metallic" to_node="PEARL-SMOOTH_GROUP" to_socket="Metallic"/>
+    <connect from_node="GroupInput" from_socket="LayerWeight" to_node="LayerWeight" to_socket="Blend"/>
+    <connect from_node="LayerWeight" from_socket="Facing" to_node="RGB" to_socket="Fac"/>
+    <connect from_node="RGB" from_socket="Color" to_node="PEARL-SMOOTH_GROUP" to_socket="Color"/>
+    <connect from_node="PEARL-SMOOTH_GROUP" from_socket="BSDF" to_node="GroupOutput" to_socket="BSDF"/>
+  </shader>
+</group>

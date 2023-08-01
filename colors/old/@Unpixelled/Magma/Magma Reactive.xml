@@ -1,0 +1,111 @@
+<data>
+  <definition>
+    <id>
+      <studio>39002</studio>
+      <bricklink>39002</bricklink>
+      <ldraw>39002</ldraw>
+      <ldd>39002</ldd>
+    </id>
+    <name>
+      <studio>Magma Reactive</studio>
+      <bricklink>Magma Reactive</bricklink>
+      <ldraw>Magma Reactive</ldraw>
+      <ldd>Magma Reactive</ldd>
+    </name>
+    <rgb>#bbff00</rgb>
+    <alpha>1.0</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Magma Colors</nickname>
+    </category>
+    <groupId>10</groupId>
+    <notes>to_lego</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="SOLID-MAGMA_REACTIVE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <texture_coordinate name="TextureCoordinate" from_dupli="False">
+        <output name="Generated" type="vector"/>
+        <output name="Normal" type="vector"/>
+        <output name="UV" type="vector"/>
+        <output name="Object" type="vector"/>
+        <output name="Camera" type="vector"/>
+        <output name="Window" type="vector"/>
+        <output name="Reflection" type="vector"/>
+      </texture_coordinate>
+      <mapping name="Mapping" tex_mapping="[object Object]">
+        <input name="Vector" type="vector"/>
+        <input name="Location" type="vector"/>
+        <input name="Rotation" type="vector"/>
+        <input name="Scale" type="vector"/>
+        <output name="Vector" type="vector"/>
+      </mapping>
+      <noise_texture name="NoiseTexture">
+        <input name="Vector" type="vector" value="0.0 0.0 0.0"/>
+        <input name="Scale" type="float" value="0.1000"/>
+        <input name="Detail" type="float" value="16.0000"/>
+        <input name="Distortion" type="float" value="1.0000"/>
+        <output name="Color" type="color"/>
+        <output name="Fac" type="float"/>
+      </noise_texture>
+      <rgb_ramp name="ColorRamp" interpolate="True" ramp="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00632183908045977 0.00862068965517241 0 0.0126436781609195 0.0172413793103448 0 0.0189655172413793 0.0258620689655172 0 0.0252873563218391 0.0344827586206897 0 0.0316091954022989 0.0431034482758621 0 0.0379310344827586 0.0517241379310345 0 0.0442528735632184 0.0603448275862069 0 0.0505747126436782 0.0689655172413793 0 0.0568965517241379 0.0775862068965517 0 0.0632183908045977 0.0862068965517241 0 0.0695402298850575 0.0948275862068965 0 0.0758620689655172 0.103448275862069 0 0.082183908045977 0.112068965517241 0 0.0885057471264368 0.120689655172414 0 0.0948275862068965 0.129310344827586 0 0.101149425287356 0.137931034482759 0 0.107471264367816 0.146551724137931 0 0.113793103448276 0.155172413793103 0 0.120114942528736 0.163793103448276 0 0.126436781609195 0.172413793103448 0 0.132758620689655 0.181034482758621 0 0.139080459770115 0.189655172413793 0 0.145402298850575 0.198275862068966 0 0.151724137931034 0.206896551724138 0 0.158045977011494 0.21551724137931 0 0.164367816091954 0.224137931034483 0 0.170689655172414 0.232758620689655 0 0.177011494252874 0.241379310344828 0 0.183333333333333 0.25 0 0.189655172413793 0.258620689655172 0 0.195977011494253 0.267241379310345 0 0.202298850574713 0.275862068965517 0 0.208620689655172 0.28448275862069 0 0.214942528735632 0.293103448275862 0 0.221264367816092 0.301724137931034 0 0.227586206896552 0.310344827586207 0 0.233908045977012 0.318965517241379 0 0.240229885057471 0.327586206896552 0 0.246551724137931 0.336206896551724 0 0.252873563218391 0.344827586206897 0 0.259195402298851 0.353448275862069 0 0.26551724137931 0.362068965517241 0 0.27183908045977 0.370689655172414 0 0.27816091954023 0.379310344827586 0 0.28448275862069 0.387931034482759 0 0.290804597701149 0.396551724137931 0 0.297126436781609 0.405172413793103 0 0.303448275862069 0.413793103448276 0 0.309770114942529 0.422413793103448 0 0.316091954022988 0.431034482758621 0 0.322413793103448 0.439655172413793 0 0.328735632183908 0.448275862068966 0 0.335057471264368 0.456896551724138 0 0.341379310344828 0.46551724137931 0 0.347701149425287 0.474137931034483 0 0.354022988505747 0.482758620689655 0 0.360344827586207 0.491379310344828 0 0.366666666666667 0.5 0 0.372988505747126 0.508620689655172 0 0.379310344827586 0.517241379310345 0 0.385632183908046 0.525862068965517 0 0.391954022988506 0.53448275862069 0 0.398275862068966 0.543103448275862 0 0.404597701149425 0.551724137931034 0 0.410919540229885 0.560344827586207 0 0.417241379310345 0.568965517241379 0 0.423563218390805 0.577586206896552 0 0.429885057471264 0.586206896551724 0 0.436206896551724 0.594827586206897 0 0.442528735632184 0.603448275862069 0 0.448850574712644 0.612068965517241 0 0.455172413793103 0.620689655172414 0 0.461494252873563 0.629310344827586 0 0.467816091954023 0.637931034482759 0 0.474137931034483 0.646551724137931 0 0.480459770114942 0.655172413793103 0 0.486781609195402 0.663793103448276 0 0.493103448275862 0.672413793103448 0 0.499425287356322 0.681034482758621 0 0.505747126436782 0.689655172413793 0 0.512068965517241 0.698275862068966 0 0.518390804597701 0.706896551724138 0 0.524712643678161 0.71551724137931 0 0.531034482758621 0.724137931034483 0 0.53735632183908 0.732758620689655 0 0.54367816091954 0.741379310344828 0 0.55 0.75 0 0.55632183908046 0.758620689655172 0 0.56264367816092 0.767241379310345 0 0.568965517241379 0.775862068965517 0 0.575287356321839 0.78448275862069 0 0.581609195402299 0.793103448275862 0 0.587931034482759 0.801724137931034 0 0.594252873563218 0.810344827586207 0 0.600574712643678 0.818965517241379 0 0.606896551724138 0.827586206896552 0 0.613218390804598 0.836206896551724 0 0.619540229885057 0.844827586206897 0 0.625862068965517 0.853448275862069 0 0.632183908045977 0.862068965517241 0 0.638505747126437 0.870689655172414 0 0.644827586206897 0.879310344827586 0 0.651149425287356 0.887931034482759 0 0.657471264367816 0.896551724137931 0 0.663793103448276 0.905172413793103 0 0.670114942528736 0.913793103448276 0 0.676436781609195 0.922413793103448 0 0.682758620689655 0.931034482758621 0 0.689080459770115 0.939655172413793 0 0.695402298850575 0.948275862068966 0 0.701724137931034 0.956896551724138 0 0.708045977011494 0.96551724137931 0 0.714367816091954 0.974137931034483 0 0.720689655172414 0.982758620689655 0 0.727011494252874 0.991379310344828 0 0.733333333333333 1 0" ramp_alpha="1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0">
+        <input name="Fac" type="float"/>
+        <output name="Color" type="color"/>
+        <output name="Alpha" type="float"/>
+      </rgb_ramp>
+      <bump name="Bump" enable="True" invert="False">
+        <input name="Strength" type="float" value="1.0000"/>
+        <input name="Distance" type="float" value="1.0000"/>
+        <input name="Height" type="float" value="0.0000"/>
+        <input name="Normal" type="vector" value="0.0 0.0 0.0"/>
+        <output name="Normal" type="vector"/>
+      </bump>
+      <principled_bsdf name="PrincipledBSDF" distribution="ggx" subsurface_method="burley">
+        <input name="BaseColor" type="color" value="0.0 0.0 0.0"/>
+        <input name="Subsurface" type="float" value="0.0000"/>
+        <input name="SubsurfaceRadius" type="vector" value="1.0 1.0 1.0"/>
+        <input name="SubsurfaceColor" type="color" value="1.0 1.0 1.0"/>
+        <input name="Metallic" type="float" value="0.0000"/>
+        <input name="Specular" type="float" value="0.5000"/>
+        <input name="SpecularTint" type="float" value="0.0000"/>
+        <input name="Roughness" type="float" value="0.5910"/>
+        <input name="Anisotropic" type="float" value="0.0000"/>
+        <input name="AnisotropicRotation" type="float" value="0.0000"/>
+        <input name="Sheen" type="float" value="0.0000"/>
+        <input name="SheenTint" type="float" value="0.5000"/>
+        <input name="Clearcoat" type="float" value="0.0000"/>
+        <input name="ClearcoatRoughness" type="float" value="0.0000"/>
+        <input name="IOR" type="float" value="1.4500"/>
+        <input name="Transmission" type="float" value="0.0000"/>
+        <input name="TransmissionRoughness" type="float" value="0.0000"/>
+        <input name="Normal" type="vector" value="0.0 0.0 0.0"/>
+        <input name="ClearcoatNormal" type="vector" value="0.0 0.0 0.0"/>
+        <input name="Tangent" type="vector" value="0.0 0.0 0.0"/>
+        <output name="BSDF"/>
+      </principled_bsdf>
+      <emission name="EmissionColor">
+        <input name="Color" type="color" value="0.733 1 0"/>
+        <input name="Strength" type="float" value="80.0"/>
+        <output name="Emission"/>
+      </emission>
+      <mix_closure name="MixShader">
+        <input name="Fac" type="float" value="0.5"/>
+        <input name="Shader1"/>
+        <input name="Shader2"/>
+        <output name="Shader"/>
+      </mix_closure>
+      <connect from_node="TextureCoordinate" from_socket="Object" to_node="Mapping" to_socket="Vector"/>
+      <connect from_node="Mapping" from_socket="Vector" to_node="NoiseTexture" to_socket="Vector"/>
+      <connect from_node="NoiseTexture" from_socket="Color" to_node="ColorRamp" to_socket="Fac"/>
+      <connect from_node="NoiseTexture" from_socket="Color" to_node="Bump" to_socket="Height"/>
+      <connect from_node="Bump" from_socket="Normal" to_node="PrincipledBSDF" to_socket="Normal"/>
+      <connect from_node="ColorRamp" from_socket="Color" to_node="MixShader" to_socket="Fac"/>
+      <connect from_node="PrincipledBSDF" from_socket="BSDF" to_node="MixShader" to_socket="Shader1"/>
+      <connect from_node="EmissionColor" from_socket="Emission" to_node="MixShader" to_socket="Shader2"/>
+      <connect from_node="MixShader" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

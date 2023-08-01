@@ -1,0 +1,45 @@
+<data>
+  <definition>
+    <id>
+      <studio>64648503</studio>
+      <bricklink>64648503</bricklink>
+      <ldraw>64648503</ldraw>
+      <ldd>64648503</ldd>
+    </id>
+    <name>
+      <studio>Legacy Volume Glow Yellow</studio>
+      <bricklink>LVGyellow</bricklink>
+      <ldraw>LVGyellow</ldraw>
+      <ldd>LVGyellow</ldd>
+    </name>
+    <rgb>#d6c102</rgb>
+    <alpha>0.7</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Legacy Volume Glow Colors</nickname>
+    </category>
+    <groupId>8</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-LEGACY_VOLUME_GLOW_YELLOW" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.850 0.844 0"/>
+      <glass_bsdf name="TRANS-NEON-GROUP">
+        <input name="Color" type="color"/>
+        <input name="Roughness" type="float" value="0.050000"/>
+        <input name="IOR" type="float" value="1.450"/>
+      </glass_bsdf>
+      <emission name="EmissionColor">
+        <input name="Color" type="color" value="0.850 0.864 0"/>
+        <input name="Strength" type="float" value="17.500000"/>
+      </emission>
+      <connect from_node="RGB" from_socket="Color" to_node="TRANS-NEON-GROUP" to_socket="Color"/>
+      <connect from_node="TRANS-NEON-GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+      <connect from_node="EmissionColor" from_socket="Emission" to_node="Output" to_socket="Volume"/>
+    </shader>
+  </settings>
+</data>

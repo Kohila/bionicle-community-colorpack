@@ -1,0 +1,42 @@
+<data>
+  <definition>
+    <id>
+      <studio>64648204</studio>
+      <bricklink>64648204</bricklink>
+      <ldraw>64648204</ldraw>
+      <ldd>64648204</ldd>
+    </id>
+    <name>
+      <studio>Trans-Glow Orange</studio>
+      <bricklink>TGorange</bricklink>
+      <ldraw>TGorange</ldraw>
+      <ldd>TGorange</ldd>
+    </name>
+    <rgb>#f59e2f</rgb>
+    <alpha>0.6</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Trans-Glow Colors</nickname>
+    </category>
+    <groupId>5</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-GLOW_ORANGE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="TRANS-GLOW-GROUP" name="FINE-TRANS-GROUP">
+        <input name="BaseColor" type="color" value="1 0.6434769 0.0"/>
+        <input name="Tint" type="color" value="0.935 0.274 0.0"/>
+        <input name="EmissionColor" type="color" value="0.935 0.274 0.0"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.06"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="FINE-TRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

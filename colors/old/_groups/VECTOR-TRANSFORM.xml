@@ -1,0 +1,82 @@
+<group name="VECTOR-TRANSFORM">
+  <shader>
+    <separate_xyz name="separate"/>
+    <connect from_node="input" from_socket="InVector" to_node="separate" to_socket="Vector"/>
+    <connect from_node="input" from_socket="AngleX" to_node="SinX" to_socket="Value1"/>
+    <connect from_node="input" from_socket="AngleY" to_node="SinY" to_socket="Value1"/>
+    <connect from_node="input" from_socket="AngleZ" to_node="SinZ" to_socket="Value1"/>
+    <connect from_node="input" from_socket="AngleX" to_node="CosX" to_socket="Value1"/>
+    <connect from_node="input" from_socket="AngleY" to_node="CosY" to_socket="Value1"/>
+    <connect from_node="input" from_socket="AngleZ" to_node="CosZ" to_socket="Value1"/>
+    <connect from_node="separate" from_socket="Y" to_node="multiplyYByCosInYZ" to_socket="Value1"/>
+    <connect from_node="CosX" from_socket="Value" to_node="multiplyYByCosInYZ" to_socket="Value2"/>
+    <connect from_node="separate" from_socket="Y" to_node="multiplyYBySinInYZ" to_socket="Value1"/>
+    <connect from_node="SinX" from_socket="Value" to_node="multiplyYBySinInYZ" to_socket="Value2"/>
+    <connect from_node="separate" from_socket="Z" to_node="multiplyZByCosInYZ" to_socket="Value1"/>
+    <connect from_node="CosX" from_socket="Value" to_node="multiplyZByCosInYZ" to_socket="Value2"/>
+    <connect from_node="separate" from_socket="Z" to_node="multiplyZBySinInYZ" to_socket="Value1"/>
+    <connect from_node="SinX" from_socket="Value" to_node="multiplyZBySinInYZ" to_socket="Value2"/>
+    <connect from_node="multiplyYByCosInYZ" from_socket="Value" to_node="rotYInYZ" to_socket="Value1"/>
+    <connect from_node="multiplyZBySinInYZ" from_socket="Value" to_node="rotYInYZ" to_socket="Value2"/>
+    <connect from_node="multiplyZByCosInYZ" from_socket="Value" to_node="rotZInYZ" to_socket="Value1"/>
+    <connect from_node="multiplyYBySinInYZ" from_socket="Value" to_node="rotZInYZ" to_socket="Value2"/>
+    <connect from_node="separate" from_socket="X" to_node="multiplyXByCosInXZ" to_socket="Value1"/>
+    <connect from_node="CosY" from_socket="Value" to_node="multiplyXByCosInXZ" to_socket="Value2"/>
+    <connect from_node="separate" from_socket="X" to_node="multiplyXBySinInXZ" to_socket="Value1"/>
+    <connect from_node="SinY" from_socket="Value" to_node="multiplyXBySinInXZ" to_socket="Value2"/>
+    <connect from_node="rotZInYZ" from_socket="Value" to_node="multiplyZByCosInXZ" to_socket="Value1"/>
+    <connect from_node="CosY" from_socket="Value" to_node="multiplyZByCosInXZ" to_socket="Value2"/>
+    <connect from_node="rotZInYZ" from_socket="Value" to_node="multiplyZBySinInXZ" to_socket="Value1"/>
+    <connect from_node="SinY" from_socket="Value" to_node="multiplyZBySinInXZ" to_socket="Value2"/>
+    <connect from_node="multiplyXByCosInXZ" from_socket="Value" to_node="rotXInXZ" to_socket="Value1"/>
+    <connect from_node="multiplyZBySinInXZ" from_socket="Value" to_node="rotXInXZ" to_socket="Value2"/>
+    <connect from_node="multiplyZByCosInXZ" from_socket="Value" to_node="rotZInXZ" to_socket="Value1"/>
+    <connect from_node="multiplyXBySinInXZ" from_socket="Value" to_node="rotZInXZ" to_socket="Value2"/>
+    <connect from_node="rotXInXZ" from_socket="Value" to_node="multiplyXByCosInXY" to_socket="Value1"/>
+    <connect from_node="CosZ" from_socket="Value" to_node="multiplyXByCosInXY" to_socket="Value2"/>
+    <connect from_node="rotXInXZ" from_socket="Value" to_node="multiplyXBySinInXY" to_socket="Value1"/>
+    <connect from_node="SinZ" from_socket="Value" to_node="multiplyXBySinInXY" to_socket="Value2"/>
+    <connect from_node="rotYInYZ" from_socket="Value" to_node="multiplyYByCosInXY" to_socket="Value1"/>
+    <connect from_node="CosZ" from_socket="Value" to_node="multiplyYByCosInXY" to_socket="Value2"/>
+    <connect from_node="rotYInYZ" from_socket="Value" to_node="multiplyYBySinInXY" to_socket="Value1"/>
+    <connect from_node="SinZ" from_socket="Value" to_node="multiplyYBySinInXY" to_socket="Value2"/>
+    <connect from_node="multiplyXByCosInXY" from_socket="Value" to_node="rotXInXY" to_socket="Value1"/>
+    <connect from_node="multiplyYBySinInXY" from_socket="Value" to_node="rotXInXY" to_socket="Value2"/>
+    <connect from_node="multiplyYByCosInXY" from_socket="Value" to_node="rotYInXY" to_socket="Value1"/>
+    <connect from_node="multiplyXBySinInXY" from_socket="Value" to_node="rotYInXY" to_socket="Value2"/>
+    <connect from_node="rotXInXY" from_socket="Value" to_node="combine" to_socket="X"/>
+    <connect from_node="rotYInXY" from_socket="Value" to_node="combine" to_socket="Y"/>
+    <connect from_node="rotZInXZ" from_socket="Value" to_node="combine" to_socket="Z"/>
+    <connect from_node="combine" from_socket="Vector" to_node="translate" to_socket="Vector1"/>
+    <connect from_node="input" from_socket="translate" to_node="translate" to_socket="Vector2"/>
+    <connect from_node="translate" from_socket="Vector" to_node="output" to_socket="OutVector"/>
+    <math name="SinX" type="sine" use_clamp="False"/>
+    <math name="SinY" type="sine" use_clamp="False"/>
+    <math name="SinZ" type="sine" use_clamp="False"/>
+    <math name="CosX" type="cosine" use_clamp="False"/>
+    <math name="CosY" type="cosine" use_clamp="False"/>
+    <math name="CosZ" type="cosine" use_clamp="False"/>
+    <math name="multiplyYByCosInYZ" type="multiply" use_clamp="False"/>
+    <math name="multiplyYBySinInYZ" type="multiply" use_clamp="False"/>
+    <math name="multiplyZByCosInYZ" type="multiply" use_clamp="False"/>
+    <math name="multiplyZBySinInYZ" type="multiply" use_clamp="False"/>
+    <math name="rotYInYZ" type="add" use_clamp="False"/>
+    <math name="rotZInYZ" type="subtract" use_clamp="False"/>
+    <math name="multiplyXByCosInXZ" type="multiply" use_clamp="False"/>
+    <math name="multiplyXBySinInXZ" type="multiply" use_clamp="False"/>
+    <math name="multiplyZByCosInXZ" type="multiply" use_clamp="False"/>
+    <math name="multiplyZBySinInXZ" type="multiply" use_clamp="False"/>
+    <math name="rotXInXZ" type="add" use_clamp="False"/>
+    <math name="rotZInXZ" type="subtract" use_clamp="False"/>
+    <math name="multiplyXByCosInXY" type="multiply" use_clamp="False"/>
+    <math name="multiplyXBySinInXY" type="multiply" use_clamp="False"/>
+    <math name="multiplyYByCosInXY" type="multiply" use_clamp="False"/>
+    <math name="multiplyYBySinInXY" type="multiply" use_clamp="False"/>
+    <math name="rotXInXY" type="subtract" use_clamp="False"/>
+    <math name="rotYInXY" type="subtract" use_clamp="False"/>
+    <combine_xyz name="combine"/>
+    <vector_math name="translate" type="Add"/>
+    <group_input name="input"/>
+    <group_output name="output"/>
+  </shader>
+</group>

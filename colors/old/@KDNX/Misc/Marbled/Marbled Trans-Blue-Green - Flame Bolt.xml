@@ -1,0 +1,45 @@
+<data>
+  <definition>
+    <id>
+      <studio>64649515</studio>
+      <bricklink>64649515</bricklink>
+      <ldraw>64649515</ldraw>
+      <ldd>64649515</ldd>
+    </id>
+    <name>
+      <studio>Marbled Trans-Blue-Green - Flame Bolt</studio>
+      <bricklink>Flame</bricklink>
+      <ldraw>Flame</ldraw>
+      <ldd>Flame</ldd>
+    </name>
+    <rgb>#001F9F</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Marbled Patterns</nickname>
+    </category>
+    <groupId>15</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="TRANS-MARBLED_TRANS_BLUE_GREEN___FLAME_BOLT" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="MARBLED-TRANS-GROUP" name="MARBLED-GROUP">
+        <input name="WaveDirection" type="color" value="0.05 0.099707 0.210544"/>
+        <input name="WaveVariation" type="float" value="0.5"/>
+        <input name="WaveRoughness" type="float" value="40.4"/>
+        <input name="WaveDistortion" type="float" value="0.5"/>
+        <input name="WaveDistortionScale" type="float" value="1.1"/>
+        <input name="WaveDistortionCount" type="float" value="1.1"/>
+        <input name="BaseColor" type="color" value="0.11 0.6200001 1.0"/>
+        <input name="BlendInColor" type="color" value="0.8005008 0.928 0.1872534"/>
+        <input name="MiddleColor" type="color" value="1 0.9691812 0.07543677"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

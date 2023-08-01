@@ -1,0 +1,38 @@
+<data>
+  <definition>
+    <id>
+      <studio>64645026</studio>
+      <bricklink>64645026</bricklink>
+      <ldraw>64645026</ldraw>
+      <ldd>64645026</ldd>
+    </id>
+    <name>
+      <studio>Soft Light Brown</studio>
+      <bricklink>Slightbrown</bricklink>
+      <ldraw>Slightbrown</ldraw>
+      <ldd>Slightbrown</ldd>
+    </name>
+    <rgb>#7C503A</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Soft Colors</nickname>
+    </category>
+    <groupId>3</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="SOLID-SOFT_LIGHT_BROWN" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SOFT-GROUP" name="SOFT-GROUP">
+        <input name="BaseColor" type="color" value="0.28 0.09940001 0.02800001"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="SOFT-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

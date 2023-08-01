@@ -1,0 +1,37 @@
+<data>
+  <definition>
+    <id>
+      <studio>64648302</studio>
+      <bricklink>64648302</bricklink>
+      <ldraw>64648302</ldraw>
+      <ldd>64648302</ldd>
+    </id>
+    <name>
+      <studio>Fairy Glow Orange</studio>
+      <bricklink>FGorange</bricklink>
+      <ldraw>FGorange</ldraw>
+      <ldd>FGorange</ldd>
+    </name>
+    <rgb>#f59e2f</rgb>
+    <alpha>0.4</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Fairy Glow Colors</nickname>
+    </category>
+    <groupId>5</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-FAIRY_GLOW_ORANGE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="FAIRY-GROUP" name="FAIRY-GROUP">
+        <input name="Color" type="color" value="0.968 0.150 0.003"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="FAIRY-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

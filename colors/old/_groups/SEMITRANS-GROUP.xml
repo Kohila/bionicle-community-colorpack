@@ -1,0 +1,28 @@
+<group name="SEMITRANS-GROUP">
+  <shader>
+    <group group_name="FINE-TRANS-GROUP" name="FINE-TRANS-GROUP">
+      <input name="BaseColor" type="color"/>
+      <input name="Tint" type="color"/>
+      <input name="IOR" type="float"/>
+      <input name="Roughness" type="float"/>
+      <input name="Blending" type="float"/>
+      <output name="Shader" type="closure"/>
+    </group>
+    <add_closure name="add"/>
+    <mix_closure name="mix">
+      <input name="Fac" type="float" value="0.800000"/>
+    </mix_closure>
+    <group_input name="GroupInput"/>
+    <group_output name="GroupOutput"/>
+    <connect from_node="FINE-TRANS-GROUP" from_socket="Shader" to_node="add" to_socket="Shader1"/>
+    <connect from_node="FINE-TRANS-GROUP" from_socket="Shader" to_node="add" to_socket="Shader2"/>
+    <connect from_node="add" from_socket="Shader" to_node="mix" to_socket="Shader1"/>
+    <connect from_node="FINE-TRANS-GROUP" from_socket="Shader" to_node="mix" to_socket="Shader2"/>
+    <connect from_node="GroupInput" from_socket="BaseColor" to_node="FINE-TRANS-GROUP" to_socket="BaseColor"/>
+    <connect from_node="GroupInput" from_socket="Tint" to_node="FINE-TRANS-GROUP" to_socket="Tint"/>
+    <connect from_node="GroupInput" from_socket="IOR" to_node="FINE-TRANS-GROUP" to_socket="IOR"/>
+    <connect from_node="GroupInput" from_socket="Roughness" to_node="FINE-TRANS-GROUP" to_socket="Roughness"/>
+    <connect from_node="GroupInput" from_socket="Blending" to_node="FINE-TRANS-GROUP" to_socket="Blending"/>
+    <connect from_node="mix" from_socket="Shader" to_node="GroupOutput" to_socket="Shader"/>
+  </shader>
+</group>

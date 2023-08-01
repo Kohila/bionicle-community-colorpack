@@ -1,0 +1,52 @@
+<data>
+  <definition>
+    <id>
+      <studio>509003</studio>
+      <bricklink>16</bricklink>
+      <ldraw>509003</ldraw>
+      <ldd>9003</ldd>
+    </id>
+    <name>
+      <studio>Translucent Neon Green</studio>
+      <bricklink>Trans-Neon Green</bricklink>
+      <ldraw>Translucent Neon Green</ldraw>
+      <ldd>Translucent Neon Green</ldd>
+    </name>
+    <rgb>#BFFE00</rgb>
+    <alpha>0.5019608</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Translucent(Render Only)</nickname>
+    </category>
+    <groupId>9</groupId>
+    <notes>to_bl,to_ldd</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-TRANSLUCENT_NEON_GREEN" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB_White" value="1.0 1.0 1.0"/>
+      <color name="RGB" value="0.749 0.996 0"/>
+      <add_closure name="AddShader"/>
+      <translucent_bsdf name="TranslucentBSDF">
+        <input name="Normal" type="vector" value="0.0 0.0 0.0"/>
+      </translucent_bsdf>
+      <group group_name="TRANS-GROUP_BASE" name="TRANS-GROUP_BASE">
+        <input name="WhiteColor" type="color"/>
+        <input name="Color" type="color"/>
+        <output name="Shader" type="closure"/>
+        <output name="Volume" type="closure"/>
+        <output name="Normal" type="vector"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="TRANS-GROUP_BASE" to_socket="Color"/>
+      <connect from_node="TRANS-GROUP_BASE" from_socket="Volume" to_node="Output" to_socket="Volume"/>
+      <connect from_node="RGB_White" from_socket="Color" to_node="TRANS-GROUP_BASE" to_socket="WhiteColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="TranslucentBSDF" to_socket="Color"/>
+      <connect from_node="TRANS-GROUP_BASE" from_socket="Shader" to_node="AddShader" to_socket="Shader1"/>
+      <connect from_node="AddShader" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+      <connect from_node="TranslucentBSDF" from_socket="BSDF" to_node="AddShader" to_socket="Shader2"/>
+    </shader>
+  </settings>
+</data>

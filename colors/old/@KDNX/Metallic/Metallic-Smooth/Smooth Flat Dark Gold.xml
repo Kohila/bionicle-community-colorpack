@@ -1,0 +1,49 @@
+<data>
+  <definition>
+    <id>
+      <studio>64642114</studio>
+      <bricklink>64642114</bricklink>
+      <ldraw>64642114</ldraw>
+      <ldd>64642114</ldd>
+    </id>
+    <name>
+      <studio>Smooth Flat Dark Gold</studio>
+      <bricklink>Sflatdarkgold</bricklink>
+      <ldraw>Sflatdarkgold</ldraw>
+      <ldd>Sflatdarkgold</ldd>
+    </name>
+    <rgb>#70591b</rgb>
+    <alpha>0.9</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Metal-Smooth Colors</nickname>
+    </category>
+    <groupId>7</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-SMOOTH_FLAT_DARK_GOLD" subsurface_ao_factor="0.0" subsurface_factor="1.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SHINE_GROUP" name="PEARL-SMOOTH_GROUP">
+        <input name="BaseColor" type="color" value="0.031063 0.020854 0.003782"/>
+        <input name="ShineColor" type="color" value="0.854993 0.630757 0.258183"/>
+        <input name="GlossColor" type="color" value="0.317 0.317 0.121"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="SubsurfaceRadius" type="vector" value="0.3 0.3 0.3"/>
+        <input name="SubsurfaceRoughness" type="float" value="0.290000"/>
+        <input name="MinRoughness" type="float" value="0.3"/>
+        <input name="MaxRoughness" type="float" value="1.0"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.2500000"/>
+        <input name="LayerWeight" type="float" value="0.9200000"/>
+        <input name="Transmission" type="float" value="0.000000"/>
+        <input name="Volume" type="float" value="0.000000"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <connect from_node="PEARL-SMOOTH_GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

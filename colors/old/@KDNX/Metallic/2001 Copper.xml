@@ -1,0 +1,57 @@
+<data>
+  <definition>
+    <id>
+      <studio>64646425</studio>
+      <bricklink>64646425</bricklink>
+      <ldraw>64646425</ldraw>
+      <ldd>64646425</ldd>
+    </id>
+    <name>
+      <studio>2001 Copper</studio>
+      <bricklink>01copper</bricklink>
+      <ldraw>01copper</ldraw>
+      <ldd>01copper</ldd>
+    </name>
+    <rgb>#6b4237</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Miscellaneous Colors (Pearl)</nickname>
+    </category>
+    <groupId>4</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="PEARL-2001_COPPER" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB1" value="0.093687 0.01971 0.017843"/>
+      <color name="RGB2" value="0.26891 0.142058 0.064324"/>
+      <group group_name="FF-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="FF-GROUP" name="SOLID-GROUP2">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <mix_closure name="MixShader">
+        <input name="Fac" type="float" value="0.050000"/>
+      </mix_closure>
+      <layer_weight name="LayerWeight">
+        <input name="Blend" type="float" value="0.650000"/>
+      </layer_weight>
+      <fresnel name="ColorFresnel" IOR="0.65"/>
+      <connect from_node="RGB1" from_socket="Color" to_node="SOLID-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB2" from_socket="Color" to_node="SOLID-GROUP2" to_socket="BaseColor"/>
+      <connect from_node="LayerWeight" from_socket="Facing" to_node="MixShader" to_socket="Fac"/>
+      <connect from_node="SOLID-GROUP" from_socket="Shader" to_node="MixShader" to_socket="Shader1"/>
+      <connect from_node="SOLID-GROUP2" from_socket="Shader" to_node="MixShader" to_socket="Shader2"/>
+      <connect from_node="MixShader" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

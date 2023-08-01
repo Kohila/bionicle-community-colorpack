@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647111</studio>
+      <bricklink>64647111</bricklink>
+      <ldraw>64647111</ldraw>
+      <ldd>64647111</ldd>
+    </id>
+    <name>
+      <studio>Fine Trans-Bright Green</studio>
+      <bricklink>FTbrightgreen</bricklink>
+      <ldraw>FTbrightgreen</ldraw>
+      <ldd>FTbrightgreen</ldd>
+    </name>
+    <rgb>#55E545</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Fine Transparent Colors</nickname>
+    </category>
+    <groupId>12</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-FINE_BRIGHT_GREEN" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="FINE-TRANS-GROUP" name="FINE-TRANS-GROUP">
+        <input name="BaseColor" type="color" value="0.8605008 0.928 0.1872534"/>
+        <input name="Tint" type="color" value="0.2605008 0.928 0.1872534"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.06"/>
+        <input name="Blending" type="float" value="0.710000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="FINE-TRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

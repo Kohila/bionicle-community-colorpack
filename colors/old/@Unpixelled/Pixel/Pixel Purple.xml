@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>34000</studio>
+      <bricklink>34000</bricklink>
+      <ldraw>34000</ldraw>
+      <ldd>34000</ldd>
+    </id>
+    <name>
+      <studio>Pixel Purple</studio>
+      <bricklink>Pixel Purple</bricklink>
+      <ldraw>Pixel Purple</ldraw>
+      <ldd>Pixel Purple</ldd>
+    </name>
+    <rgb>#742aac</rgb>
+    <alpha>1.0</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Pixel Colors</nickname>
+    </category>
+    <groupId>20</groupId>
+    <notes>to_lego</notes>
+    <instructions>
+      <rgb/>
+      <cmyk>0,100,5,50</cmyk>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="SOLID-PIXEL_PURPLE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.4549 0.1647 0.6745"/>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="SubsurfaceColor"/>
+      <connect from_node="SOLID-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

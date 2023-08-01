@@ -1,0 +1,32 @@
+<group name="SOFT-TRANS-GROUP">
+  <shader>
+    <group group_name="SEMITRANS-GROUP" name="SEMITRANS-GROUP">
+      <input name="BaseColor" type="color"/>
+      <input name="Tint" type="color"/>
+      <input name="IOR" type="float"/>
+      <input name="Roughness" type="float"/>
+      <input name="Blending" type="float"/>
+      <output name="Shader" type="closure"/>
+    </group>
+    <group group_name="SOFT-GROUP" name="SOFT-GROUP">
+      <input name="BaseColor" type="color"/>
+      <input name="SubsurfaceColor" type="color"/>
+      <output name="Shader" type="closure"/>
+    </group>
+    <mix_closure name="mix">
+      <input name="Fac" type="float" value="0.200000"/>
+    </mix_closure>
+    <connect from_node="SEMITRANS-GROUP" from_socket="Shader" to_node="mix" to_socket="Shader1"/>
+    <connect from_node="SOFT-GROUP" from_socket="Shader" to_node="mix" to_socket="Shader2"/>
+    <connect from_node="GroupInput" from_socket="BaseColor" to_node="SEMITRANS-GROUP" to_socket="BaseColor"/>
+    <connect from_node="GroupInput" from_socket="Tint" to_node="SEMITRANS-GROUP" to_socket="Tint"/>
+    <connect from_node="GroupInput" from_socket="IOR" to_node="SEMITRANS-GROUP" to_socket="IOR"/>
+    <connect from_node="GroupInput" from_socket="Roughness" to_node="SEMITRANS-GROUP" to_socket="Roughness"/>
+    <connect from_node="GroupInput" from_socket="Blending" to_node="SEMITRANS-GROUP" to_socket="Blending"/>
+    <connect from_node="GroupInput" from_socket="SoftColor" to_node="SOFT-GROUP" to_socket="BaseColor"/>
+    <connect from_node="GroupInput" from_socket="SubsurfaceColor" to_node="SOFT-GROUP" to_socket="SubsurfaceColor"/>
+    <connect from_node="mix" from_socket="Shader" to_node="GroupOutput" to_socket="Shader"/>
+    <group_input name="GroupInput"/>
+    <group_output name="GroupOutput"/>
+  </shader>
+</group>

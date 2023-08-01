@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647204</studio>
+      <bricklink>64647204</bricklink>
+      <ldraw>64647204</ldraw>
+      <ldd>64647204</ldd>
+    </id>
+    <name>
+      <studio>Semitrans-Neon Orange</studio>
+      <bricklink>STneonorange</bricklink>
+      <ldraw>STneonorange</ldraw>
+      <ldd>STneonorange</ldd>
+    </name>
+    <rgb>#FE7F0C</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Semitransparent Colors</nickname>
+    </category>
+    <groupId>5</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-SEMINEON_ORANGE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SEMITRANS-GROUP" name="SEMITRANS-GROUP">
+        <input name="BaseColor" type="color" value="1.000 0.23941 0.014469"/>
+        <input name="Tint" type="color" value="1.000 0.10624 0"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.9"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="SEMITRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

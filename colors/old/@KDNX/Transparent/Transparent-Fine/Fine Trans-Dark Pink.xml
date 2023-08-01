@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647123</studio>
+      <bricklink>64647123</bricklink>
+      <ldraw>64647123</ldraw>
+      <ldd>64647123</ldd>
+    </id>
+    <name>
+      <studio>Fine Trans-Dark Pink</studio>
+      <bricklink>FTdarkpink</bricklink>
+      <ldraw>FTdarkpink</ldraw>
+      <ldd>FTdarkpink</ldd>
+    </name>
+    <rgb>#DE6594</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Fine Transparent Colors</nickname>
+    </category>
+    <groupId>0</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-FINE_DARK_PINK" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="FINE-TRANS-GROUP" name="FINE-TRANS-GROUP">
+        <input name="BaseColor" type="color" value="0.882001 0.005 0.105504"/>
+        <input name="Tint" type="color" value="0.882001 0.037806 0.01"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.06"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="FINE-TRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

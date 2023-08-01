@@ -1,0 +1,48 @@
+<data>
+  <definition>
+    <id>
+      <studio>64642015</studio>
+      <bricklink>64642015</bricklink>
+      <ldraw>64642015</ldraw>
+      <ldd>64642015</ldd>
+    </id>
+    <name>
+      <studio>Smooth Dark Red</studio>
+      <bricklink>Smooth Maroon</bricklink>
+      <ldraw>Smaroon</ldraw>
+      <ldd>Sdarkred</ldd>
+    </name>
+    <rgb>#710D0E</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Smooth Colors</nickname>
+    </category>
+    <groupId>1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-SMOOTH_DARK_RED" subsurface_ao_factor="0.0" subsurface_factor="0.25" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.2392157 0.01176471 0.01176471"/>
+      <group group_name="PEARL-RAHKSHI_GROUP" name="PEARL-RAHKSHI_GROUP">
+        <input name="Color" type="color"/>
+        <input name="Subsurface" type="float" value="0.250000"/>
+        <input name="SubsurfaceColor" type="color" value="0.2 0.0 0.0"/>
+        <input name="SubsurfaceRadius" type="vector" value="0.2 0.2 0.2"/>
+        <input name="SubsurfaceRoughness" type="float" value="0.300000"/>
+        <input name="MinRoughness" type="float" value="0.3"/>
+        <input name="MaxRoughness" type="float" value="1.0"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.100000"/>
+        <input name="Transmission" type="float" value="0.000000"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="PEARL-RAHKSHI_GROUP" to_socket="Color"/>
+      <connect from_node="PEARL-RAHKSHI_GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

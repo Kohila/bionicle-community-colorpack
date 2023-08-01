@@ -1,0 +1,72 @@
+<data>
+  <definition>
+    <id>
+      <studio>64649926</studio>
+      <bricklink>64649926</bricklink>
+      <ldraw>64649926</ldraw>
+      <ldd>64649926</ldd>
+    </id>
+    <name>
+      <studio>Marbled Reddish Gold-Sand Yellow Metallic - Sleep</studio>
+      <bricklink>Ksleep</bricklink>
+      <ldraw>Ksleep</ldraw>
+      <ldd>Ksleep</ldd>
+    </name>
+    <rgb>#c08a3e</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Kraata Patterns</nickname>
+    </category>
+    <groupId>5</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-MARBLED_REDDISH_GOLD_SAND_YELLOW_METALLIC___SLEEP" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB2" value="0.108995 0.069555 0.008681"/>
+      <color name="RGB1" value="0.933 0.703015 0.287136"/>
+      <mix name="RGB" type="mix" use_clamp="False"/>
+      <layer_weight name="LayerWeight">
+        <input name="Blend" type="float" value="0.920000"/>
+      </layer_weight>
+      <connect from_node="RGB1" from_socket="Color" to_node="RGB" to_socket="Color1"/>
+      <connect from_node="RGB2" from_socket="Color" to_node="RGB" to_socket="Color2"/>
+      <connect from_node="LayerWeight" from_socket="Facing" to_node="RGB" to_socket="Fac"/>
+      <connect from_node="RGB" from_socket="Color" to_node="MARBLED-GROUP" to_socket="BaseColor"/>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+      <group group_name="MARBLED-PEARL-WHOLE-KRAATA-GROUP" name="MARBLED-GROUP">
+        <input name="WaveDirection" type="color" value="0.01 0.100544 0.16707"/>
+        <input name="WaveVariation" type="float" value="0.5"/>
+        <input name="WaveRoughness" type="float" value="40.4"/>
+        <input name="WaveDistortion" type="float" value="0.5"/>
+        <input name="WaveDistortionScale" type="float" value="1.1"/>
+        <input name="WaveDistortionCount" type="float" value="1.3"/>
+        <input name="BaseColor" type="color" value="0.108995 0.069555 0.008681"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="SubsurfaceColor" type="color" value="0.317 0.317 0.121"/>
+        <input name="SubsurfaceRadius" type="vector" value="0.3 0.3 0.3"/>
+        <input name="SubsurfaceRoughness" type="float" value="0.290000"/>
+        <input name="MinRoughness" type="float" value="0.3"/>
+        <input name="MaxRoughness" type="float" value="1.0"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.2500000"/>
+        <input name="MiddleColor" type="color" value="0.0 0.0 0.0"/>
+        <input name="BlendInColor" type="color" value="0.786686 0.434154 0.104475"/>
+        <input name="InSubsurface" type="float" value="1.000000"/>
+        <input name="InSubsurfaceColor" type="color" value="0.265 0.117 0"/>
+        <input name="InSubsurfaceRadius" type="vector" value="0.3 0.3 0.3"/>
+        <input name="InSubsurfaceRoughness" type="float" value="0.290000"/>
+        <input name="InMinRoughness" type="float" value="0.3"/>
+        <input name="InMaxRoughness" type="float" value="1.0"/>
+        <input name="InClearcoat" type="float" value="0.000000"/>
+        <input name="InMetallic" type="float" value="0.2500000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+    </shader>
+  </settings>
+</data>

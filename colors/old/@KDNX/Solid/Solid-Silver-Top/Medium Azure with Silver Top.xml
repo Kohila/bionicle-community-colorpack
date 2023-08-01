@@ -1,0 +1,72 @@
+<data>
+  <definition>
+    <id>
+      <studio>64649227</studio>
+      <bricklink>64649227</bricklink>
+      <ldraw>64649227</ldraw>
+      <ldd>64649227</ldd>
+    </id>
+    <name>
+      <studio>Medium Azure with Silver Top</studio>
+      <bricklink>mediumazureWST</bricklink>
+      <ldraw>mediumazureWST</ldraw>
+      <ldd>mediumazureWST</ldd>
+    </name>
+    <rgb>#3DC1DC</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Blended Top Patterns</nickname>
+    </category>
+    <groupId>14</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-MEDIUM_AZURE_WITH_SILVER_TOP" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="PEARL-SHINE_GROUP" name="Red">
+        <input name="BaseColor" type="color" value="0.195653 0.22864 0.246268"/>
+        <input name="ShineColor" type="color" value="0.751739 0.751739 0.751739"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="SubsurfaceColor" type="color" value="0.4 0.4 0.47"/>
+        <input name="SubsurfaceRadius" type="vector" value="0.2 0.2 0.2"/>
+        <input name="SubsurfaceRoughness" type="float" value="0.500000"/>
+        <input name="MinRoughness" type="float" value="0.6"/>
+        <input name="MaxRoughness" type="float" value="0.9"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.800000"/>
+        <input name="LayerWeight" type="float" value="0.9200000"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <group group_name="SOLID-GROUP" name="Insection">
+        <input name="BaseColor" type="color" value="0.0 0.0 0.0"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="SOLID-GROUP" name="Orange">
+        <input name="BaseColor" type="color" value="0.1239634 0.5829892 0.7219608"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="GENERAL-MARBLED-DUP-GROUP" name="MARBLED-GROUP">
+        <input name="WaveDirection" type="color" value="0.0 0.315544 0.049707"/>
+        <input name="WaveVariation" type="float" value="0.05"/>
+        <input name="WaveRoughness" type="float" value="40.4"/>
+        <input name="WaveDistortion" type="float" value="0.1"/>
+        <input name="WaveDistortionScale" type="float" value="1.1"/>
+        <input name="WaveDistortionCount" type="float" value="0.5"/>
+        <input name="TopShader" type="closure"/>
+        <input name="MidShader" type="closure"/>
+        <input name="BottomShader" type="closure"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="Red" from_socket="BSDF" to_node="MARBLED-GROUP" to_socket="TopShader"/>
+      <connect from_node="Insection" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="MidShader"/>
+      <connect from_node="Orange" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="BottomShader"/>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

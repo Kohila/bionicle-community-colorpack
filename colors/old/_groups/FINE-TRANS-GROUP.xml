@@ -1,0 +1,66 @@
+<group name="FINE-TRANS-GROUP">
+  <shader>
+    <group group_name="NormalGroup" name="NormalGroup">
+      <output name="Normal" type="vector"/>
+    </group>
+    <group group_name="ScratchGroup" name="ScratchGroup">
+      <input name="WorldPos" type="vector"/>
+      <input name="Normal" type="vector"/>
+      <input name="Distance" type="float" value="0.050000"/>
+      <output name="Normal" type="vector"/>
+      <output name="DirtStrength" type="float"/>
+      <output name="DirtBSDF" type="closure"/>
+    </group>
+    <group group_name="DirtOnScratchMixGroup" name="DirtOnScratchMixGroup">
+      <input name="Fac" type="float"/>
+      <input name="Shader" type="closure"/>
+      <input name="DirtShader" type="closure"/>
+      <input name="Vector" type="vector"/>
+      <output name="Shader" type="closure"/>
+    </group>
+    <group group_name="STICKER-GROUP" name="Group">
+      <input name="Shader" type="closure"/>
+      <output name="Shader" type="closure"/>
+    </group>
+    <vector_transform convert_from="object" convert_to="world" name="VectorTransform" type="point"/>
+    <glass_bsdf name="Trans">
+      <input name="Color" type="color"/>
+      <input name="Roughness" type="float"/>
+      <input name="IOR" type="float"/>
+    </glass_bsdf>
+    <glass_bsdf name="Trans2">
+      <input name="Color" type="color"/>
+      <input name="Roughness" type="float"/>
+      <input name="IOR" type="float"/>
+    </glass_bsdf>
+    <layer_weight name="LayerWeight">
+      <input name="Blend" type="float" value="0.010000"/>
+    </layer_weight>
+    <mix_closure name="MixShader">
+      <input name="Fac" type="float" value="0.90000"/>
+    </mix_closure>
+    <group_input name="Input"/>
+    <group_output name="Output"/>
+    <connect from_node="ScratchGroup" from_socket="DirtBSDF" to_node="DirtOnScratchMixGroup" to_socket="DirtShader"/>
+    <connect from_node="ScratchGroup" from_socket="DirtStrength" to_node="DirtOnScratchMixGroup" to_socket="Fac"/>
+    <connect from_node="VectorTransform" from_socket="Vector" to_node="DirtOnScratchMixGroup" to_socket="Vector"/>
+    <connect from_node="VectorTransform" from_socket="Vector" to_node="ScratchGroup" to_socket="WorldPos"/>
+    <connect from_node="NormalGroup" from_socket="Normal" to_node="ScratchGroup" to_socket="WorldPos"/>
+    <connect from_node="MixShader" from_socket="Shader" to_node="DirtOnScratchMixGroup" to_socket="Shader"/>
+    <connect from_node="Input" from_socket="BaseColor" to_node="Trans" to_socket="Color"/>
+    <connect from_node="Input" from_socket="IOR" to_node="Trans" to_socket="IOR"/>
+    <connect from_node="Input" from_socket="Roughness" to_node="Trans" to_socket="Roughness"/>
+    <connect from_node="Input" from_socket="Tint" to_node="Trans2" to_socket="Color"/>
+    <connect from_node="Input" from_socket="IOR" to_node="Trans2" to_socket="IOR"/>
+    <connect from_node="Input" from_socket="Roughness" to_node="Trans2" to_socket="Roughness"/>
+    <connect from_node="Input" from_socket="Blending" to_node="LayerWeight" to_socket="Blend"/>
+    <connect from_node="LayerWeight" from_socket="Facing" to_node="MixShader" to_socket="Fac"/>
+    <connect from_node="NormalGroup" from_socket="Normal" to_node="ScratchGroup" to_socket="Normal"/>
+    <connect from_node="ScratchGroup" from_socket="Normal" to_node="Trans" to_socket="Normal"/>
+    <connect from_node="ScratchGroup" from_socket="Normal" to_node="Trans2" to_socket="Normal"/>
+    <connect from_node="Trans" from_socket="BSDF" to_node="MixShader" to_socket="Shader1"/>
+    <connect from_node="Trans2" from_socket="BSDF" to_node="MixShader" to_socket="Shader2"/>
+    <connect from_node="DirtOnScratchMixGroup" from_socket="Shader" to_node="Group" to_socket="Shader"/>
+    <connect from_node="Group" from_socket="Shader" to_node="Output" to_socket="Shader"/>
+  </shader>
+</group>

@@ -1,0 +1,54 @@
+<data>
+  <definition>
+    <id>
+      <studio>64649906</studio>
+      <bricklink>64649906</bricklink>
+      <ldraw>64649906</ldraw>
+      <ldd>64649906</ldd>
+    </id>
+    <name>
+      <studio>Marbled Light Grey Metallic-White - Anger</studio>
+      <bricklink>Kanger</bricklink>
+      <ldraw>Kanger</ldraw>
+      <ldd>Kanger</ldd>
+    </name>
+    <rgb>#989b99</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Kraata Patterns</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-MARBLED_LIGHT_GREY_METALLIC_WHITE___ANGER" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="MARBLED-PEARL-KRAATA-GROUP" name="MARBLED-GROUP">
+        <input name="WaveDirection" type="color" value="0.01 0.100544 0.16707"/>
+        <input name="WaveVariation" type="float" value="0.5"/>
+        <input name="WaveRoughness" type="float" value="40.4"/>
+        <input name="WaveDistortion" type="float" value="0.5"/>
+        <input name="WaveDistortionScale" type="float" value="1.1"/>
+        <input name="WaveDistortionCount" type="float" value="1.3"/>
+        <input name="BlendInColor" type="color" value="0.607 0.588 0.470"/>
+        <input name="MiddleColor" type="color" value="0.0 0.0 0.0"/>
+        <input name="BaseColor" type="color" value="0.441 0.45 0.423"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="SubsurfaceColor" type="color" value="0.156 0.129 0.078"/>
+        <input name="SubsurfaceRadius" type="vector" value="0.3 0.3 0.3"/>
+        <input name="SubsurfaceRoughness" type="float" value="0.290000"/>
+        <input name="MinRoughness" type="float" value="0.3"/>
+        <input name="MaxRoughness" type="float" value="1.0"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.1000000"/>
+        <input name="LayerWeight" type="float" value="0.9200000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>
