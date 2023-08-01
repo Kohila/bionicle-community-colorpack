@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647209</studio>
+      <bricklink>64647209</bricklink>
+      <ldraw>64647209</ldraw>
+      <ldd>64647209</ldd>
+    </id>
+    <name>
+      <studio>Semitrans-Fire Yellow</studio>
+      <bricklink>STfireyellow</bricklink>
+      <ldraw>STfireyellow</ldraw>
+      <ldd>STfireyellow</ldd>
+    </name>
+    <rgb>#FBE890</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Semitransparent Colors</nickname>
+    </category>
+    <groupId>10</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-SEMIFIRE_YELLOW" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SEMITRANS-GROUP" name="SEMITRANS-GROUP">
+        <input name="BaseColor" type="color" value="1 0.9843137 0.5686275"/>
+        <input name="Tint" type="color" value="1 0.85 0.1"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.9"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="SEMITRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

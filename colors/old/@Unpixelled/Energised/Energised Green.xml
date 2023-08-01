@@ -1,0 +1,54 @@
+<data>
+  <definition>
+    <id>
+      <studio>35000</studio>
+      <bricklink>35000</bricklink>
+      <ldraw>35000</ldraw>
+      <ldd>35000</ldd>
+    </id>
+    <name>
+      <studio>Energised Green</studio>
+      <bricklink>Energised Green</bricklink>
+      <ldraw>Energised Green</ldraw>
+      <ldd>Energised Green</ldd>
+    </name>
+    <rgb>#00a704</rgb>
+    <alpha>1.0</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Energized Colors</nickname>
+    </category>
+    <groupId>12</groupId>
+    <notes>to_lego</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="SOLID-ENERGISED_GREEN" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.0 0.26 0.08233331"/>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="Color" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <emission name="EmissionColor">
+        <input name="Color" type="color" value="0.0 1.0 0.188"/>
+        <input name="Strength" type="float" value="400.000000"/>
+      </emission>
+      <layer_weight name="LayerWeight">
+        <input name="Blend" type="float" value="0.010000"/>
+      </layer_weight>
+      <mix_closure name="MixShader">
+        <input name="Fac" type="float" value="0.050000"/>
+      </mix_closure>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="Color"/>
+      <connect from_node="LayerWeight" from_socket="Fresnel" to_node="MixShader" to_socket="Fac"/>
+      <connect from_node="SOLID-GROUP" from_socket="Shader" to_node="MixShader" to_socket="Shader1"/>
+      <connect from_node="EmissionColor" from_socket="Emission" to_node="MixShader" to_socket="Shader2"/>
+      <connect from_node="MixShader" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

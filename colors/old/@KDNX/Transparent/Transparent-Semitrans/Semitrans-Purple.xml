@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647220</studio>
+      <bricklink>64647220</bricklink>
+      <ldraw>64647220</ldraw>
+      <ldd>64647220</ldd>
+    </id>
+    <name>
+      <studio>Semitrans-Purple</studio>
+      <bricklink>STpurple</bricklink>
+      <ldraw>STpurple</ldraw>
+      <ldd>STpurple</ldd>
+    </name>
+    <rgb>#A4A4CA</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Semitransparent Colors</nickname>
+    </category>
+    <groupId>20</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-SEMIPURPLE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SEMITRANS-GROUP" name="SEMITRANS-GROUP">
+        <input name="BaseColor" type="color" value="0.482469 0.429984 0.82"/>
+        <input name="Tint" type="color" value="0.427305 0.328741 0.99"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.9"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="SEMITRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

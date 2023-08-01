@@ -1,0 +1,43 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647312</studio>
+      <bricklink>64647312</bricklink>
+      <ldraw>64647312</ldraw>
+      <ldd>64647312</ldd>
+    </id>
+    <name>
+      <studio>Soft Trans-Green</studio>
+      <bricklink>STgreen</bricklink>
+      <ldraw>STgreen</ldraw>
+      <ldd>STgreen</ldd>
+    </name>
+    <rgb>#227740</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Soft Transparent Colors</nickname>
+    </category>
+    <groupId>12</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-SOFT_GREEN" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SOFT-TRANS-GROUP" name="SOFT-TRANS-GROUP">
+        <input name="BaseColor" type="color" value="0.140633 0.844116 0.195866"/>
+        <input name="Tint" type="color" value="0.968789 1 0.3"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.9"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <input name="SoftColor" type="color" value="0.043 0.376 0.070"/>
+        <input name="SubsurfaceColor" type="color" value="0.968789 1 0.3"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="SOFT-TRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

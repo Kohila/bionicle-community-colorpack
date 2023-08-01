@@ -1,0 +1,64 @@
+<data>
+  <definition>
+    <id>
+      <studio>64649026</studio>
+      <bricklink>64649026</bricklink>
+      <ldraw>64649026</ldraw>
+      <ldd>64649026</ldd>
+    </id>
+    <name>
+      <studio>Light Brown with Silver Center</studio>
+      <bricklink>lightbrownWSC</bricklink>
+      <ldraw>lightbrownWSC</ldraw>
+      <ldd>lightbrownWSC</ldd>
+    </name>
+    <rgb>#7B4F39</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Blended Center Patterns</nickname>
+    </category>
+    <groupId>4</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-LIGHT_BROWN_WITH_SILVER_CENTER" subsurface_ao_factor="0.0" subsurface_factor="2.1" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="TopColor" value="0.28 0.09940001 0.02800001"/>
+      <color name="BottomColor" value="0.748099 0.7485667 0.75"/>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP-TOP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="METAL-GROUP" name="SOLID-GROUP-BOTTOM">
+        <input name="BaseColor" type="color"/>
+        <input name="Color" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="GENERAL-MARBLED-CENTER-GROUP" name="MARBLED-GROUP">
+        <input name="WaveDirection" type="color" value="0.0 0.0 1.0"/>
+        <input name="WaveVariation" type="float" value="0.05"/>
+        <input name="WaveRoughness" type="float" value="40.0"/>
+        <input name="WaveDistortion" type="float" value="0.1"/>
+        <input name="WaveDistortionScale" type="float" value="2.0"/>
+        <input name="WaveDistortionCount" type="float" value="0.5"/>
+        <input name="TopShader" type="closure"/>
+        <input name="MidShader" type="closure"/>
+        <input name="BottomShader" type="closure"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="TopColor" from_socket="Color" to_node="SOLID-GROUP-TOP" to_socket="BaseColor"/>
+      <connect from_node="TopColor" from_socket="Color" to_node="SOLID-GROUP-TOP" to_socket="SubsurfaceColor"/>
+      <connect from_node="BottomColor" from_socket="Color" to_node="SOLID-GROUP-BOTTOM" to_socket="BaseColor"/>
+      <connect from_node="BottomColor" from_socket="Color" to_node="SOLID-GROUP-BOTTOM" to_socket="Color"/>
+      <connect from_node="SOLID-GROUP-TOP" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="TopShader"/>
+      <connect from_node="SOLID-GROUP-BOTTOM" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="MidShader"/>
+      <connect from_node="SOLID-GROUP-BOTTOM" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="BottomShader"/>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

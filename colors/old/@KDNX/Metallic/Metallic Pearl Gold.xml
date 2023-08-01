@@ -1,0 +1,42 @@
+<data>
+  <definition>
+    <id>
+      <studio>64646422</studio>
+      <bricklink>64646422</bricklink>
+      <ldraw>64646422</ldraw>
+      <ldd>64646422</ldd>
+    </id>
+    <name>
+      <studio>Metallic Pearl Gold</studio>
+      <bricklink>Mpearlgold</bricklink>
+      <ldraw>Mpearlgold</ldraw>
+      <ldd>Mpearlgold</ldd>
+    </name>
+    <rgb>#aa7f2e</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Metallic Colors</name>
+      <nickname>Miscellaneous Colors (Metallic)</nickname>
+    </category>
+    <groupId>7</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="METAL-PEARL_GOLD" subsurface_ao_factor="0.0" subsurface_factor="1.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.580 0.337 0.05"/>
+      <group group_name="WARM-GROUP" name="WARM-GROUP">
+        <input name="Color" type="color"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.3900000"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="WARM-GROUP" to_socket="Color"/>
+      <connect from_node="WARM-GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

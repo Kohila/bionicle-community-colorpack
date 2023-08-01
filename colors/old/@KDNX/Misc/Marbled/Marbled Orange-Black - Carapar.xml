@@ -1,0 +1,61 @@
+<data>
+  <definition>
+    <id>
+      <studio>64649503</studio>
+      <bricklink>64649503</bricklink>
+      <ldraw>64649503</ldraw>
+      <ldd>64649503</ldd>
+    </id>
+    <name>
+      <studio>Marbled Orange-Black - Carapar</studio>
+      <bricklink>Carapar</bricklink>
+      <ldraw>Carapar</ldraw>
+      <ldd>Carapar</ldd>
+    </name>
+    <rgb>#D79A1C</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Marbled Patterns</nickname>
+    </category>
+    <groupId>1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="TRANS-MARBLED_ORANGE_BLACK___CARAPAR" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="FINE-TRANS-BLEND-GROUP" name="TRANS-NEON-GROUP">
+        <input name="Color" type="color" value="0.4769998788833618 0.4185596704483032 0.374546080827713"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="FINE-TRANS-BLEND-GROUP" name="Insert">
+        <input name="Color" type="color" value="0.35 0.0705 0.0705"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="SOLID-TRANS-GROUP" name="Solid">
+        <input name="BaseColor" type="color" value="1 0.393123 0"/>
+        <input name="Transmission" type="float" value="0.4"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="GENERAL-MARBLED-GARAI-GROUP" name="MARBLED-GROUP">
+        <input name="WaveDirection" type="color" value="1.5 0.049707 0.05544"/>
+        <input name="WaveVariation" type="float" value="1.1"/>
+        <input name="WaveRoughness" type="float" value="40.4"/>
+        <input name="WaveDistortion" type="float" value="0.2"/>
+        <input name="WaveDistortionScale" type="float" value="2.1"/>
+        <input name="WaveDistortionCount" type="float" value="0.4"/>
+        <input name="TopShader" type="closure"/>
+        <input name="MidShader" type="closure"/>
+        <input name="BottomShader" type="closure"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="Solid" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="TopShader"/>
+      <connect from_node="Insert" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="MidShader"/>
+      <connect from_node="TRANS-NEON-GROUP" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="BottomShader"/>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

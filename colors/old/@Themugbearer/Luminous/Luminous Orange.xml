@@ -1,0 +1,50 @@
+<data>
+  <definition>
+    <id>
+      <studio>509031</studio>
+      <bricklink/>
+      <ldraw>509031</ldraw>
+      <ldd>9031</ldd>
+    </id>
+    <name>
+      <studio>Luminous Orange</studio>
+      <bricklink/>
+      <ldraw>Luminous Orange</ldraw>
+      <ldd>Luminous Orange</ldd>
+    </name>
+    <rgb>#EF8E1B</rgb>
+    <alpha>0.62</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Luminous(Render Only)</nickname>
+    </category>
+    <groupId>5</groupId>
+    <notes>to_bl,to_ldd</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-LUMINOUS_ORANGE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB_White" value="1.0 1.0 1.0"/>
+      <color name="RGB" value="1 0.3 0"/>
+      <group group_name="TRANS-GROUP_BASE" name="TRANS-GROUP_BASE">
+        <input name="WhiteColor" type="color"/>
+        <input name="Color" type="color"/>
+        <output name="Shader" type="closure"/>
+        <output name="Volume" type="closure"/>
+        <output name="Normal" type="vector"/>
+      </group>
+      <emission name="Emission">
+        <input name="Color" type="color" value="1 0.3 0"/>
+        <input name="Strength" type="float" value="20.000000"/>
+      </emission>
+      <connect from_node="Emission" from_socket="Emission" to_node="Output" to_socket="Surface"/>
+      <connect from_node="TRANS-GROUP_BASE" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+      <connect from_node="RGB" from_socket="Color" to_node="TRANS-GROUP_BASE" to_socket="Color"/>
+      <connect from_node="TRANS-GROUP_BASE" from_socket="Volume" to_node="Output" to_socket="Volume"/>
+      <connect from_node="RGB_White" from_socket="Color" to_node="TRANS-GROUP_BASE" to_socket="WhiteColor"/>
+    </shader>
+  </settings>
+</data>

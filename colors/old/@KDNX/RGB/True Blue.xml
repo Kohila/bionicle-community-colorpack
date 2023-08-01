@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64646404</studio>
+      <bricklink>64646404</bricklink>
+      <ldraw>64646404</ldraw>
+      <ldd>64646404</ldd>
+    </id>
+    <name>
+      <studio>True Blue</studio>
+      <bricklink>Tblue</bricklink>
+      <ldraw>Tblue</ldraw>
+      <ldd>Tblue</ldd>
+    </name>
+    <rgb>#0000FF</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>RGB Colors</nickname>
+    </category>
+    <groupId>12</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="SOLID-TRUE_BLUE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0 0 1"/>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="SubsurfaceColor"/>
+      <connect from_node="SOLID-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

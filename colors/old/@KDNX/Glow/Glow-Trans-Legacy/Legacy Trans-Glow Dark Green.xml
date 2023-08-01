@@ -1,0 +1,59 @@
+<data>
+  <definition>
+    <id>
+      <studio>64648520</studio>
+      <bricklink>64648520</bricklink>
+      <ldraw>64648520</ldraw>
+      <ldd>64648520</ldd>
+    </id>
+    <name>
+      <studio>Legacy Trans-Glow Dark Green</studio>
+      <bricklink>LTGdarkgreen</bricklink>
+      <ldraw>LTGdarkgreen</ldraw>
+      <ldd>LTGdarkgreen</ldd>
+    </name>
+    <rgb>#24421f</rgb>
+    <alpha>0.6</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Legacy Trans-Glow Colors</nickname>
+    </category>
+    <groupId>12</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-LEGACY_GLOW_DARK_GREEN" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.141 0.258 0.121"/>
+      <glass_bsdf name="Trans">
+        <input name="Color" type="color"/>
+        <input name="Roughness" type="float" value="0.050000"/>
+        <input name="IOR" type="float" value="1.450"/>
+      </glass_bsdf>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <emission name="EmissionColor">
+        <input name="Color" type="color" value="1.0 1.0 0.0"/>
+        <input name="Strength" type="float" value="400.000000"/>
+      </emission>
+      <layer_weight name="LayerWeight">
+        <input name="Blend" type="float" value="0.010000"/>
+      </layer_weight>
+      <mix_closure name="MixShader">
+        <input name="Fac" type="float" value="0.050000"/>
+      </mix_closure>
+      <connect from_node="RGB" from_socket="Color" to_node="Trans" to_socket="Color"/>
+      <connect from_node="RGB" from_socket="Color" to_node="EmissionColor" to_socket="Color"/>
+      <connect from_node="LayerWeight" from_socket="Fresnel" to_node="MixShader" to_socket="Fac"/>
+      <connect from_node="Trans" from_socket="BSDF" to_node="MixShader" to_socket="Shader1"/>
+      <connect from_node="EmissionColor" from_socket="Emission" to_node="MixShader" to_socket="Shader2"/>
+      <connect from_node="MixShader" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

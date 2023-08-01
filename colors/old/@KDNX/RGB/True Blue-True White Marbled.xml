@@ -1,0 +1,116 @@
+<data>
+  <definition>
+    <id>
+      <studio>64646413</studio>
+      <bricklink>64646413</bricklink>
+      <ldraw>64646413</ldraw>
+      <ldd>64646413</ldd>
+    </id>
+    <name>
+      <studio>True Blue-True White Marbled</studio>
+      <bricklink>TBTWM</bricklink>
+      <ldraw>TBTWM</ldraw>
+      <ldd>TBTWM</ldd>
+    </name>
+    <rgb>#7f7fff</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Experimental Marbled Colors</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="PEARL-TRUE_BLUE_TRUE_WHITE_MARBLED" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <noise_texture name="NoiseTexture" dimensions="3D">
+        <input name="Scale" type="float" value="5.600"/>
+        <input name="Detail" type="float" value="1.200"/>
+        <input name="Roughness" type="float" value="0.500"/>
+        <input name="Distortion" type="float" value="0.500"/>
+      </noise_texture>
+      <rgb_ramp interpolate="True" name="ColorRamp" ramp="1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.9921568627 0.9921568627 1.0 0.9843137255 0.9843137255 1.0 0.9764705882 0.9764705882 1.0 0.968627451 0.968627451 1.0 0.9607843137 0.9607843137 1.0 0.9529411765 0.9529411765 1.0 0.9450980392 0.9450980392 1.0 0.937254902 0.937254902 1.0 0.9294117647 0.9294117647 1.0 0.9215686275 0.9215686275 1.0 0.9137254902 0.9137254902 1.0 0.9058823529 0.9058823529 1.0 0.8980392157 0.8980392157 1.0 0.8901960784 0.8901960784 1.0 0.8823529412 0.8823529412 1.0 0.8745098039 0.8745098039 1.0 0.8666666667 0.8666666667 1.0 0.8588235294 0.8588235294 1.0 0.8509803922 0.8509803922 1.0 0.8431372549 0.8431372549 1.0 0.8352941176 0.8352941176 1.0 0.8274509804 0.8274509804 1.0 0.8196078431 0.8196078431 1.0 0.8117647059 0.8117647059 1.0 0.8039215686 0.8039215686 1.0 0.7960784314 0.7960784314 1.0 0.7882352941 0.7882352941 1.0 0.7803921569 0.7803921569 1.0 0.7725490196 0.7725490196 1.0 0.7647058824 0.7647058824 1.0 0.7568627451 0.7568627451 1.0 0.7490196078 0.7490196078 1.0 0.7411764706 0.7411764706 1.0 0.7333333333 0.7333333333 1.0 0.7254901961 0.7254901961 1.0 0.7176470588 0.7176470588 1.0 0.7098039216 0.7098039216 1.0 0.7019607843 0.7019607843 1.0 0.6941176471 0.6941176471 1.0 0.6862745098 0.6862745098 1.0 0.6784313725 0.6784313725 1.0 0.6705882353 0.6705882353 1.0 0.662745098 0.662745098 1.0 0.6549019608 0.6549019608 1.0 0.6470588235 0.6470588235 1.0 0.6392156863 0.6392156863 1.0 0.631372549 0.631372549 1.0 0.6235294118 0.6235294118 1.0 0.6156862745 0.6156862745 1.0 0.6078431373 0.6078431373 1.0 0.6 0.6 1.0 0.5921568627 0.5921568627 1.0 0.5843137255 0.5843137255 1.0 0.5764705882 0.5764705882 1.0 0.568627451 0.568627451 1.0 0.5607843137 0.5607843137 1.0 0.5529411765 0.5529411765 1.0 0.5450980392 0.5450980392 1.0 0.537254902 0.537254902 1.0 0.5294117647 0.5294117647 1.0 0.5215686275 0.5215686275 1.0 0.5137254902 0.5137254902 1.0 0.5058823529 0.5058823529 1.0 0.4980392157 0.4980392157 1.0 0.4901960784 0.4901960784 1.0 0.4823529412 0.4823529412 1.0 0.4745098039 0.4745098039 1.0 0.4666666667 0.4666666667 1.0 0.4588235294 0.4588235294 1.0 0.4509803922 0.4509803922 1.0 0.4431372549 0.4431372549 1.0 0.4352941176 0.4352941176 1.0 0.4274509804 0.4274509804 1.0 0.4196078431 0.4196078431 1.0 0.4117647059 0.4117647059 1.0 0.4039215686 0.4039215686 1.0 0.3960784314 0.3960784314 1.0 0.3882352941 0.3882352941 1.0 0.3803921569 0.3803921569 1.0 0.3725490196 0.3725490196 1.0 0.3647058824 0.3647058824 1.0 0.3568627451 0.3568627451 1.0 0.3490196078 0.3490196078 1.0 0.3411764706 0.3411764706 1.0 0.3333333333 0.3333333333 1.0 0.3254901961 0.3254901961 1.0 0.3176470588 0.3176470588 1.0 0.3098039216 0.3098039216 1.0 0.3019607843 0.3019607843 1.0 0.2941176471 0.2941176471 1.0 0.2862745098 0.2862745098 1.0 0.2784313725 0.2784313725 1.0 0.2705882353 0.2705882353 1.0 0.262745098 0.262745098 1.0 0.2549019608 0.2549019608 1.0 0.2470588235 0.2470588235 1.0 0.2392156863 0.2392156863 1.0 0.231372549 0.231372549 1.0 0.2235294118 0.2235294118 1.0 0.2156862745 0.2156862745 1.0 0.2078431373 0.2078431373 1.0 0.2 0.2 1.0 0.1921568627 0.1921568627 1.0 0.1843137255 0.1843137255 1.0 0.1764705882 0.1764705882 1.0 0.168627451 0.168627451 1.0 0.1607843137 0.1607843137 1.0 0.1529411765 0.1529411765 1.0 0.1450980392 0.1450980392 1.0 0.137254902 0.137254902 1.0 0.1294117647 0.1294117647 1.0 0.1215686275 0.1215686275 1.0 0.1137254902 0.1137254902 1.0 0.1058823529 0.1058823529 1.0 0.09803921569 0.09803921569 1.0 0.09019607843 0.09019607843 1.0 0.08235294118 0.08235294118 1.0 0.07450980392 0.07450980392 1.0 0.06666666667 0.06666666667 1.0 0.05882352941 0.05882352941 1.0 0.05098039216 0.05098039216 1.0 0.0431372549 0.0431372549 1.0 0.03529411765 0.03529411765 1.0 0.02745098039 0.02745098039 1.0 0.01960784314 0.01960784314 1.0 0.01176470588 0.01176470588 1.0 0.003921568627 0.003921568627 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0" ramp_alpha="1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0"/>
+      <group group_name="DirtOnScratchMixGroup" name="DirtOnScratchMixGroup">
+        <input name="Fac" type="float"/>
+        <input name="Shader" type="closure"/>
+        <input name="DirtShader" type="closure"/>
+        <input name="Vector" type="vector"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="UVGroup" name="UVGroup">
+        <input name="InColor" type="color"/>
+        <input name="WorldPos" type="vector"/>
+        <input name="MinRoughness" type="float"/>
+        <input name="MaxRoughness" type="float"/>
+        <output name="OutColor" type="color"/>
+        <output name="OutRoughness" type="float"/>
+      </group>
+      <group group_name="ScratchGroup" name="ScratchGroup">
+        <input name="WorldPos" type="vector"/>
+        <input name="Normal" type="vector"/>
+        <input name="Distance" type="float" value="0.050000"/>
+        <output name="Normal" type="vector"/>
+        <output name="DirtStrength" type="float"/>
+        <output name="DirtBSDF" type="closure"/>
+      </group>
+      <group group_name="NormalGroup" name="NormalGroup">
+        <output name="Normal" type="vector"/>
+      </group>
+      <group group_name="STICKER-GROUP" name="Group">
+        <input name="Shader" type="closure"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <mix_closure name="MixShader">
+        <input name="Fac" type="float" value="0.200000"/>
+      </mix_closure>
+      <principled_bsdf distribution="ggx" name="PrincipledBSDF" subsurface_method="burley">
+        <input name="BaseColor" type="color"/>
+        <input name="Subsurface" type="float" value="0.000000"/>
+        <input name="SubsurfaceRadius" type="vector" value="1.0 1.0 1.0"/>
+        <input name="SubsurfaceColor" type="color" value="1.0 1.0 1.0"/>
+        <input name="Specular" type="float" value="0.500000"/>
+        <input name="SpecularTint" type="float" value="0.000000"/>
+        <input name="Roughness" type="float" value="0.500000"/>
+        <input name="Anisotropic" type="float" value="0.000000"/>
+        <input name="AnisotropicRotation" type="float" value="0.000000"/>
+        <input name="Sheen" type="float" value="0.000000"/>
+        <input name="SheenTint" type="float" value="0.500000"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="ClearcoatRoughness" type="float" value="0.030000"/>
+        <input name="IOR" type="float" value="1.450000"/>
+        <input name="Transmission" type="float" value="0.000000"/>
+        <input name="TransmissionRoughness" type="float" value="0.000000"/>
+        <input name="Tangent" type="vector" value="0.0 0.0 0.0"/>
+      </principled_bsdf>
+      <value name="MinRoughness" value="0.05000000149011612"/>
+      <value name="MaxRoughness" value="0.5"/>
+      <vector_transform convert_from="object" convert_to="world" name="VectorTransform" type="point"/>
+      <texture_coordinate name="TextureCoordinate"/>
+      <vector name="SubsurfaceRadius" value="1.0 1.0 1.0"/>
+      <connect from_node="NoiseTexture" from_socket="Fac" to_node="ColorRamp" to_socket="Fac"/>
+      <connect from_node="ColorRamp" from_socket="Color" to_node="PrincipledBSDF" to_socket="BaseColor"/>
+      <connect from_node="PrincipledBSDF" from_socket="BSDF" to_node="MixShader" to_socket="Shader1"/>
+      <connect from_node="TextureCoordinate" from_socket="Object" to_node="VectorTransform" to_socket="Vector"/>
+      <connect from_node="VectorTransform" from_socket="Vector" to_node="UVGroup" to_socket="WorldPos"/>
+      <connect from_node="UVGroup" from_socket="OutColor" to_node="PrincipledBSDF" to_socket="BaseColor"/>
+      <connect from_node="UVGroup" from_socket="OutColor" to_node="PrincipledBSDF" to_socket="SubsurfaceColor"/>
+      <connect from_node="UVGroup" from_socket="OutRoughness" to_node="PrincipledBSDF" to_socket="Roughness"/>
+      <connect from_node="ScratchGroup" from_socket="Normal" to_node="PrincipledBSDF" to_socket="Normal"/>
+      <connect from_node="VectorTransform" from_socket="Vector" to_node="ScratchGroup" to_socket="WorldPos"/>
+      <connect from_node="MinRoughness" from_socket="Value" to_node="UVGroup" to_socket="MinRoughness"/>
+      <connect from_node="MaxRoughness" from_socket="Value" to_node="UVGroup" to_socket="MaxRoughness"/>
+      <connect from_node="DirtOnScratchMixGroup" from_socket="Shader" to_node="Group" to_socket="Shader"/>
+      <connect from_node="ScratchGroup" from_socket="DirtBSDF" to_node="DirtOnScratchMixGroup" to_socket="DirtShader"/>
+      <connect from_node="ScratchGroup" from_socket="DirtStrength" to_node="DirtOnScratchMixGroup" to_socket="Fac"/>
+      <connect from_node="VectorTransform" from_socket="Vector" to_node="DirtOnScratchMixGroup" to_socket="Vector"/>
+      <connect from_node="NormalGroup" from_socket="Normal" to_node="ScratchGroup" to_socket="Normal"/>
+      <connect from_node="MixShader" from_socket="Shader" to_node="DirtOnScratchMixGroup" to_socket="Shader"/>
+      <connect from_node="SubsurfaceRadius" from_socket="Vector" to_node="PrincipledBSDF" to_socket="SubsurfaceRadius"/>
+      <connect from_node="Group" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

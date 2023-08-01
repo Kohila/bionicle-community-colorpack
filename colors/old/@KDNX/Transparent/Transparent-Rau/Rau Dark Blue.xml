@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64641019</studio>
+      <bricklink>64641019</bricklink>
+      <ldraw>64641019</ldraw>
+      <ldd>64641019</ldd>
+    </id>
+    <name>
+      <studio>Rau Dark Blue</studio>
+      <bricklink>Rdarkblue</bricklink>
+      <ldraw>Rdarkblue</ldraw>
+      <ldd>Rdarkblue</ldd>
+    </name>
+    <rgb>#102FB5</rgb>
+    <alpha>0.8</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Rau Transparent Colors</nickname>
+    </category>
+    <groupId>17</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk>100,81,0,38</cmyk>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-RAU_DARK_BLUE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.16 0.7200001 1"/>
+      <group group_name="RAU-GROUP" name="SEMITRANS-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="SEMITRANS-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="SEMITRANS-GROUP" to_socket="SubsurfaceColor"/>
+      <connect from_node="SEMITRANS-GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

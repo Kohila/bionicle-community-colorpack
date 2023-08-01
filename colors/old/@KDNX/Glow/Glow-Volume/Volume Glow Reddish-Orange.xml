@@ -1,0 +1,47 @@
+<data>
+  <definition>
+    <id>
+      <studio>64648103</studio>
+      <bricklink>64648103</bricklink>
+      <ldraw>64648103</ldraw>
+      <ldd>64648103</ldd>
+    </id>
+    <name>
+      <studio>Volume Glow Reddish-Orange</studio>
+      <bricklink>VGreddishorange</bricklink>
+      <ldraw>VGreddishorange</ldraw>
+      <ldd>VGreddishorange</ldd>
+    </name>
+    <rgb>#ff5d0f</rgb>
+    <alpha>0.6</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Volume Glow Colors</nickname>
+    </category>
+    <groupId>2</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-VOLUME_GLOW_REDDISH_ORANGE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="FINE-TRANS-GROUP" name="FINE-TRANS-GROUP">
+        <input name="BaseColor" type="color" value="1.000 0.07941 0.014469"/>
+        <input name="Tint" type="color" value="1.000 0.03624 0"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.06"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <emission name="Glow">
+        <value name="Color" type="color" value="1.0 0.3 0.0"/>
+        <input name="Strength" type="float" value="40"/>
+        <output name="Emission" type="closure"/>
+      </emission>
+      <connect from_node="Glow" from_socket="Emission" to_node="Output" to_socket="Volume"/>
+      <connect from_node="FINE-TRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

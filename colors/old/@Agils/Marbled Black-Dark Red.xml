@@ -1,0 +1,67 @@
+<data>
+  <definition>
+    <id>
+      <studio>99937</studio>
+      <bricklink>11</bricklink>
+      <ldraw>99937</ldraw>
+      <ldd>99937</ldd>
+    </id>
+    <name>
+      <studio>Marbled Black-Dark Red</studio>
+      <bricklink>Black</bricklink>
+      <ldraw/>
+      <ldd/>
+    </name>
+    <rgb>#1b2a34</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Kraata Patterns</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="PEARL-MARBLED_BLACK_DARK_RED" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SOFT-GROUP" name="Red">
+        <input name="BaseColor" type="color" value="0.005 0.005 0.005"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="SOFT-GROUP" name="Insection">
+        <input name="BaseColor" type="color" value="0 0 0"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="SOFT-GROUP" name="Orange">
+        <input name="BaseColor" type="color" value="0.2392157 0.01176471  0.01176471"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <group group_name="TRANFORMABLE-MARBLED-GROUP-S" name="MARBLED-GROUP">
+        <input name="Rotation X" type="float" value="0.0"/>
+        <input name="Rotation Y" type="float" value="0.0"/>
+        <input name="Rotation Z" type="float" value="0.1"/>
+        <input name="Translation" type="vector" value="40.5 0.67 0.1"/>
+        <input name="WaveDirection" type="color" value="0.0 0.049707 0.215544"/>
+        <input name="WaveVariation" type="float" value="0.05"/>
+        <input name="WaveRoughness" type="float" value="40.4"/>
+        <input name="WaveDistortion" type="float" value="0.1"/>
+        <input name="WaveDistortionScale" type="float" value="1.1"/>
+        <input name="WaveDistortionCount" type="float" value="1.1"/>
+        <input name="TopShader" type="closure"/>
+        <input name="MidShader" type="closure"/>
+        <input name="BottomShader" type="closure"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="Red" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="TopShader"/>
+      <connect from_node="Insection" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="MidShader"/>
+      <connect from_node="Orange" from_socket="Shader" to_node="MARBLED-GROUP" to_socket="BottomShader"/>
+      <connect from_node="MARBLED-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

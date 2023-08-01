@@ -1,0 +1,56 @@
+<data>
+  <definition>
+    <id>
+      <studio>64648940</studio>
+      <bricklink>64648940</bricklink>
+      <ldraw>64648940</ldraw>
+      <ldd>64648940</ldd>
+    </id>
+    <name>
+      <studio>Activated-Gold Very Light Grey</studio>
+      <bricklink>Activated-Gold Very Light Gray</bricklink>
+      <ldraw>AGverylightgrey</ldraw>
+      <ldd>AGverylightgray</ldd>
+    </name>
+    <rgb>#BFA47E</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Pearl Colors</name>
+      <nickname>Activated-Gold Colors</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="PEARL-ACTIVATED_GOLD_VERY_LIGHT_GREY" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.580 0.337 0.05"/>
+      <group group_name="WARM-GROUP" name="WARM-GROUP">
+        <input name="Color" type="color"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.3900000"/>
+        <input name="Transmission" type="float" value="0.0000000"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <emission name="EmissionColor">
+        <input name="Color" type="color" value="0.62 0.5985065 0.5703999"/>
+        <input name="Strength" type="float" value="400.000000"/>
+      </emission>
+      <layer_weight name="LayerWeight">
+        <input name="Blend" type="float" value="0.010000"/>
+      </layer_weight>
+      <mix_closure name="MixShader">
+        <input name="Fac" type="float" value="0.050000"/>
+      </mix_closure>
+      <connect from_node="RGB" from_socket="Color" to_node="WARM-GROUP" to_socket="Color"/>
+      <connect from_node="LayerWeight" from_socket="Fresnel" to_node="MixShader" to_socket="Fac"/>
+      <connect from_node="WARM-GROUP" from_socket="BSDF" to_node="MixShader" to_socket="Shader1"/>
+      <connect from_node="EmissionColor" from_socket="Emission" to_node="MixShader" to_socket="Shader2"/>
+      <connect from_node="MixShader" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

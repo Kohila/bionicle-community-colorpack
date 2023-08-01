@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64641604</studio>
+      <bricklink>64641604</bricklink>
+      <ldraw>64641604</ldraw>
+      <ldd>64641604</ldd>
+    </id>
+    <name>
+      <studio>Lesbian Pride Dark Magenta</studio>
+      <bricklink>LPdarkmagenta</bricklink>
+      <ldraw>LPdarkmagenta</ldraw>
+      <ldd>LPdarkmagenta</ldd>
+    </name>
+    <rgb>#A40062</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Pride Flag Colors</nickname>
+    </category>
+    <groupId>20</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="SOLID-LESBIAN_PRIDE_DARK_MAGENTA" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.6431372549 0 0.3843137255"/>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="SubsurfaceColor"/>
+      <connect from_node="SOLID-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

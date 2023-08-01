@@ -1,0 +1,60 @@
+<data>
+  <definition>
+    <id>
+      <studio>64640030</studio>
+      <bricklink>64640030</bricklink>
+      <ldraw>64640030</ldraw>
+      <ldd>64640030</ldd>
+    </id>
+    <name>
+      <studio>Invisible Dark Tan</studio>
+      <bricklink>Invisible Sand Yellow</bricklink>
+      <ldraw>Idarktan</ldraw>
+      <ldd>Isandyellow</ldd>
+    </name>
+    <rgb>#948972</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Invisible Colors</nickname>
+    </category>
+    <groupId>6</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-INVISIBLE_DARK_TAN" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <noise_texture name="Noise1" tex_mapping="[object Object]">
+        <input name="Scale" type="float" value="2.000000"/>
+        <input name="Detail" type="float" value="5.000000"/>
+        <input name="Distortion" type="float" value="0.000000"/>
+        <input name="Roughness" type="float" value="0.500000"/>
+      </noise_texture>
+      <math name="Math1" type="multiply" use_clamp="True">
+        <input name="Value1" type="float" value="1.5"/>
+      </math>
+      <math name="Math2" type="multiply" use_clamp="True">
+        <input name="Value1" type="float" value="17.0"/>
+      </math>
+      <principled_volume name="Shader">
+        <input name="Color" type="color" value="0.3 0.2168 0.108"/>
+        <input name="Density" type="float" value="0.5"/>
+        <input name="Anisotropy" type="float" value="0.0"/>
+        <input name="AbsorbtionColor" type="color" value="0.5 0.5 0.5"/>
+        <input name="EmissionStrength" type="float" value="0.0"/>
+        <input name="EmissionColor" type="color"/>
+        <input name="BlackbodyIntensity" type="float" value="0.0"/>
+        <input name="BlackbodyTint" type="color" value="0.0 0.0 0.0"/>
+        <input name="Temperature" type="float" value="0.0"/>
+      </principled_volume>
+      <connect from_node="Noise1" from_socket="Fac" to_node="Math1" to_socket="Value2"/>
+      <connect from_node="Math1" from_socket="Value" to_node="Shader" to_socket="Density"/>
+      <connect from_node="Noise1" from_socket="Fac" to_node="Math2" to_socket="Value2"/>
+      <connect from_node="Math2" from_socket="Value" to_node="Shader" to_socket="BlackbodyIntensity"/>
+      <connect from_node="Shader" from_socket="Volume" to_node="Output" to_socket="Volume"/>
+    </shader>
+  </settings>
+</data>

@@ -1,0 +1,108 @@
+<data>
+  <definition>
+    <id>
+      <studio>42000</studio>
+      <bricklink>42000</bricklink>
+      <ldraw>42000</ldraw>
+      <ldd>42000</ldd>
+    </id>
+    <name>
+      <studio>Marbled Tan</studio>
+      <bricklink>Marbled Tan</bricklink>
+      <ldraw>Marbled Tan</ldraw>
+      <ldd>Marbled Tan</ldd>
+    </name>
+    <rgb>#d2b48c</rgb>
+    <alpha>1.0</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Marbled Colors</nickname>
+    </category>
+    <groupId>4</groupId>
+    <notes>to_lego</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings name="SOLID-MARBLED_TAN" displacement_method="bump" heterogeneous_volume="False" diffuse_ao_factor="1.0" glossy_ao_factor="0.0" subsurface_ao_factor="0.0" subsurface_factor="2.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <texture_coordinate name="TextureCoordinate" from_dupli="False">
+        <output name="Generated" type="vector"/>
+      </texture_coordinate>
+      <mapping name="Mapping" tex_mapping="[object Object]">
+        <input name="Vector" type="vector"/>
+        <input name="Location" type="vector"/>
+        <input name="Rotation" type="vector"/>
+        <input name="Scale" type="vector"/>
+        <output name="Vector" type="vector"/>
+      </mapping>
+      <wave_texture name="WaveTexture" type="bands" profile="sin">
+        <input name="Scale" type="float" value="0.100"/>
+        <input name="Distortion" type="float" value="6.600"/>
+        <input name="Detail" type="float" value="16.00"/>
+        <input name="Detail Scale" type="float" value="4.000"/>
+      </wave_texture>
+      <rgb_ramp interpolate="True" name="ColorRamp" ramp="0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.00393682764935 0.0 0.00393682764935 0.00393682764935 0.0078431372549 0.0156862745098 0.0156862745098 0.0156862745098 0.03137254901961 0.03137254901961 0.03137254901961 0.05490196078431 0.05490196078431 0.05490196078431 0.08236820019837 0.07843137254902 0.08236820019837 0.10980392156863 0.10980392156863 0.10980392156863 0.14117647058824 0.14117647058824 0.14511329823758 0.17648584725719 0.17648584725719 0.17254901960784 0.21176470588235 0.21176470588235 0.21176470588235 0.24707408255131 0.25098039215686 0.24707408255131 0.28628976882582 0.28628976882582 0.28628976882582 0.32550545510033 0.32941176470588 0.32941176470588 0.36862745098039 0.36862745098039 0.36862745098039 0.41177996490425 0.41177996490425 0.41177996490425 0.45490196078431 0.45099565117876 0.45490196078431 0.49411764705882 0.49411764705882 0.49805447470817 0.53725490196078 0.53725490196078 0.53725490196078 0.58037689784085 0.58037689784085 0.58037689784085 0.62352941176471 0.62352941176471 0.62352941176471 0.66665140764477 0.66665140764477 0.66665140764477 0.70980392156863 0.70980392156863 0.70586709391928 0.74901960784314 0.74901960784314 0.74901960784314 0.78823529411765 0.78823529411765 0.78823529411765 0.82745098039216 0.82351415274281 0.82351415274281 0.86272983901732 0.86272983901732 0.86272983901732 0.89410238803693 0.89410238803693 0.89410238803693 0.92547493705653 0.92547493705653 0.92547493705653 0.95294117647059 0.95294117647059 0.95684748607614 0.98037689784085 0.97647058823529 0.97647058823529 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0" ramp_alpha="1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0"/>
+      <principled_bsdf distribution="ggx" name="PearlGroupPrincipledBSDF" subsurface_method="burley">
+        <input name="BaseColor" type="color" value="0.3752978 0.3894884 0.4"/>
+        <input name="SubsurfaceColor" type="color" value="0.3752978 0.3894884 0.4"/>
+        <input name="Subsurface Radius" type="vector" value="1.0 1.0 1.0"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="Metallic" type="float" value="0.500000"/>
+        <input name="Specular" type="float" value="0.500000"/>
+        <input name="Specular Tint" type="float" value="0.000000"/>
+        <input name="Roughness" type="float" value="0.500000"/>
+        <input name="Anisotropic" type="float" value="0.000000"/>
+        <input name="Anisotropic Rotation" type="float" value="0.000000"/>
+        <input name="Sheen" type="float" value="0.000000"/>
+        <input name="Sheen Tint" type="float" value="0.500000"/>
+        <input name="Clearcoat Roughness" type="float" value="0.000000"/>
+        <input name="IOR" type="float" value="1.490000"/>
+        <input name="Transmission" type="float" value="0.000000"/>
+        <input name="Transmission Roughness" type="float" value="0.000000"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Clearcoat Normal" type="vector" value="0.0 0.0 0.0"/>
+        <input name="Tangent" type="vector" value="0.0 0.0 0.0"/>
+      </principled_bsdf>
+      <principled_bsdf distribution="ggx" name="SolidGroupPrincipledBSDF" subsurface_method="burley">
+        <input name="BaseColor" type="color" value="0.88 0.73 0.5"/>
+        <input name="SubsurfaceColor" type="color" value="1.0 1.0 1.0"/>
+        <input name="Subsurface Radius" type="vector" value="1.0 1.0 1.0"/>
+        <input name="Subsurface" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.000000"/>
+        <input name="Specular" type="float" value="0.800000"/>
+        <input name="Specular Tint" type="float" value="0.500000"/>
+        <input name="Roughness" type="float" value="0.100000"/>
+        <input name="Anisotropic" type="float" value="0.000000"/>
+        <input name="Anisotropic Rotation" type="float" value="0.000000"/>
+        <input name="Sheen" type="float" value="0.000000"/>
+        <input name="Sheen Tint" type="float" value="0.500000"/>
+        <input name="IOR" type="float" value="1.490000"/>
+        <input name="Transmission" type="float" value="0.000000"/>
+        <input name="Transmission Roughness" type="float" value="0.000000"/>
+        <input name="Clearcoat" type="float" value="0.500000"/>
+        <input name="Clearcoat Normal" type="vector" value="0.0 0.0 0.0"/>
+        <input name="Clearcoat Roughness" type="float" value="0.000000"/>
+        <input name="Tangent" type="vector" value="0.0 0.0 0.0"/>
+      </principled_bsdf>
+      <glossy_bsdf distribution="ggx" name="PearlGroupGlossyBSDF">
+        <input name="Color" type="color" value="0.800000011920929 0.800000011920929 0.800000011920929"/>
+        <input name="Roughness" type="float" value="0.000000"/>
+      </glossy_bsdf>
+      <mix_closure name="PearlGroupMixShader">
+        <input name="Fac" type="float" value="0.300000"/>
+      </mix_closure>
+      <mix_closure name="MixShader01"/>
+      <connect from_node="TextureCoordinate" from_socket="Generated" to_node="Mapping" to_socket="Vector"/>
+      <connect from_node="Mapping" from_socket="Vector" to_node="WaveTexture" to_socket="Vector"/>
+      <connect from_node="WaveTexture" from_socket="Fac" to_node="ColorRamp" to_socket="Fac"/>
+      <connect from_node="PearlGroupPrincipledBSDF" from_socket="BSDF" to_node="PearlGroupMixShader" to_socket="Shader1"/>
+      <connect from_node="PearlGroupGlossyBSDF" from_socket="BSDF" to_node="PearlGroupMixShader" to_socket="Shader2"/>
+      <connect from_node="ColorRamp" from_socket="Color" to_node="MixShader01" to_socket="Fac"/>
+      <connect from_node="SolidGroupPrincipledBSDF" from_socket="BSDF" to_node="MixShader01" to_socket="Shader1"/>
+      <connect from_node="PearlGroupMixShader" from_socket="Shader" to_node="MixShader01" to_socket="Shader2"/>
+      <connect from_node="MixShader01" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

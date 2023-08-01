@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64641511</studio>
+      <bricklink>64641511</bricklink>
+      <ldraw>64641511</ldraw>
+      <ldd>64641511</ldd>
+    </id>
+    <name>
+      <studio>Genderfluid Pride Blue</studio>
+      <bricklink>GPblue</bricklink>
+      <ldraw>GPblue</ldraw>
+      <ldd>GPblue</ldd>
+    </name>
+    <rgb>#303CBE</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Pride Flag Colors</nickname>
+    </category>
+    <groupId>17</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="SOLID-GENDERFLUID_PRIDE_BLUE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.1882352941 0.2352941176 0.7450980392"/>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="SubsurfaceColor"/>
+      <connect from_node="SOLID-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

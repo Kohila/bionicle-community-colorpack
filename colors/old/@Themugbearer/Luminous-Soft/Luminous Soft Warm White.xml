@@ -1,0 +1,50 @@
+<data>
+  <definition>
+    <id>
+      <studio>509022</studio>
+      <bricklink>12</bricklink>
+      <ldraw>509022</ldraw>
+      <ldd>9022</ldd>
+    </id>
+    <name>
+      <studio>Luminous Soft Warm White</studio>
+      <bricklink>Trans-Clear</bricklink>
+      <ldraw>Luminous Soft Warm White</ldraw>
+      <ldd>Luminous Soft Warm White</ldd>
+    </name>
+    <rgb>#FED4AA</rgb>
+    <alpha>0.62</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Luminous Soft(Render Only)</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>to_bl,to_ldd</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-LUMINOUS_SOFT_WARM_WHITE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB_White" value="1.0 1.0 1.0"/>
+      <color name="RGB" value="0.749 0.458 0.239"/>
+      <group group_name="TRANS-GROUP_BASE" name="TRANS-GROUP_BASE">
+        <input name="WhiteColor" type="color"/>
+        <input name="Color" type="color"/>
+        <output name="Shader" type="closure"/>
+        <output name="Volume" type="closure"/>
+        <output name="Normal" type="vector"/>
+      </group>
+      <emission name="Emission">
+        <input name="Color" type="color" value="0.749 0.458 0.239"/>
+        <input name="Strength" type="float" value="5.000000"/>
+      </emission>
+      <connect from_node="Emission" from_socket="Emission" to_node="Output" to_socket="Surface"/>
+      <connect from_node="TRANS-GROUP_BASE" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+      <connect from_node="RGB" from_socket="Color" to_node="TRANS-GROUP_BASE" to_socket="Color"/>
+      <connect from_node="TRANS-GROUP_BASE" from_socket="Volume" to_node="Output" to_socket="Volume"/>
+      <connect from_node="RGB_White" from_socket="Color" to_node="TRANS-GROUP_BASE" to_socket="WhiteColor"/>
+    </shader>
+  </settings>
+</data>

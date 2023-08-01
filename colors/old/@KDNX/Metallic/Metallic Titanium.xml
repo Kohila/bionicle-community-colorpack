@@ -1,0 +1,51 @@
+<data>
+  <definition>
+    <id>
+      <studio>64646421</studio>
+      <bricklink>64646421</bricklink>
+      <ldraw>64646421</ldraw>
+      <ldd>64646421</ldd>
+    </id>
+    <name>
+      <studio>Metallic Titanium</studio>
+      <bricklink>Mtitanium</bricklink>
+      <ldraw>Mtitanium</ldraw>
+      <ldd>Mtitanium</ldd>
+    </name>
+    <rgb>#484D48</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Metallic Colors</name>
+      <nickname>Miscellaneous Colors (Metallic)</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings diffuse_ao_factor="1.0" displacement_method="bump" glossy_ao_factor="0.0" heterogeneous_volume="False" name="METAL-TITANIUM" subsurface_ao_factor="0.0" subsurface_factor="1.100000023841858" transmission_ao_factor="0.0" use_local_tuning="True" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB1" value="0.530 0.530 0.480"/>
+      <color name="RGB2" value="0.030 0.030 0.030"/>
+      <group group_name="PEARL-FINE_GROUP" name="PEARL-FINE_GROUP">
+        <input name="Color" type="color"/>
+        <input name="Subsurface" type="float" value="1.000000"/>
+        <input name="Clearcoat" type="float" value="0.000000"/>
+        <input name="Metallic" type="float" value="0.2000000"/>
+        <input name="Transmission" type="float" value="0.0000000"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <mix name="RGB" type="mix" use_clamp="False"/>
+      <layer_weight name="LayerWeight">
+        <input name="Blend" type="float" value="0.920000"/>
+      </layer_weight>
+      <connect from_node="RGB1" from_socket="Color" to_node="RGB" to_socket="Color1"/>
+      <connect from_node="RGB2" from_socket="Color" to_node="RGB" to_socket="Color2"/>
+      <connect from_node="LayerWeight" from_socket="Facing" to_node="RGB" to_socket="Fac"/>
+      <connect from_node="RGB" from_socket="Color" to_node="PEARL-FINE_GROUP" to_socket="Color"/>
+      <connect from_node="PEARL-FINE_GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

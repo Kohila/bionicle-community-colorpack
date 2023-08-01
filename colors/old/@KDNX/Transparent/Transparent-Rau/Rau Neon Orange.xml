@@ -1,0 +1,43 @@
+<data>
+  <definition>
+    <id>
+      <studio>64641004</studio>
+      <bricklink>64641004</bricklink>
+      <ldraw>64641004</ldraw>
+      <ldd>64641004</ldd>
+    </id>
+    <name>
+      <studio>Rau Neon Orange</studio>
+      <bricklink>Rneonorange</bricklink>
+      <ldraw>Rneonorange</ldraw>
+      <ldd>Rneonorange</ldd>
+    </name>
+    <rgb>#FE7F0C</rgb>
+    <alpha>0.8</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Rau Transparent Colors</nickname>
+    </category>
+    <groupId>5</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-RAU_NEON_ORANGE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.97 0.51895 0.09700003"/>
+      <group group_name="RAU-NEON-GROUP" name="SEMITRANS-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <input name="WhiteColor" type="color"/>
+        <input name="Color" type="color"/>
+        <output name="BSDF" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="SEMITRANS-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="SEMITRANS-GROUP" to_socket="SubsurfaceColor"/>
+      <connect from_node="SEMITRANS-GROUP" from_socket="BSDF" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

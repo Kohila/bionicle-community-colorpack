@@ -1,0 +1,43 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647320</studio>
+      <bricklink>64647320</bricklink>
+      <ldraw>64647320</ldraw>
+      <ldd>64647320</ldd>
+    </id>
+    <name>
+      <studio>Soft Trans-Purple</studio>
+      <bricklink>STpurple</bricklink>
+      <ldraw>STpurple</ldraw>
+      <ldd>STpurple</ldd>
+    </name>
+    <rgb>#A4A4CA</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Soft Transparent Colors</nickname>
+    </category>
+    <groupId>20</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-SOFT_PURPLE" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="SOFT-TRANS-GROUP" name="SOFT-TRANS-GROUP">
+        <input name="BaseColor" type="color" value="0.482469 0.429984 0.82"/>
+        <input name="Tint" type="color" value="0.427305 0.328741 0.99"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.9"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <input name="SoftColor" type="color" value="0.4 0.325 0.917"/>
+        <input name="SubsurfaceColor" type="color" value="0.482469 0.429984 0.82"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="SOFT-TRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>

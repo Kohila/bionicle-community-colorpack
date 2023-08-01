@@ -1,0 +1,45 @@
+<data>
+  <definition>
+    <id>
+      <studio>64647401</studio>
+      <bricklink>64647401</bricklink>
+      <ldraw>64647401</ldraw>
+      <ldd>64647401</ldd>
+    </id>
+    <name>
+      <studio>Fluorescent Trans-Clear</studio>
+      <bricklink>FTclear</bricklink>
+      <ldraw>FTclear</ldraw>
+      <ldd>FTclear</ldd>
+    </name>
+    <rgb>#FBFBFB</rgb>
+    <alpha>0.5</alpha>
+    <category>
+      <name>Transparent Colors</name>
+      <nickname>Fluorescent Transparent Colors</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="TRANS-FLUORESCENT_CLEAR" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <group group_name="FINE-NEON-GROUP" name="FINE-TRANS-GROUP">
+        <input name="BaseColor" type="color" value="1 1 1"/>
+        <input name="Tint" type="color" value="1 0.99 0.89"/>
+        <input name="NeonColor" type="color" value="1 0.99 0.89"/>
+        <input name="IOR" type="float" value="1.45"/>
+        <input name="Roughness" type="float" value="0.06"/>
+        <input name="Blending" type="float" value="0.010000"/>
+        <input name="Neonscence" type="float" value="0.500000"/>
+        <output name="Shader" type="closure"/>
+        <output name="Volume" type="closure"/>
+      </group>
+      <connect from_node="FINE-TRANS-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+      <connect from_node="FINE-TRANS-GROUP" from_socket="Volume" to_node="Output" to_socket="Volume"/>
+    </shader>
+  </settings>
+</data>

@@ -1,0 +1,68 @@
+<group name="GENERAL-MARBLED-CENTER-GROUP">
+  <shader>
+    <texture_coordinate name="TextureCoordinate" from_dupli="False">
+      <output name="Generated" type="vector"/>
+    </texture_coordinate>
+    <color name="RGB">
+      <output name="Color" type="color" value="0.0 0.0 1.0"/>
+    </color>
+    <value name="Homogenity" type="float" value="0.500"/>
+    <value name="Roughness" type="float" value="40.000"/>
+    <value name="Distortion" type="float" value="1.000"/>
+    <value name="DistortionScale" type="float" value="1.000"/>
+    <value name="Scale" type="float" value="1.000"/>
+    <vector_math name="DotProduct" type="dot_product"/>
+    <vector_math name="Subtract" type="subtract"/>
+    <math name="Multiply01" type="multiply" use_clamp="False"/>
+    <math name="Multiply02" type="multiply" use_clamp="False"/>
+    <math name="Divide" type="divide" use_clamp="False"/>
+    <math name="Multiply03" type="multiply" use_clamp="False"/>
+    <math name="Add" type="add" use_clamp="False"/>
+    <mix name="MultiplyColor" type="multiply" use_clamp="False">
+      <input name="Fac" type="float" value="1.000"/>
+    </mix>
+    <noise_texture name="NoiseTexture">
+      <input name="Distortion" type="float" value="0.0000"/>
+    </noise_texture>
+    <wave_texture name="WaveTexture" type="rings" profile="sine" tex_mapping="[object Object]">
+      <input name="Distortion" type="float" value="0.000"/>
+      <input name="Detail" type="float" value="0.00"/>
+      <input name="Detail Scale" type="float" value="1.000"/>
+    </wave_texture>
+    <rgb_ramp interpolate="True" name="ColorRamp" ramp="0.0 0.00393682764935 0.01962310215915 0.0 0.0 0.01962310215915 0.0 0.00393682764935 0.0156862745098 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.0156862745098 0.0 0.00393682764935 0.0156862745098 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.0156862745098 0.0 0.00393682764935 0.0156862745098 0.0 0.00393682764935 0.0156862745098 0.0 0.0 0.01962310215915 0.0 0.00393682764935 0.01962310215915 0.0 0.00393682764935 0.0156862745098 0.0 0.0 0.01962310215915 0.0078431372549 0.01177996490425 0.02746623941405 0.01962310215915 0.02352941176471 0.03530937666896 0.02746623941405 0.02746623941405 0.04705882352941 0.03530937666896 0.03921568627451 0.05490196078431 0.04705882352941 0.05099565117876 0.06668192568856 0.06274509803922 0.06274509803922 0.07843137254902 0.07058823529412 0.07843137254902 0.09021133745327 0.08627450980392 0.08627450980392 0.10196078431373 0.09805447470817 0.10196078431373 0.11374074921798 0.11374074921798 0.11764705882353 0.12942702372778 0.12549019607843 0.12942702372778 0.14511329823758 0.14511329823758 0.14511329823758 0.16079957274739 0.16079957274739 0.16079957274739 0.17648584725719 0.17648584725719 0.17648584725719 0.19217212176699 0.19217212176699 0.19607843137255 0.20392156862745 0.2078583962768 0.2078583962768 0.21960784313725 0.22745098039216 0.22745098039216 0.23529411764706 0.24313725490196 0.24313725490196 0.25491721980621 0.26276035706111 0.26276035706111 0.27450980392157 0.27844663157092 0.27844663157092 0.29019607843137 0.29803921568627 0.29803921568627 0.30981918059052 0.31372549019608 0.31766231784543 0.32941176470588 0.33334859235523 0.33334859235523 0.34509803921569 0.35294117647059 0.35687800411994 0.36472114137484 0.37256427862974 0.37647058823529 0.3843137254902 0.3921568627451 0.3921568627451 0.4 0.4078431372549 0.4156862745098 0.41962310215915 0.43137254901961 0.43137254901961 0.43921568627451 0.45099565117876 0.45099565117876 0.45883878843366 0.47058823529412 0.47452506294347 0.48236820019837 0.49021133745327 0.49021133745327 0.50194552529183 0.50978866254673 0.51372549019608 0.52156862745098 0.52941176470588 0.52941176470588 0.53725490196078 0.54900434882124 0.55294117647059 0.55684748607614 0.56862745098039 0.56862745098039 0.57647058823529 0.58822003509575 0.5921568627451 0.59606317235065 0.61174944686046 0.61174944686046 0.6156862745098 0.62743572137026 0.63137254901961 0.63527885862516 0.64705882352941 0.64705882352941 0.65490196078431 0.66665140764477 0.66665140764477 0.67058823529412 0.68627450980392 0.68627450980392 0.69018081940948 0.70586709391928 0.70196078431373 0.70980392156863 0.72155336842908 0.72155336842908 0.72549019607843 0.74117647058824 0.74117647058824 0.74508278019379 0.75686274509804 0.76076905470359 0.76076905470359 0.7764553292134 0.7764553292134 0.78039215686275 0.7921416037232 0.7921416037232 0.79607843137255 0.81176470588235 0.81176470588235 0.81567101548791 0.82351415274281 0.82745098039216 0.82745098039216 0.83920042725261 0.84313725490196 0.84704356450752 0.85882352941176 0.85882352941176 0.86272983901732 0.87450980392157 0.87450980392157 0.87450980392157 0.88625925078202 0.88625925078202 0.89019607843137 0.90194552529183 0.90194552529183 0.90194552529183 0.91372549019608 0.91763179980163 0.91763179980163 0.92547493705653 0.92941176470588 0.92941176470588 0.93725490196078 0.94116121156634 0.93725490196078 0.95294117647059 0.95294117647059 0.95294117647059 0.96469062333104 0.96078431372549 0.96469062333104 0.97253376058595 0.97253376058595 0.97253376058595 0.98037689784085 0.98037689784085 0.9843137254902 0.9921568627451 0.9921568627451 0.9921568627451 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0" ramp_alpha="1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0"/>
+    <mix_closure name="MixShader01"/>
+    <mix_closure name="MixShader02"/>
+    <group_input name="GroupInput"/>
+    <group_output name="GroupOutput"/>
+    <connect from_node="TextureCoordinate" from_socket="Generated" to_node="DotProduct" to_socket="Vector1"/>
+    <connect from_node="DotProduct" from_socket="Value" to_node="Multiply01" to_socket="Value2"/>
+    <connect from_node="Multiply01" from_socket="Value" to_node="MultiplyColor" to_socket="Color1"/>
+    <connect from_node="TextureCoordinate" from_socket="Generated" to_node="Subtract" to_socket="Vector1"/>
+    <connect from_node="MultiplyColor" from_socket="Color" to_node="Subtract" to_socket="Vector2"/>
+    <connect from_node="Subtract" from_socket="Vector" to_node="NoiseTexture" to_socket="Vector"/>
+    <connect from_node="Multiply02" from_socket="Value" to_node="NoiseTexture" to_socket="Scale"/>
+    <connect from_node="Roughness" from_socket="Value" to_node="NoiseTexture" to_socket="Detail"/>
+    <connect from_node="NoiseTexture" from_socket="Fac" to_node="Multiply03" to_socket="Value1"/>
+    <connect from_node="Divide" from_socket="Value" to_node="Multiply03" to_socket="Value2"/>
+    <connect from_node="Multiply03" from_socket="Value" to_node="Add" to_socket="Value1"/>
+    <connect from_node="DotProduct" from_socket="Value" to_node="Add" to_socket="Value2"/>
+    <connect from_node="Add" from_socket="Value" to_node="WaveTexture" to_socket="Vector"/>
+    <connect from_node="WaveTexture" from_socket="Fac" to_node="ColorRamp" to_socket="Fac"/>
+    <connect from_node="ColorRamp" from_socket="Color" to_node="MixShader01" to_socket="Fac"/>
+    <connect from_node="GroupInput" from_socket="BottomShader" to_node="MixShader01" to_socket="Shader1"/>
+    <connect from_node="GroupInput" from_socket="MidShader" to_node="MixShader01" to_socket="Shader2"/>
+    <connect from_node="ColorRamp" from_socket="Color" to_node="MixShader02" to_socket="Fac"/>
+    <connect from_node="MixShader01" from_socket="Shader" to_node="MixShader02" to_socket="Shader1"/>
+    <connect from_node="GroupInput" from_socket="TopShader" to_node="MixShader02" to_socket="Shader2"/>
+    <connect from_node="GroupInput" from_socket="WaveDirection" to_node="DotProduct" to_socket="Vector2"/>
+    <connect from_node="GroupInput" from_socket="WaveDirection" to_node="MultiplyColor" to_socket="Color2"/>
+    <connect from_node="GroupInput" from_socket="WaveVariation" to_node="Multiply01" to_socket="Value1"/>
+    <connect from_node="GroupInput" from_socket="WaveRoughness" to_node="NoiseTexture" to_socket="Detail"/>
+    <connect from_node="GroupInput" from_socket="WaveDistortion" to_node="Divide" to_socket="Value1"/>
+    <connect from_node="GroupInput" from_socket="WaveDistortionScale" to_node="Multiply02" to_socket="Value1"/>
+    <connect from_node="GroupInput" from_socket="WaveDistortionCount" to_node="Multiply02" to_socket="Value2"/>
+    <connect from_node="GroupInput" from_socket="WaveDistortionCount" to_node="Divide" to_socket="Value2"/>
+    <connect from_node="GroupInput" from_socket="WaveDistortionCount" to_node="WaveTexture" to_socket="Scale"/>
+    <connect from_node="MixShader02" from_socket="Shader" to_node="GroupOutput" to_socket="Shader"/>
+  </shader>
+</group>

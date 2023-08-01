@@ -1,0 +1,41 @@
+<data>
+  <definition>
+    <id>
+      <studio>64646416</studio>
+      <bricklink>64646416</bricklink>
+      <ldraw>64646416</ldraw>
+      <ldd>64646416</ldd>
+    </id>
+    <name>
+      <studio>SK-Dark Grey</studio>
+      <bricklink>SK-Dark Gray</bricklink>
+      <ldraw>SKdarkgrey</ldraw>
+      <ldd>SKdarkgrey</ldd>
+    </name>
+    <rgb>#26231B</rgb>
+    <alpha>1</alpha>
+    <category>
+      <name>Solid Colors</name>
+      <nickname>Miscellaneous Colors (Solid)</nickname>
+    </category>
+    <groupId>-1</groupId>
+    <notes>o</notes>
+    <instructions>
+      <rgb/>
+      <cmyk/>
+    </instructions>
+  </definition>
+  <settings displacement_method="bump" heterogeneous_volume="False" name="SOLID-SK_DARK_GREY" use_local_tuning="False" use_mis="True" use_transparent_shadow="True" volume_interpolation_method="linear" volume_sampling_method="multiple_importance">
+    <shader>
+      <color name="RGB" value="0.147319 0.135663 0.10728"/>
+      <group group_name="SOLID-GROUP" name="SOLID-GROUP">
+        <input name="BaseColor" type="color"/>
+        <input name="SubsurfaceColor" type="color"/>
+        <output name="Shader" type="closure"/>
+      </group>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="BaseColor"/>
+      <connect from_node="RGB" from_socket="Color" to_node="SOLID-GROUP" to_socket="SubsurfaceColor"/>
+      <connect from_node="SOLID-GROUP" from_socket="Shader" to_node="Output" to_socket="Surface"/>
+    </shader>
+  </settings>
+</data>
