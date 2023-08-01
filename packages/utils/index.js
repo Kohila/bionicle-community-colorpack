@@ -42,15 +42,9 @@ program.command("merge-color-files").action((options) => {
 
 program
   .command("ramp")
-  .argument(
-    "<r1,g1,b1>",
-    "The primary color of the ramp in RGB format, comma-delimited. RGB values should be from 0-255 inclusive."
-  )
-  .arguments(
-    "<r2,g2,b2>",
-    "The secondary color of the ramp in RGB format, comma-delimited. RGB values should be from 0-255 inclusive."
-  )
-  .option("-dev, --development", "Run in development mode")
+  .argument("<r1,g1,b1>", "The primary color of the ramp in RGB format, comma-delimited. RGB values should be from 0-255 inclusive.")
+  .argument("<r2,g2,b2>", "The secondary color of the ramp in RGB format, comma-delimited. RGB values should be from 0-255 inclusive.")
+  .option("-dev, --development", "Run in development mode.")
   .option("-s, --start <number>", "The starting point for the gradient. Value should be from 0-100. (Default: 0)", parseInt)
   .option("-e, --end <number>", "The ending point for the gradient. Value should be from 0-100. (Default: 100)", parseInt)
   .action((firstRGB, secondRGB, options) => {
