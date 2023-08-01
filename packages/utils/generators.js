@@ -111,7 +111,7 @@ export const generateColorRamp = ({ first, second }, start = 0, end = 100) => {
         g: Math.round(first.g),
         b: Math.round(first.b)
       })
-    } else if (cycles.start < i && i < cycles.start + cycles.gradient - 1) {
+    } else if (cycles.start < i && i < (cycles.start + cycles.gradient - 1)) {
       rampValues.push(
         parseRGBPercentage(first.r + (difference.dr * (i - cycles.start))),
         parseRGBPercentage(first.g + (difference.dg * (i - cycles.start))),
@@ -122,7 +122,7 @@ export const generateColorRamp = ({ first, second }, start = 0, end = 100) => {
         g: Math.round(first.g + (difference.dg * (i - cycles.start))),
         b: Math.round(first.b + (difference.db * (i - cycles.start))),
       })
-    } else if (i >= cycles.end) {
+    } else if ((cycles.start + cycles.gradient - 1) <= i) {
       rampValues.push(
       parseRGBPercentage(second.r),
       parseRGBPercentage(second.g),
