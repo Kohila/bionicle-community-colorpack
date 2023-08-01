@@ -214,6 +214,9 @@ export const generateMergedColors = async () => {
     "CustomColorSettings.xml"
   )
   const outputPath = path.join(root, ".temp", "colors")
+  !fs.existsSync(outputPath) && fs.mkdirSync(outputPath)
+  const groupsPath = path.join(outputPath, "groups")
+  !fs.existsSync(groupsPath) && fs.mkdirSync(groupsPath)
   const definitionsRemainingPath = path.join(root, ".temp", "remainders.json")
   const settingsRemainingPath = path.join(root, ".temp", "remainders.txt")
 
@@ -223,6 +226,7 @@ export const generateMergedColors = async () => {
   const definitions = definitionFile.toString().split(/\n/g)
   const settings = await XMLtoJSON(settingsFile.toString())
   const materials = settings.eyesight.material
+  const groups = settings.eyesight.group
   const definitionsRemaining = new Array()
   const settingsRemaining = materials
 
@@ -245,7 +249,7 @@ export const generateMergedColors = async () => {
         JSON.stringify({
           lineNumber: definitions.indexOf(definition) + 1,
           name: colorDefinition.name.studio,
-          // formatted: settingsName,
+          formatted: settingsName,
         })
       )
       continue
@@ -273,6 +277,14 @@ export const generateMergedColors = async () => {
       data: JSONtoXML({data: color})
     }
 
+    fs.writeFileSync(asXML.file, asXML.data)
+  }
+  
+  for (const group of groups) {
+    const asXML = {
+      file: path.join(groupsPath, `${group["$name"]}.xml`),
+      data: JSONtoXML({group: group})
+    }
     fs.writeFileSync(asXML.file, asXML.data)
   }
 

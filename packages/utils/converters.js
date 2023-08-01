@@ -114,6 +114,11 @@ export const JSONtoYAML = (object) => {
   return yaml
 }
 
+export const YAMLtoJSON = (string) => {
+  const js = YAML.parse(string)
+  return js
+}
+
 /**
  * Parses a JS object with attrkey prefixes and expands it with attrkey properties.
  * @param {Object} object The JS object with prefix attributes to expand.

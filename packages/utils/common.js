@@ -2,6 +2,7 @@
 
 import fs from "fs"
 import path from "path"
+import { YAMLtoJSON } from "./converters.js"
 
 /**
  * @typedef {import("./typedefs.js").Color}
@@ -46,12 +47,13 @@ export const getDirectoryContents = (dir, recursive = false) => {
 /**
  * This function returns an array containing the filepaths of all color definitions in the [colors/] directory.
  * @todo Will need to be modified to filter by the correct file extension once decided per {@link https://github.com/Kohila/bionicle-community-colorpack/issues/4 #4}
+ * @param {string} location The file path of the color directory folder. Default: "colors".
  * @return {string[]}
  */
-export const getColorPaths = () => {
-  const colorsPath = path.join(root, "colors")
+export const getColorPaths = (location = "colors") => {
+  const colorsPath = path.join(root, location)
   const colorsList = getDirectoryContents(colorsPath)
-  const colors = colorsList.filter((file) => file.endsWith(".js"))
+  const colors = colorsList.filter((file) => file.endsWith(".yaml"))
   debug(`Colors found: ${colors.length}`)
   return colors
 }
@@ -62,17 +64,17 @@ export const getColorPaths = () => {
  * @return {Color[]}
  */
 export const getColorObjects = async () => {
-  const colors = new Array()
+  const objects = new Array()
 
-  const colorPaths = getColorPaths()
+  const colorPaths = getColorPaths(".temp/colors")
 
-  for (const color of colorPaths) {
-    const data = await import(path.join("file:\\\\", color))
-    debug(`Color found: ${data.color.name.studio}`)
-    colors.push(data.color)
+  for (const path of colorPaths) {
+    const data = fs.readFileSync(path)
+    const color = YAMLtoJSON(data.toString())
+    console.log(`Color found: ${color.definition.name.studio}`)
+    objects.push(color.definition)
   }
-
-  return colors
+  return objects
 }
 
 /**

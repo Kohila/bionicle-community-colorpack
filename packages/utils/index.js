@@ -9,6 +9,7 @@ import {
   generateXMLFromObject,
   generateYAMLFromObject,
 } from "./generators.js"
+import { colorAttributesNeeded } from "./loggers.js"
 
 const program = new Command()
 
@@ -34,6 +35,10 @@ program.command("js-to-yaml").action((options) => {
 
 program.command("tsv-to-js").action((options) => {
   generateObjectFromTSV()
+})
+
+program.command("attributes-needed").action((options) => {
+  colorAttributesNeeded()
 })
 
 program.command("merge-color-files").action((options) => {

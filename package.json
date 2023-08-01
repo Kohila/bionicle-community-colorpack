@@ -1,6 +1,6 @@
 {
   "name": "bionicle-community-colorpack",
-  "version": "1.0.0-beta.",
+  "version": "1.0.0-beta",
   "description": "",
   "type": "module",
   "scripts": {
@@ -10,7 +10,8 @@
     "dev:js-to-xml": "node ./packages/utils/index.js js-to-xml",
     "dev:js-to-yaml": "node ./packages/utils/index.js js-to-yaml",
     "dev:tsv-to-js": "node ./packages/utils/index.js tsv-to-js",
-    "dev:merge-color-files": "node ./packages/utils/index.js merge-color-files ",
+    "dev:merge-color-files": "node ./packages/utils/index.js merge-color-files",
+    "log:attributes-needed": "node ./packages/utils/index.js attributes-needed",
     "ramp": "node ./packages/utils/index.js ramp -dev"
   },
   "dependencies": {

@@ -1,3 +1,8 @@
+import fs from "fs"
+import path from "path"
+import { root } from "./common"
+import { name, version } from "../../package.json"
+
 /**
  * This script generates ready-to-use, distributable packages of the BIONICLE Community Colorpack.
  * @TODO
@@ -14,5 +19,12 @@
  * 8. Compress both of the build folders to publish with release.
  */
 export const createBuild = () => {
-  console.log("Build script invoked")
+  const buildPath = path.join(root, ".build")
+  !fs.existsSync(buildPath) && fs.mkdirSync(buildPath)
+
+  const basicPath = path.join(buildPath, `${name}_basic_${version}`)
+  !fs.existsSync(basicPath) && fs.mkdirSync(basicPath)
+
+  const fullPath = path.join(buildPath, `${name}_full_${version}`)
+  !fs.existsSync(fullPath) && fs.mkdirSync(fullPath)
 }
